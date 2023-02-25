@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC0DB1F429A6FF8E009E9668 /* Leaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0DB1F329A6FF8E009E9668 /* Leaders.swift */; };
+		FC0DB1F729A70932009E9668 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0DB1F629A70932009E9668 /* Club.swift */; };
+		FC0DB1F929A71490009E9668 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0DB1F829A71490009E9668 /* HTTPClient.swift */; };
+		FC0DB1FC29A72393009E9668 /* LeaguesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0DB1FB29A72393009E9668 /* LeaguesEndpoint.swift */; };
+		FC0DB1FF29A723CB009E9668 /* LeaguesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0DB1FE29A723CB009E9668 /* LeaguesService.swift */; };
+		FC1AC90929A958AA00693DB3 /* StandingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90829A958AA00693DB3 /* StandingsService.swift */; };
+		FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */; };
+		FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */; };
+		FC5845F5296676840032B543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F4296676840032B543 /* AppDelegate.swift */; };
+		FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F6296676840032B543 /* SceneDelegate.swift */; };
+		FC5845F9296676840032B543 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F8296676840032B543 /* ViewController.swift */; };
+		FC5845FC296676840032B543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5845FA296676840032B543 /* Main.storyboard */; };
+		FC5845FF296676840032B543 /* Footi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5845FD296676840032B543 /* Footi.xcdatamodeld */; };
+		FC584601296676850032B543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC584600296676850032B543 /* Assets.xcassets */; };
+		FC584604296676850032B543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC584602296676850032B543 /* LaunchScreen.storyboard */; };
+		FC58460E29668C180032B543 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58460D29668C180032B543 /* Endpoint.swift */; };
+		FC58461029668E720032B543 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58460F29668E720032B543 /* RequestMethod.swift */; };
+		FC584612296692190032B543 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC584611296692190032B543 /* RequestError.swift */; };
+		FC5846152966948A0032B543 /* Leagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846142966948A0032B543 /* Leagues.swift */; };
+		FC58461C2967C6F60032B543 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58461B2967C6F60032B543 /* ApiError.swift */; };
+		FC58461F2967C7CD0032B543 /* ApiPaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58461E2967C7CD0032B543 /* ApiPaging.swift */; };
+		FC5846212967C8F00032B543 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846202967C8F00032B543 /* Standings.swift */; };
+		FC5846232967D3BD0032B543 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846222967D3BD0032B543 /* Fixtures.swift */; };
+		FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */; };
+		FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */; };
+		FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FC0DB1F329A6FF8E009E9668 /* Leaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaders.swift; sourceTree = "<group>"; };
+		FC0DB1F629A70932009E9668 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		FC0DB1F829A71490009E9668 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		FC0DB1FB29A72393009E9668 /* LeaguesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesEndpoint.swift; sourceTree = "<group>"; };
+		FC0DB1FE29A723CB009E9668 /* LeaguesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesService.swift; sourceTree = "<group>"; };
+		FC1AC90829A958AA00693DB3 /* StandingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsService.swift; sourceTree = "<group>"; };
+		FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesService.swift; sourceTree = "<group>"; };
+		FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersService.swift; sourceTree = "<group>"; };
+		FC5845F1296676840032B543 /* Footi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5845F4296676840032B543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC5845F6296676840032B543 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FC5845F8296676840032B543 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC5845FB296676840032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC5845FE296676840032B543 /* Footi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footi.xcdatamodel; sourceTree = "<group>"; };
+		FC584600296676850032B543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC584603296676850032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FC584605296676850032B543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC58460D29668C180032B543 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FC58460F29668E720032B543 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		FC584611296692190032B543 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		FC5846142966948A0032B543 /* Leagues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leagues.swift; sourceTree = "<group>"; };
+		FC58461B2967C6F60032B543 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		FC58461E2967C7CD0032B543 /* ApiPaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaging.swift; sourceTree = "<group>"; };
+		FC5846202967C8F00032B543 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		FC5846222967D3BD0032B543 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesEndpoint.swift; sourceTree = "<group>"; };
+		FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersEndpoint.swift; sourceTree = "<group>"; };
+		FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsEndpoint.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC5845EE296676840032B543 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC0DB1F529A708C7009E9668 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				FC58461E2967C7CD0032B543 /* ApiPaging.swift */,
+				FC58461B2967C6F60032B543 /* ApiError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		FC0DB1FA29A72369009E9668 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */,
+				FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */,
+				FC0DB1FB29A72393009E9668 /* LeaguesEndpoint.swift */,
+				FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		FC0DB1FD29A723B5009E9668 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */,
+				FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */,
+				FC0DB1FE29A723CB009E9668 /* LeaguesService.swift */,
+				FC1AC90829A958AA00693DB3 /* StandingsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FC5845E8296676840032B543 = {
+			isa = PBXGroup;
+			children = (
+				FC5845F3296676840032B543 /* Footi */,
+				FC5845F2296676840032B543 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC5845F2296676840032B543 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC5845F1296676840032B543 /* Footi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC5845F3296676840032B543 /* Footi */ = {
+			isa = PBXGroup;
+			children = (
+				FC58460B29668BFD0032B543 /* Network */,
+				FC584613296693900032B543 /* Models */,
+				FC5845F4296676840032B543 /* AppDelegate.swift */,
+				FC5845F6296676840032B543 /* SceneDelegate.swift */,
+				FC5845F8296676840032B543 /* ViewController.swift */,
+				FC5845FA296676840032B543 /* Main.storyboard */,
+				FC584600296676850032B543 /* Assets.xcassets */,
+				FC584602296676850032B543 /* LaunchScreen.storyboard */,
+				FC584605296676850032B543 /* Info.plist */,
+				FC5845FD296676840032B543 /* Footi.xcdatamodeld */,
+			);
+			path = Footi;
+			sourceTree = "<group>";
+		};
+		FC58460B29668BFD0032B543 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FC0DB1FD29A723B5009E9668 /* Services */,
+				FC0DB1FA29A72369009E9668 /* Endpoints */,
+				FC58460C29668C090032B543 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FC58460C29668C090032B543 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FC58460D29668C180032B543 /* Endpoint.swift */,
+				FC0DB1F829A71490009E9668 /* HTTPClient.swift */,
+				FC584611296692190032B543 /* RequestError.swift */,
+				FC58460F29668E720032B543 /* RequestMethod.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FC584613296693900032B543 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC5846222967D3BD0032B543 /* Fixtures.swift */,
+				FC0DB1F329A6FF8E009E9668 /* Leaders.swift */,
+				FC5846142966948A0032B543 /* Leagues.swift */,
+				FC5846202967C8F00032B543 /* Standings.swift */,
+				FC58461D2967C7B80032B543 /* Shared */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC58461D2967C7B80032B543 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FC0DB1F629A70932009E9668 /* Club.swift */,
+				FC0DB1F529A708C7009E9668 /* API */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC5845F0296676840032B543 /* Footi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC584608296676850032B543 /* Build configuration list for PBXNativeTarget "Footi" */;
+			buildPhases = (
+				FC5845ED296676840032B543 /* Sources */,
+				FC5845EE296676840032B543 /* Frameworks */,
+				FC5845EF296676840032B543 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Footi;
+			productName = Footi;
+			productReference = FC5845F1296676840032B543 /* Footi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC5845E9296676840032B543 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FC5845F0296676840032B543 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = FC5845EC296676840032B543 /* Build configuration list for PBXProject "Footi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC5845E8296676840032B543;
+			productRefGroup = FC5845F2296676840032B543 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC5845F0296676840032B543 /* Footi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC5845EF296676840032B543 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC584604296676850032B543 /* LaunchScreen.storyboard in Resources */,
+				FC584601296676850032B543 /* Assets.xcassets in Resources */,
+				FC5845FC296676840032B543 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC5845ED296676840032B543 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC584612296692190032B543 /* RequestError.swift in Sources */,
+				FC1AC90929A958AA00693DB3 /* StandingsService.swift in Sources */,
+				FC5845F9296676840032B543 /* ViewController.swift in Sources */,
+				FC5845F5296676840032B543 /* AppDelegate.swift in Sources */,
+				FC0DB1FF29A723CB009E9668 /* LeaguesService.swift in Sources */,
+				FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */,
+				FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */,
+				FC0DB1F729A70932009E9668 /* Club.swift in Sources */,
+				FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */,
+				FC5845FF296676840032B543 /* Footi.xcdatamodeld in Sources */,
+				FC5846212967C8F00032B543 /* Standings.swift in Sources */,
+				FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */,
+				FC0DB1FC29A72393009E9668 /* LeaguesEndpoint.swift in Sources */,
+				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
+				FC5846152966948A0032B543 /* Leagues.swift in Sources */,
+				FC58460E29668C180032B543 /* Endpoint.swift in Sources */,
+				FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */,
+				FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */,
+				FC58461F2967C7CD0032B543 /* ApiPaging.swift in Sources */,
+				FC0DB1F929A71490009E9668 /* HTTPClient.swift in Sources */,
+				FC0DB1F429A6FF8E009E9668 /* Leaders.swift in Sources */,
+				FC58461C2967C6F60032B543 /* ApiError.swift in Sources */,
+				FC5846232967D3BD0032B543 /* Fixtures.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FC5845FA296676840032B543 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC5845FB296676840032B543 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC584602296676850032B543 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC584603296676850032B543 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC584606296676850032B543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC584607296676850032B543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC584609296676850032B543 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72A3WLN662;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Footi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pastelsior.Footi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FC58460A296676850032B543 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 72A3WLN662;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Footi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pastelsior.Footi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC5845EC296676840032B543 /* Build configuration list for PBXProject "Footi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC584606296676850032B543 /* Debug */,
+				FC584607296676850032B543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC584608296676850032B543 /* Build configuration list for PBXNativeTarget "Footi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC584609296676850032B543 /* Debug */,
+				FC58460A296676850032B543 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC5845FD296676840032B543 /* Footi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC5845FE296676840032B543 /* Footi.xcdatamodel */,
+			);
+			currentVersion = FC5845FE296676840032B543 /* Footi.xcdatamodel */;
+			path = Footi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FC5845E9296676840032B543 /* Project object */;
+}

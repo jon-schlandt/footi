@@ -8,30 +8,39 @@
 import Foundation
 
 protocol LeadersServiceable {
-    func getTopGoals(leagueId: Int, season: Int) async -> Result<Leaders, RequestError>
-    func getTopAssists(leagueId: Int, season: Int) async -> Result<Leaders, RequestError>
-    func getTopYellowCards(leagueId: Int, season: Int) async -> Result<Leaders, RequestError>
-    func getTopRedCards(leagueId: Int, season: Int) async -> Result<Leaders, RequestError>
+    func getTopGoals(leagueId: Int, season: Int) async -> [Leader]?
+    func getTopAssists(leagueId: Int, season: Int) async -> [Leader]?
+    func getTopYellowCards(leagueId: Int, season: Int) async -> [Leader]?
+    func getTopRedCards(leagueId: Int, season: Int) async -> [Leader]?
 }
 
 struct LeadersService: HTTPClient, LeadersServiceable {
-    func getTopGoals(leagueId: Int, season: Int) async -> Result<Leaders, RequestError> {
+    
+    func getTopGoals(leagueId: Int, season: Int) async -> [Leader]? {
         let endpoint = LeadersEndpoint.topGoals(leagueId: leagueId, season: season)
-        return await sendRequest(to: endpoint, expect: Leaders.self)
+        let topGoals = try? (await sendRequest(to: endpoint, expect: Leaders.self)).get().response
+        
+        return topGoals
     }
     
-    func getTopAssists(leagueId: Int, season: Int) async -> Result<Leaders, RequestError> {
+    func getTopAssists(leagueId: Int, season: Int) async -> [Leader]? {
         let endpoint = LeadersEndpoint.topAssists(leagueId: leagueId, season: season)
-        return await sendRequest(to: endpoint, expect: Leaders.self)
+        let topAssists = try? (await sendRequest(to: endpoint, expect: Leaders.self)).get().response
+        
+        return topAssists
     }
     
-    func getTopYellowCards(leagueId: Int, season: Int) async -> Result<Leaders, RequestError> {
+    func getTopYellowCards(leagueId: Int, season: Int) async -> [Leader]? {
         let endpoint = LeadersEndpoint.topYellowCards(leagueId: leagueId, season: season)
-        return await sendRequest(to: endpoint, expect: Leaders.self)
+        let topYellowCards = try? (await sendRequest(to: endpoint, expect: Leaders.self)).get().response
+        
+        return topYellowCards
     }
     
-    func getTopRedCards(leagueId: Int, season: Int) async -> Result<Leaders, RequestError> {
+    func getTopRedCards(leagueId: Int, season: Int) async -> [Leader]? {
         let endpoint = LeadersEndpoint.topRedCards(leagueId: leagueId, season: season)
-        return await sendRequest(to: endpoint, expect: Leaders.self)
+        let topRedCards = try? (await sendRequest(to: endpoint, expect: Leaders.self)).get().response
+        
+        return topRedCards
     }
 }

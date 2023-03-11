@@ -19,7 +19,6 @@
 		FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F6296676840032B543 /* SceneDelegate.swift */; };
 		FC5845F9296676840032B543 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F8296676840032B543 /* ViewController.swift */; };
 		FC5845FC296676840032B543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5845FA296676840032B543 /* Main.storyboard */; };
-		FC5845FF296676840032B543 /* Footi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5845FD296676840032B543 /* Footi.xcdatamodeld */; };
 		FC584601296676850032B543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC584600296676850032B543 /* Assets.xcassets */; };
 		FC584604296676850032B543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC584602296676850032B543 /* LaunchScreen.storyboard */; };
 		FC58460E29668C180032B543 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58460D29668C180032B543 /* Endpoint.swift */; };
@@ -30,8 +29,12 @@
 		FC58461F2967C7CD0032B543 /* ApiPaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58461E2967C7CD0032B543 /* ApiPaging.swift */; };
 		FC5846212967C8F00032B543 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846202967C8F00032B543 /* Standings.swift */; };
 		FC5846232967D3BD0032B543 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846222967D3BD0032B543 /* Fixtures.swift */; };
+		FC7D0C4729B2E35F00BC9B46 /* CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */; };
+		FCA3D13529B6DC4C0038D8A2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3D13429B6DC4C0038D8A2 /* Date.swift */; };
 		FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */; };
 		FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */; };
+		FCDF1F7029B3F80F00A6522F /* Footi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */; };
+		FCEA7C1629B05E29008DA3A7 /* UserDefaultsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */; };
 		FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +52,6 @@
 		FC5845F6296676840032B543 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FC5845F8296676840032B543 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC5845FB296676840032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FC5845FE296676840032B543 /* Footi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footi.xcdatamodel; sourceTree = "<group>"; };
 		FC584600296676850032B543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC584603296676850032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC584605296676850032B543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,8 +63,12 @@
 		FC58461E2967C7CD0032B543 /* ApiPaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaging.swift; sourceTree = "<group>"; };
 		FC5846202967C8F00032B543 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		FC5846222967D3BD0032B543 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
+		FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContext.swift; sourceTree = "<group>"; };
+		FCA3D13429B6DC4C0038D8A2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesEndpoint.swift; sourceTree = "<group>"; };
 		FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersEndpoint.swift; sourceTree = "<group>"; };
+		FCDF1F6F29B3F80F00A6522F /* Footi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footi.xcdatamodel; sourceTree = "<group>"; };
+		FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsContext.swift; sourceTree = "<group>"; };
 		FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,16 +133,17 @@
 		FC5845F3296676840032B543 /* Footi */ = {
 			isa = PBXGroup;
 			children = (
-				FC58460B29668BFD0032B543 /* Network */,
-				FC584613296693900032B543 /* Models */,
+				FC584605296676850032B543 /* Info.plist */,
 				FC5845F4296676840032B543 /* AppDelegate.swift */,
 				FC5845F6296676840032B543 /* SceneDelegate.swift */,
 				FC5845F8296676840032B543 /* ViewController.swift */,
-				FC5845FA296676840032B543 /* Main.storyboard */,
 				FC584600296676850032B543 /* Assets.xcassets */,
 				FC584602296676850032B543 /* LaunchScreen.storyboard */,
-				FC584605296676850032B543 /* Info.plist */,
-				FC5845FD296676840032B543 /* Footi.xcdatamodeld */,
+				FC5845FA296676840032B543 /* Main.storyboard */,
+				FC584613296693900032B543 /* Models */,
+				FC58460B29668BFD0032B543 /* Network */,
+				FCEA7C1429B05B6A008DA3A7 /* Utilities */,
+				FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */,
 			);
 			path = Footi;
 			sourceTree = "<group>";
@@ -165,11 +172,7 @@
 		FC584613296693900032B543 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FC5846222967D3BD0032B543 /* Fixtures.swift */,
-				FC0DB1F329A6FF8E009E9668 /* Leaders.swift */,
-				FC5846142966948A0032B543 /* Leagues.swift */,
-				FC5846202967C8F00032B543 /* Standings.swift */,
-				FC58461D2967C7B80032B543 /* Shared */,
+				FC9048D829B84613006B0AA3 /* Response */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +184,36 @@
 				FC0DB1F529A708C7009E9668 /* API */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		FC9048D829B84613006B0AA3 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				FC5846222967D3BD0032B543 /* Fixtures.swift */,
+				FC0DB1F329A6FF8E009E9668 /* Leaders.swift */,
+				FC5846142966948A0032B543 /* Leagues.swift */,
+				FC5846202967C8F00032B543 /* Standings.swift */,
+				FC58461D2967C7B80032B543 /* Shared */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		FCA3D13329B6DC3F0038D8A2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCA3D13429B6DC4C0038D8A2 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FCEA7C1429B05B6A008DA3A7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */,
+				FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */,
+				FCA3D13329B6DC3F0038D8A2 /* Extensions */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,15 +296,18 @@
 				FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */,
 				FC0DB1F729A70932009E9668 /* Club.swift in Sources */,
 				FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */,
-				FC5845FF296676840032B543 /* Footi.xcdatamodeld in Sources */,
+				FC7D0C4729B2E35F00BC9B46 /* CoreDataContext.swift in Sources */,
 				FC5846212967C8F00032B543 /* Standings.swift in Sources */,
 				FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */,
 				FC0DB1FC29A72393009E9668 /* LeaguesEndpoint.swift in Sources */,
 				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
 				FC5846152966948A0032B543 /* Leagues.swift in Sources */,
+				FCA3D13529B6DC4C0038D8A2 /* Date.swift in Sources */,
 				FC58460E29668C180032B543 /* Endpoint.swift in Sources */,
 				FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */,
+				FCDF1F7029B3F80F00A6522F /* Footi.xcdatamodeld in Sources */,
 				FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */,
+				FCEA7C1629B05E29008DA3A7 /* UserDefaultsContext.swift in Sources */,
 				FC58461F2967C7CD0032B543 /* ApiPaging.swift in Sources */,
 				FC0DB1F929A71490009E9668 /* HTTPClient.swift in Sources */,
 				FC0DB1F429A6FF8E009E9668 /* Leaders.swift in Sources */,
@@ -496,12 +532,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FC5845FD296676840032B543 /* Footi.xcdatamodeld */ = {
+		FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FC5845FE296676840032B543 /* Footi.xcdatamodel */,
+				FCDF1F6F29B3F80F00A6522F /* Footi.xcdatamodel */,
 			);
-			currentVersion = FC5845FE296676840032B543 /* Footi.xcdatamodel */;
+			currentVersion = FCDF1F6F29B3F80F00A6522F /* Footi.xcdatamodel */;
 			path = Footi.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

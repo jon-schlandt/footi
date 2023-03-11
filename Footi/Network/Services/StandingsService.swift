@@ -8,12 +8,15 @@
 import Foundation
 
 protocol StandingsServiceable {
-    func getStandingsBy(leagueId: Int, season: Int) async -> Result<Standings, RequestError>
+    func getLeagueStandingsBy(leagueId: Int, season: Int) async -> LeagueStandings?
 }
 
 struct StandingsService: HTTPClient, StandingsServiceable {
-    func getStandingsBy(leagueId: Int, season: Int) async -> Result<Standings, RequestError> {
+    
+    func getLeagueStandingsBy(leagueId: Int, season: Int) async -> LeagueStandings? {
         let endpoint = StandingsEndpoint.byLeagueAndSeason(leagueId: leagueId, season: season)
-        return await sendRequest(to: endpoint, expect: Standings.self)
+        let standings = try? (await sendRequest(to: endpoint, expect: Standings.self)).get().response.first
+        
+        return standings?["league"]
     }
 }

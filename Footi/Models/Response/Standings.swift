@@ -17,7 +17,7 @@ struct Standings: Codable {
 struct LeagueStandings: Codable {
     var league: String
     var season: Int
-    var standings: [[Standing]] // Property comes in as an array of arrays
+    var standings: [[Standing]]
     
     enum CodingKeys: String, CodingKey {
         case league = "name"
@@ -46,16 +46,16 @@ struct Standing: Codable {
 
 struct ClubRecord: Codable {
     var played: Int
-    var wins: Int
-    var draws: Int
-    var losses: Int
+    var won: Int
+    var drew: Int
+    var lost: Int
     var goals: ClubGoals
     
     enum CodingKeys: String, CodingKey {
         case played
-        case wins = "win"
-        case draws = "draw"
-        case losses = "lose"
+        case won = "win"
+        case drew = "draw"
+        case lost = "lose"
         case goals
     }
 }

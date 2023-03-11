@@ -11,10 +11,73 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Register default UserDefault values
+        UserDefaults.standard.register(defaults: [
+            "leagues": [
+                "bundesliga": [
+                    "id": 78,
+                    "displayName": "Bundesliga",
+                    "isSelected": false
+                ],
+                "laLiga": [
+                    "id": 140,
+                    "displayName": "LaLiga",
+                    "isSelected": false
+                ],
+                "ligue1": [
+                    "id": 61,
+                    "displayName": "Ligue 1",
+                    "isSelected": false
+                ],
+                "mls": [
+                    "id": 253,
+                    "displayName": "Major League Soccer",
+                    "isSelected": false
+                ],
+                "premierLeague": [
+                    "id": 39,
+                    "displayName": "Premier League",
+                    "isSelected": false
+                ],
+                "serieA": [
+                    "id": 135,
+                    "displayName": "Serie A",
+                    "isSelected": false
+                ]
+            ],
+            "settings": [
+                "defaultLeague": [
+                    "bundesliga": false,
+                    "laLiga": false,
+                    "ligue1": false,
+                    "mls": false,
+                    "premierLeague": true,
+                    "serieA": false
+                ],
+                "theme": [
+                    "system": true,
+                    "light": false,
+                    "dark": false
+                ],
+                "locale": [
+                    "system": true
+                ]
+            ]
+        ])
+        
+        let userDefaultsContext = UserDefaultsContext()
+        
+        // Get default league from UserDefaults
+        let defaultLeague = userDefaultsContext.getUserSetting(for: "defaultLeague")
+        guard let defaultLeague = defaultLeague else {
+            return true
+        }
+        
+        // Reset selected league to default
+        userDefaultsContext.setSelectedLeague(as: defaultLeague)
+        
         return true
     }
 
@@ -58,6 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
         return container
     }()
 

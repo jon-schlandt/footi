@@ -16,7 +16,7 @@ struct Leaders: Codable {
 
 struct Leader: Codable {
     var overview: LeaderOverview
-    var stats: [LeaderStats] // Property comes in as an array
+    var stats: [LeaderStats]
     
     enum CodingKeys: String, CodingKey {
         case overview = "player"

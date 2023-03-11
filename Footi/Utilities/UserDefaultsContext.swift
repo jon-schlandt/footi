@@ -65,7 +65,7 @@ struct UserDefaultsContext {
         return enabledOption
     }
     
-    func setUserSetting(setting: String, option: String) {
+    func setUserSetting(for setting: String, as option: String) {
         let settings = UserDefaults().object(forKey: "settings") as? [String: [String: Any]]
         guard var settings = settings else {
             return

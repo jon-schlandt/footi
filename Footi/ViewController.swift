@@ -33,10 +33,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setUserDefaults()
+        setUserDefaults()
         
         _Concurrency.Task {
-            await getTestData()
+//            await getTestData()
 //            printTestData()
             
 //            leagues?.forEach { league in
@@ -49,12 +49,12 @@ class ViewController: UIViewController {
     }
     
     private func setUserDefaults() {
-//        userDefaultsContext.setUserSetting(for: "theme", as: "light")
-//        userDefaultsContext.setUserSetting(for: "defaultLeague", as: "laLiga")
-//        print(userDefaultsContext.getUserSetting(for: "theme"))
+        userDefaultsContext.setUserSetting(for: "theme", as: "light")
+        userDefaultsContext.setUserSetting(for: "defaultLeague", as: "laLiga")
+        print(userDefaultsContext.getUserSetting(for: "theme"))
         
 //        userDefaultsContext.setSelectedLeague(as: "premierLeague")
-//        print(userDefaultsContext.getSelectedLeague())
+        print(userDefaultsContext.getSelectedLeague())
     }
     
     private func getTestData() async {

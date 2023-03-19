@@ -15,12 +15,12 @@
 		FC1AC90929A958AA00693DB3 /* StandingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90829A958AA00693DB3 /* StandingsService.swift */; };
 		FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */; };
 		FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */; };
+		FC36D4B629C66BB5008E1507 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC36D4B529C66BB5008E1507 /* BaseViewController.swift */; };
+		FC36D4B929C66FB3008E1507 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC36D4B829C66FB3008E1507 /* SettingsViewController.swift */; };
+		FC36D4BB29C6828F008E1507 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC36D4BA29C6828F008E1507 /* BaseNavigationController.swift */; };
 		FC5845F5296676840032B543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F4296676840032B543 /* AppDelegate.swift */; };
 		FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F6296676840032B543 /* SceneDelegate.swift */; };
-		FC5845F9296676840032B543 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5845F8296676840032B543 /* ViewController.swift */; };
-		FC5845FC296676840032B543 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5845FA296676840032B543 /* Main.storyboard */; };
 		FC584601296676850032B543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC584600296676850032B543 /* Assets.xcassets */; };
-		FC584604296676850032B543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC584602296676850032B543 /* LaunchScreen.storyboard */; };
 		FC58460E29668C180032B543 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58460D29668C180032B543 /* Endpoint.swift */; };
 		FC58461029668E720032B543 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC58460F29668E720032B543 /* RequestMethod.swift */; };
 		FC584612296692190032B543 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC584611296692190032B543 /* RequestError.swift */; };
@@ -30,11 +30,16 @@
 		FC5846212967C8F00032B543 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846202967C8F00032B543 /* Standings.swift */; };
 		FC5846232967D3BD0032B543 /* Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846222967D3BD0032B543 /* Fixtures.swift */; };
 		FC7D0C4729B2E35F00BC9B46 /* CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */; };
+		FC7D16E929BE47A9009B408B /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16E829BE47A9009B408B /* StandingsViewController.swift */; };
+		FC7D16EB29BE48B1009B408B /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16EA29BE48B1009B408B /* LeadersViewController.swift */; };
+		FC7D16ED29BE48CD009B408B /* FixturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */; };
 		FCA3D13529B6DC4C0038D8A2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3D13429B6DC4C0038D8A2 /* Date.swift */; };
+		FCC4D1C829BD4ECD00750657 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4D1C729BD4ECD00750657 /* HomeTabBarController.swift */; };
 		FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */; };
 		FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */; };
 		FCDF1F7029B3F80F00A6522F /* Footi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */; };
 		FCEA7C1629B05E29008DA3A7 /* UserDefaultsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */; };
+		FCF2147B29C157A30031E0D6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF2147A29C157A30031E0D6 /* MenuViewController.swift */; };
 		FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,13 +52,13 @@
 		FC1AC90829A958AA00693DB3 /* StandingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsService.swift; sourceTree = "<group>"; };
 		FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesService.swift; sourceTree = "<group>"; };
 		FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersService.swift; sourceTree = "<group>"; };
+		FC36D4B529C66BB5008E1507 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FC36D4B829C66FB3008E1507 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FC36D4BA29C6828F008E1507 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		FC5845F1296676840032B543 /* Footi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Footi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5845F4296676840032B543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5845F6296676840032B543 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC5845F8296676840032B543 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC5845FB296676840032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC584600296676850032B543 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC584603296676850032B543 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC584605296676850032B543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC58460D29668C180032B543 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FC58460F29668E720032B543 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -64,11 +69,16 @@
 		FC5846202967C8F00032B543 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		FC5846222967D3BD0032B543 /* Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixtures.swift; sourceTree = "<group>"; };
 		FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContext.swift; sourceTree = "<group>"; };
+		FC7D16E829BE47A9009B408B /* StandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
+		FC7D16EA29BE48B1009B408B /* LeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
+		FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewController.swift; sourceTree = "<group>"; };
 		FCA3D13429B6DC4C0038D8A2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		FCC4D1C729BD4ECD00750657 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		FCD5B23A29A85E3B00CAD524 /* FixturesEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesEndpoint.swift; sourceTree = "<group>"; };
 		FCD5B23C29A8638B00CAD524 /* LeadersEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersEndpoint.swift; sourceTree = "<group>"; };
 		FCDF1F6F29B3F80F00A6522F /* Footi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Footi.xcdatamodel; sourceTree = "<group>"; };
 		FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsContext.swift; sourceTree = "<group>"; };
+		FCF2147A29C157A30031E0D6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FCFBBC5729A7C96700A0D2FB /* StandingsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +124,57 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		FC36D4B429C66B9E008E1507 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FC36D4BA29C6828F008E1507 /* BaseNavigationController.swift */,
+				FC36D4B529C66BB5008E1507 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FC36D4B729C66F98008E1507 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FC36D4B829C66FB3008E1507 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FC39ED3629C782A2001722FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC39ED3829C78393001722FC /* Data Stores */,
+				FCA3D13329B6DC3F0038D8A2 /* Extensions */,
+				FC58460B29668BFD0032B543 /* Network */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FC39ED3729C782F6001722FC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC36D4B429C66B9E008E1507 /* Base */,
+				FC7D16E529BE46CB009B408B /* Fixtures */,
+				FC7D16E329BE46A7009B408B /* Home */,
+				FC7D16E629BE4705009B408B /* Leaders */,
+				FC7D16E729BE4758009B408B /* Menu */,
+				FC36D4B729C66F98008E1507 /* Settings */,
+				FC7D16E429BE46C0009B408B /* Standings */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FC39ED3829C78393001722FC /* Data Stores */ = {
+			isa = PBXGroup;
+			children = (
+				FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */,
+				FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */,
+				FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */,
+			);
+			path = "Data Stores";
+			sourceTree = "<group>";
+		};
 		FC5845E8296676840032B543 = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +197,9 @@
 				FC584605296676850032B543 /* Info.plist */,
 				FC5845F4296676840032B543 /* AppDelegate.swift */,
 				FC5845F6296676840032B543 /* SceneDelegate.swift */,
-				FC5845F8296676840032B543 /* ViewController.swift */,
 				FC584600296676850032B543 /* Assets.xcassets */,
-				FC584602296676850032B543 /* LaunchScreen.storyboard */,
-				FC5845FA296676840032B543 /* Main.storyboard */,
-				FC584613296693900032B543 /* Models */,
-				FC58460B29668BFD0032B543 /* Network */,
-				FCEA7C1429B05B6A008DA3A7 /* Utilities */,
-				FCDF1F6E29B3F80F00A6522F /* Footi.xcdatamodeld */,
+				FC39ED3729C782F6001722FC /* Controller */,
+				FC39ED3629C782A2001722FC /* Model */,
 			);
 			path = Footi;
 			sourceTree = "<group>";
@@ -151,9 +207,10 @@
 		FC58460B29668BFD0032B543 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				FC0DB1FD29A723B5009E9668 /* Services */,
-				FC0DB1FA29A72369009E9668 /* Endpoints */,
 				FC58460C29668C090032B543 /* Base */,
+				FC0DB1FA29A72369009E9668 /* Endpoints */,
+				FC9048D829B84613006B0AA3 /* Models */,
+				FC0DB1FD29A723B5009E9668 /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -169,14 +226,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		FC584613296693900032B543 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				FC9048D829B84613006B0AA3 /* Response */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		FC58461D2967C7B80032B543 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +235,47 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		FC9048D829B84613006B0AA3 /* Response */ = {
+		FC7D16E329BE46A7009B408B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FCC4D1C729BD4ECD00750657 /* HomeTabBarController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FC7D16E429BE46C0009B408B /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				FC7D16E829BE47A9009B408B /* StandingsViewController.swift */,
+			);
+			path = Standings;
+			sourceTree = "<group>";
+		};
+		FC7D16E529BE46CB009B408B /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		FC7D16E629BE4705009B408B /* Leaders */ = {
+			isa = PBXGroup;
+			children = (
+				FC7D16EA29BE48B1009B408B /* LeadersViewController.swift */,
+			);
+			path = Leaders;
+			sourceTree = "<group>";
+		};
+		FC7D16E729BE4758009B408B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FCF2147A29C157A30031E0D6 /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FC9048D829B84613006B0AA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				FC5846222967D3BD0032B543 /* Fixtures.swift */,
@@ -195,7 +284,7 @@
 				FC5846202967C8F00032B543 /* Standings.swift */,
 				FC58461D2967C7B80032B543 /* Shared */,
 			);
-			path = Response;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FCA3D13329B6DC3F0038D8A2 /* Extensions */ = {
@@ -204,16 +293,6 @@
 				FCA3D13429B6DC4C0038D8A2 /* Date.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FCEA7C1429B05B6A008DA3A7 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */,
-				FCEA7C1529B05E29008DA3A7 /* UserDefaultsContext.swift */,
-				FCA3D13329B6DC3F0038D8A2 /* Extensions */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,9 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC584604296676850032B543 /* LaunchScreen.storyboard in Resources */,
 				FC584601296676850032B543 /* Assets.xcassets in Resources */,
-				FC5845FC296676840032B543 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,27 +366,34 @@
 			files = (
 				FC584612296692190032B543 /* RequestError.swift in Sources */,
 				FC1AC90929A958AA00693DB3 /* StandingsService.swift in Sources */,
-				FC5845F9296676840032B543 /* ViewController.swift in Sources */,
 				FC5845F5296676840032B543 /* AppDelegate.swift in Sources */,
 				FC0DB1FF29A723CB009E9668 /* LeaguesService.swift in Sources */,
 				FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */,
 				FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */,
+				FCF2147B29C157A30031E0D6 /* MenuViewController.swift in Sources */,
+				FC36D4B929C66FB3008E1507 /* SettingsViewController.swift in Sources */,
 				FC0DB1F729A70932009E9668 /* Club.swift in Sources */,
 				FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */,
+				FC36D4BB29C6828F008E1507 /* BaseNavigationController.swift in Sources */,
 				FC7D0C4729B2E35F00BC9B46 /* CoreDataContext.swift in Sources */,
 				FC5846212967C8F00032B543 /* Standings.swift in Sources */,
 				FCFBBC5829A7C96700A0D2FB /* StandingsEndpoint.swift in Sources */,
+				FC36D4B629C66BB5008E1507 /* BaseViewController.swift in Sources */,
 				FC0DB1FC29A72393009E9668 /* LeaguesEndpoint.swift in Sources */,
 				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
+				FCC4D1C829BD4ECD00750657 /* HomeTabBarController.swift in Sources */,
 				FC5846152966948A0032B543 /* Leagues.swift in Sources */,
+				FC7D16EB29BE48B1009B408B /* LeadersViewController.swift in Sources */,
 				FCA3D13529B6DC4C0038D8A2 /* Date.swift in Sources */,
 				FC58460E29668C180032B543 /* Endpoint.swift in Sources */,
+				FC7D16E929BE47A9009B408B /* StandingsViewController.swift in Sources */,
 				FCD5B23D29A8638B00CAD524 /* LeadersEndpoint.swift in Sources */,
 				FCDF1F7029B3F80F00A6522F /* Footi.xcdatamodeld in Sources */,
 				FCD5B23B29A85E3B00CAD524 /* FixturesEndpoint.swift in Sources */,
 				FCEA7C1629B05E29008DA3A7 /* UserDefaultsContext.swift in Sources */,
 				FC58461F2967C7CD0032B543 /* ApiPaging.swift in Sources */,
 				FC0DB1F929A71490009E9668 /* HTTPClient.swift in Sources */,
+				FC7D16ED29BE48CD009B408B /* FixturesViewController.swift in Sources */,
 				FC0DB1F429A6FF8E009E9668 /* Leaders.swift in Sources */,
 				FC58461C2967C6F60032B543 /* ApiError.swift in Sources */,
 				FC5846232967D3BD0032B543 /* Fixtures.swift in Sources */,
@@ -317,25 +401,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FC5845FA296676840032B543 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC5845FB296676840032B543 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FC584602296676850032B543 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC584603296676850032B543 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FC584606296676850032B543 /* Debug */ = {
@@ -464,7 +529,6 @@
 				INFOPLIST_FILE = Footi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,7 +556,6 @@
 				INFOPLIST_FILE = Footi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

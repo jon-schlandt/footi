@@ -12,8 +12,10 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
-        navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
-        navigationBar.tintColor = .label
+        self.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
+        self.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)]
+        self.navigationBar.backgroundColor = .yellow
+        self.navigationBar.tintColor = .label
     }
 }

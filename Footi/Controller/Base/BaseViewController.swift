@@ -21,7 +21,7 @@ class BaseViewController: UIViewController {
     let standingsService = StandingsService()
     
     // Shared VCs
-    var menuNav: UINavigationController!
+    var menuNav: BaseNavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,19 @@ class BaseViewController: UIViewController {
         setupMenu()
         styleView()
     }
+    
+    internal func loadModel(for league: String) {
+        print("loading \(league)")
+    }
 }
 
-/// Delegate methods
+/// MenuViewControllerDelegate methods
 extension BaseViewController: MenuViewControllerDelegate {
+    
+    internal func selectLeague(_ league: String) {
+        closeMenu()
+        loadModel(for: league)
+    }
     
     internal func displaySettings() {
         closeMenu()
@@ -67,13 +76,7 @@ extension BaseViewController {
         let menuVC = MenuViewController()
         menuVC.delegate = self
 
-        menuNav = UINavigationController(rootViewController: menuVC)
-        
-        if let menuSheet = menuNav.sheetPresentationController {
-            menuSheet.detents = [.medium(), .large()]
-            menuSheet.selectedDetentIdentifier = .medium
-            menuSheet.prefersScrollingExpandsWhenScrolledToEdge = false
-        }
+        menuNav = BaseNavigationController(rootViewController: menuVC)
     }
     
     private func styleView() {
@@ -81,6 +84,12 @@ extension BaseViewController {
     }
     
     @objc func displayMenu() {
+        if let menuSheet = menuNav.sheetPresentationController {
+            menuSheet.detents = [.medium(), .large()]
+            menuSheet.selectedDetentIdentifier = .medium
+            menuSheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        
         present(menuNav, animated: true)
     }
 }

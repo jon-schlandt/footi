@@ -14,4 +14,16 @@ class StandingsViewController: BaseViewController {
         
         self.title = "Standings"
     }
+    
+    override func loadModel(for league: String) {
+        let selectedLeague = self.userDefaultsContext.getSelectedLeague()
+        guard let selectedLeague = selectedLeague else {
+            return
+        }
+        
+        let displayName = selectedLeague["displayName"]
+        if let displayName = displayName {
+            print("loading standings for \(displayName)")
+        }
+    }
 }

@@ -7,8 +7,13 @@
 
 import UIKit
 
+struct LeagueSelection {
+    var key: LeagueKey
+    var title: String
+}
+
 protocol LeagueSelectViewControllerDelegate: AnyObject {
-    func selectLeague(_ league: String)
+    func selectLeague()
 }
 
 /// UICollectionViewController methods
@@ -18,7 +23,7 @@ class LeagueSelectViewController: UICollectionViewController {
     weak var delegate: LeagueSelectViewControllerDelegate?
     
     let userDefaultsContext = UserDefaultsContext()
-    let leagues = [ "bundesliga", "laLiga", "ligue1", "mls", "premierLeague", "serieA" ]
+    var selections = [LeagueSelection]()
     
     init() {
         flowLayout = UICollectionViewFlowLayout()
@@ -27,7 +32,6 @@ class LeagueSelectViewController: UICollectionViewController {
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         super.init(collectionViewLayout: flowLayout)
-        self.view.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {
@@ -37,8 +41,10 @@ class LeagueSelectViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.register(LeagueSelectCell.self, forCellWithReuseIdentifier: LeagueSelectCell.identifier)
-        styleView()
+        self.collectionView.register(LeagueSelectCell.self, forCellWithReuseIdentifier: LeagueSelectCell.identifier)
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        setSelections()
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -52,8 +58,7 @@ class LeagueSelectViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LeagueSelectCell.identifier, for: indexPath) as! LeagueSelectCell
         cell.delegate = self
-        cell.league = leagues[indexPath.row]
-        cell.loadLeagueButton()
+        cell.configure(with: selections[indexPath.row])
         cell.style(for: indexPath)
         
         return cell
@@ -63,9 +68,9 @@ class LeagueSelectViewController: UICollectionViewController {
 /// LeagueSelectCellDelegate methods
 extension LeagueSelectViewController: LeagueSelectCellDelegate {
     
-    internal func selectLeague(_ league: String) {
-        userDefaultsContext.setSelectedLeague(as: league)
-        delegate?.selectLeague(league)
+    internal func selectLeague(_ leagueKey: LeagueKey) {
+        userDefaultsContext.setSelectedLeague(as: leagueKey.rawValue)
+        delegate?.selectLeague()
     }
 }
 
@@ -86,7 +91,12 @@ extension LeagueSelectViewController: UICollectionViewDelegateFlowLayout {
 /// Private methods
 extension LeagueSelectViewController {
     
-    private func styleView() {
-        self.view.backgroundColor = .systemBackground
+    private func setSelections() {
+        selections.append(LeagueSelection(key: .bundesliga, title: "Bundesliga"))
+        selections.append(LeagueSelection(key: .laLiga, title: "LaLiga"))
+        selections.append(LeagueSelection(key: .ligue1, title: "Ligue 1"))
+        selections.append(LeagueSelection(key: .mls, title: "Major League Soccer"))
+        selections.append(LeagueSelection(key: .premierLeague, title: "Premier League"))
+        selections.append(LeagueSelection(key: .serieA, title: "Serie A"))
     }
 }

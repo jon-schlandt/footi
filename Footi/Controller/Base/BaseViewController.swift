@@ -31,17 +31,17 @@ class BaseViewController: UIViewController {
         styleView()
     }
     
-    internal func loadModel(for league: String) {
-        print("loading \(league)")
+    internal func loadModel() {
+        fatalError("loadModel() has not been implemented")
     }
 }
 
 /// MenuViewControllerDelegate methods
 extension BaseViewController: MenuViewControllerDelegate {
     
-    internal func selectLeague(_ league: String) {
+    internal func selectLeague() {
         closeMenu()
-        loadModel(for: league)
+        loadModel()
     }
     
     internal func displaySettings() {
@@ -68,8 +68,6 @@ extension BaseViewController {
             target: self,
             action: #selector(displayMenu)
         )
-        
-        self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     private func setupMenu() {
@@ -80,13 +78,13 @@ extension BaseViewController {
     }
     
     private func styleView() {
-        view.backgroundColor = .systemBackground
+        self.view.backgroundColor = UIColor(hex: "#f9f9f9ff")
     }
     
     @objc func displayMenu() {
         if let menuSheet = menuNav.sheetPresentationController {
-            menuSheet.detents = [.medium(), .large()]
-            menuSheet.selectedDetentIdentifier = .medium
+            menuSheet.detents = [.large()]
+            menuSheet.selectedDetentIdentifier = .large
             menuSheet.prefersScrollingExpandsWhenScrolledToEdge = false
         }
         

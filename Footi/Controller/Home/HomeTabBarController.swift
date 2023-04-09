@@ -59,6 +59,8 @@ extension HomeTabBarController {
     private func styleView() {
         
         // Color
-        tabBar.tintColor = .label
+        self.tabBar.backgroundColor = UIColor.Palette.bar
+        self.tabBar.tintColor = UIColor.Palette.primaryIcon
+        self.tabBar.unselectedItemTintColor = UIColor.Palette.primaryIcon
     }
 }

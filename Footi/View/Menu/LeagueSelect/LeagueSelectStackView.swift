@@ -9,17 +9,55 @@ import UIKit
 
 /// UIStackView methods
 class LeagueSelectStackView: UIStackView {
-
-    var header: LeagueSelectHeader!
+    
+    let header: UIView = {
+        let header = UIView()
+        header.translatesAutoresizingMaskIntoConstraints = false
+        header.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
+        
+        let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+        title.text = "League Select"
+        header.addSubview(title)
+        
+        NSLayoutConstraint.activate([
+            title.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            title.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 16),
+            title.centerYAnchor.constraint(equalTo: header.centerYAnchor)
+        ])
+        
+        return header
+    }()
+    
     var leagueSelect: UIView!
     
-    init(leagueSelectView: UIView) {
+    init(leagueSelect: UIView) {
         super.init(frame: .zero)
         
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.leagueSelect = leagueSelect
         
-        setupHeader()
-        setupLeagueSelect(leagueSelectView: leagueSelectView)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.axis = .vertical
+        self.distribution = .equalSpacing
+        self.alignment = .center
+        
+        self.addArrangedSubview(header)
+        self.addArrangedSubview(leagueSelect)
+        
+        style()
+    }
+    
+    override func layoutSubviews() {
+        NSLayoutConstraint.activate([
+            header.widthAnchor.constraint(equalTo: self.widthAnchor),
+            header.heightAnchor.constraint(equalToConstant: 60)
+        ])
+        
+        NSLayoutConstraint.activate([
+            leagueSelect.widthAnchor.constraint(equalTo: self.widthAnchor),
+            leagueSelect.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: (2 / 3)),
+        ])
     }
     
     required init(coder: NSCoder) {
@@ -30,27 +68,7 @@ class LeagueSelectStackView: UIStackView {
 /// Private methods
 extension LeagueSelectStackView {
     
-    private func setupHeader() {
-        header = LeagueSelectHeader()
-        self.addSubview(header)
-        
-        NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: self.topAnchor),
-            header.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            header.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            header.heightAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
-    private func setupLeagueSelect(leagueSelectView: UIView) {
-        leagueSelect = leagueSelectView
-        self.addSubview(leagueSelectView)
-        
-        NSLayoutConstraint.activate([
-            leagueSelect.topAnchor.constraint(equalTo: header.bottomAnchor),
-            leagueSelect.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            leagueSelect.bottomAnchor.constraint(greaterThanOrEqualTo: self.bottomAnchor),
-            leagueSelect.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        ])
+    private func style() {
+        self.backgroundColor = UIColor.Palette.foreground
     }
 }

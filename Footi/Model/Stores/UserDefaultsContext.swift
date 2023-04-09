@@ -11,7 +11,7 @@ struct UserDefaultsContext {
     
     let userDefaults = UserDefaults()
     
-    func getLeagues() -> [String: [String: Any]]? {
+    public func getLeagues() -> [String: [String: Any]]? {
         let leagueMap = userDefaults.object(forKey: "leagues") as? [String: [String: Any]]
         if let leagueMap = leagueMap {
             return leagueMap
@@ -20,7 +20,7 @@ struct UserDefaultsContext {
         return nil
     }
     
-    func getSelectedLeague() -> [String: Any]? {
+    public func getSelectedLeague() -> [String: Any]? {
         let leagueMap = userDefaults.object(forKey: "leagues") as? [String: [String: Any]]
         guard let leagueMap = leagueMap else {
             return nil
@@ -38,7 +38,7 @@ struct UserDefaultsContext {
         return nil
     }
     
-    func setSelectedLeague(as league: String) {
+    public func setSelectedLeague(as league: String) {
         let leagueMap = UserDefaults().object(forKey: "leagues") as? [String: [String: Any]]
         guard var leagueMap = leagueMap else {
             return
@@ -50,36 +50,56 @@ struct UserDefaultsContext {
         UserDefaults().set(leagueMap, forKey: "leagues")
     }
     
-    func getUserSetting(for setting: String) -> String? {
-        let settings = UserDefaults().object(forKey: "settings") as? [String: [String: Any]]
-        guard let settings = settings else {
+    public func getEnabledSelection(groupKey: String, optionKey: String) -> String? {
+        let settingMap = UserDefaults().object(forKey: "settings") as? [String: Any]
+        guard let settingMap = settingMap else {
             return nil
         }
         
-        let options = settings[setting] as? [String: Bool]
-        guard let options = options else {
+        let group = settingMap[groupKey] as? [String: Any]
+        guard let group = group else {
             return nil
         }
         
-        let enabledOption = options.keys.first { options[$0] == true }
-        return enabledOption
+        let option = group[optionKey] as? [String: Bool]
+        guard let option = option else {
+            return nil
+        }
+        
+        let enabledSelection = option.keys.first { selection in
+            return option[selection] == true
+        }
+        
+        return enabledSelection
     }
     
-    func setUserSetting(for setting: String, as option: String) {
-        let settings = UserDefaults().object(forKey: "settings") as? [String: [String: Any]]
-        guard var settings = settings else {
+    public func setEnabledSelection(groupKey: String, optionKey: String, selectionKey: String) {
+        let settingMap = UserDefaults().object(forKey: "settings") as? [String: Any]
+        guard var settingMap = settingMap else {
             return
         }
-
-        let options = settings[setting] as? [String: Bool]
-        guard var options = options else {
+        
+        let group = settingMap[groupKey] as? [String: Any]
+        guard var group = group else {
             return
         }
-
-        options.keys.forEach { options[$0] = false }
-        options[option] = true
-        settings[setting] = options
-
-        UserDefaults().set(settings, forKey: "settings")
+        
+        let option = group[optionKey] as? [String: Bool]
+        guard var option = option else {
+            return
+        }
+        
+        option.keys.forEach { key in
+            if key == selectionKey {
+                return option[key] = true
+            }
+            
+            return option[key] = false
+        }
+        
+        group[optionKey] = option
+        settingMap[groupKey] = group
+        
+        UserDefaults().set(settingMap, forKey: "settings")
     }
 }

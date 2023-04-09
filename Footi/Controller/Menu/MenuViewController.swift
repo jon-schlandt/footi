@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MenuViewControllerDelegate: AnyObject {
-    func selectLeague(_ league: String)
+    func selectLeague()
     func displaySettings()
     func closeMenu()
 }
@@ -36,8 +36,8 @@ class MenuViewController: UIViewController {
 /// LeagueSelectViewControllerDelegate methods
 extension MenuViewController: LeagueSelectViewControllerDelegate {
     
-    internal func selectLeague(_ league: String) {
-        delegate?.selectLeague(league)
+    internal func selectLeague() {
+        delegate?.selectLeague()
     }
 }
 
@@ -58,9 +58,6 @@ extension MenuViewController {
             target: self,
             action: #selector(closeMenu)
         )
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = .label
-        self.navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     private func setupLeagueSelect() {
@@ -68,19 +65,17 @@ extension MenuViewController {
         leagueSelectVC.delegate = self
         self.addChild(leagueSelectVC)
         
-        let leagueSelectStackView = LeagueSelectStackView(leagueSelectView: leagueSelectVC.view)
+        let leagueSelectStackView = LeagueSelectStackView(leagueSelect: leagueSelectVC.view)
         self.view.addSubview(leagueSelectStackView)
         
         NSLayoutConstraint.activate([
             leagueSelectStackView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
-            leagueSelectStackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            leagueSelectStackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            leagueSelectStackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor)
+            leagueSelectStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
         ])
     }
     
     private func styleView() {
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = UIColor.Palette.background
     }
     
     @objc private func displaySettings() {

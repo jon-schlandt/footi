@@ -9,13 +9,23 @@ import UIKit
 
 class BaseNavigationController: UINavigationController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.setBackIndicatorImage(UIImage(systemName: "arrow.left"), transitionMaskImage: UIImage(systemName: "arrow.left"))
+        navigationBarAppearance.configureWithDefaultBackground()
+        navigationBarAppearance.backgroundColor = UIColor.Palette.bar
+        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
-        self.navigationBar.backIndicatorImage = UIImage(systemName: "arrow.left")
-        self.navigationBar.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
-        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)]
-        self.navigationBar.backgroundColor = .yellow
-        self.navigationBar.tintColor = .label
+        self.navigationBar.standardAppearance = navigationBarAppearance
+        self.navigationBar.compactAppearance = navigationBarAppearance
+        self.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+
+        self.navigationBar.tintColor = UIColor.Palette.primaryIcon
     }
 }

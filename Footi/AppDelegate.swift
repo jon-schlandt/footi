@@ -46,23 +46,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     "displayName": "Serie A",
                     "isSelected": false
                 ]
-            ],
+            ] as [String: [String: Any]],
             "settings": [
-                "defaultLeague": [
-                    "bundesliga": false,
-                    "laLiga": false,
-                    "ligue1": false,
-                    "mls": false,
-                    "premierLeague": true,
-                    "serieA": false
+                "leagueOptions": [
+                    "defaultLeague": [
+                        "bundesliga": false,
+                        "laLiga": false,
+                        "ligue1": false,
+                        "mls": false,
+                        "premierLeague": true,
+                        "serieA": false
+                    ],
                 ],
-                "theme": [
-                    "system": true,
-                    "light": false,
-                    "dark": false
-                ],
-                "locale": [
-                    "system": true
+                "displayOptions": [
+                    "theme": [
+                        "system": true,
+                        "light": false,
+                        "dark": false
+                    ],
+                    "locale": [
+                        "system": true
+                    ]
                 ]
             ]
         ])
@@ -70,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaultsContext = UserDefaultsContext()
         
         // Get default league from UserDefaults
-        let defaultLeague = userDefaultsContext.getUserSetting(for: "defaultLeague")
+        let defaultLeague = userDefaultsContext.getEnabledSelection(groupKey: "leagueOptions", optionKey: "defaultLeague")
         guard let defaultLeague = defaultLeague else {
             return true
         }

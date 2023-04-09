@@ -15,7 +15,7 @@ class FixturesViewController: BaseViewController {
         self.title = "Fixtures"
     }
     
-    override func loadModel(for league: String) {
+    override func loadModel() {
         let selectedLeague = self.userDefaultsContext.getSelectedLeague()
         guard let selectedLeague = selectedLeague else {
             return

@@ -1,0 +1,2057 @@
+{
+    "get": "fixtures",
+    "parameters": {
+        "league": "61",
+        "from": "2023-05-15",
+        "to": "2023-06-03",
+        "season": "2022"
+    },
+    "errors": [],
+    "results": 30,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "fixture": {
+                "id": 871820,
+                "referee": "E. Wattellier",
+                "timezone": "UTC",
+                "date": "2023-05-21T11:00:00+00:00",
+                "timestamp": 1684666800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 632,
+                    "name": "Stade François Coty",
+                    "city": "Ajaccio"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 98,
+                    "name": "Ajaccio",
+                    "logo": "https://media-2.api-sports.io/football/teams/98.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 94,
+                    "name": "Rennes",
+                    "logo": "https://media-2.api-sports.io/football/teams/94.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871821,
+                "referee": "B. Bastien",
+                "timezone": "UTC",
+                "date": "2023-05-21T18:45:00+00:00",
+                "timestamp": 1684694700,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 636,
+                    "name": "Stade de l'Abbé Deschamps",
+                    "city": "Auxerre"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 108,
+                    "name": "Auxerre",
+                    "logo": "https://media-2.api-sports.io/football/teams/108.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 85,
+                    "name": "Paris Saint Germain",
+                    "logo": "https://media-3.api-sports.io/football/teams/85.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871822,
+                "referee": "S. Frappart",
+                "timezone": "UTC",
+                "date": "2023-05-21T15:05:00+00:00",
+                "timestamp": 1684681500,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 656,
+                    "name": "Stade Yves Allainmat - Le Moustoir",
+                    "city": "Lorient"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 97,
+                    "name": "Lorient",
+                    "logo": "https://media-1.api-sports.io/football/teams/97.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 116,
+                    "name": "Lens",
+                    "logo": "https://media-1.api-sports.io/football/teams/116.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871823,
+                "referee": "R. Buquet",
+                "timezone": "UTC",
+                "date": "2023-05-20T15:00:00+00:00",
+                "timestamp": 1684594800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 662,
+                    "name": "Stade de la Beaujoire - Louis Fonteneau",
+                    "city": "Nantes"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 83,
+                    "name": "Nantes",
+                    "logo": "https://media-1.api-sports.io/football/teams/83.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 82,
+                    "name": "Montpellier",
+                    "logo": "https://media-1.api-sports.io/football/teams/82.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871824,
+                "referee": "J. Brisard",
+                "timezone": "UTC",
+                "date": "2023-05-20T19:00:00+00:00",
+                "timestamp": 1684609200,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 19207,
+                    "name": "Decathlon Arena – Stade Pierre-Mauroy",
+                    "city": "Villeneuve d'Ascq"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 79,
+                    "name": "Lille",
+                    "logo": "https://media-2.api-sports.io/football/teams/79.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 81,
+                    "name": "Marseille",
+                    "logo": "https://media-2.api-sports.io/football/teams/81.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871825,
+                "referee": "J. Pignard",
+                "timezone": "UTC",
+                "date": "2023-05-21T13:00:00+00:00",
+                "timestamp": 1684674000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 663,
+                    "name": "Allianz Riviera",
+                    "city": "Nice"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 84,
+                    "name": "Nice",
+                    "logo": "https://media-2.api-sports.io/football/teams/84.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 96,
+                    "name": "Toulouse",
+                    "logo": "https://media-1.api-sports.io/football/teams/96.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871826,
+                "referee": "B. Millot",
+                "timezone": "UTC",
+                "date": "2023-05-19T19:00:00+00:00",
+                "timestamp": 1684522800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 666,
+                    "name": "Groupama Stadium",
+                    "city": "Décines-Charpieu"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 80,
+                    "name": "Lyon",
+                    "logo": "https://media-2.api-sports.io/football/teams/80.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 91,
+                    "name": "Monaco",
+                    "logo": "https://media-1.api-sports.io/football/teams/91.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871827,
+                "referee": "B. Dechepy",
+                "timezone": "UTC",
+                "date": "2023-05-21T13:00:00+00:00",
+                "timestamp": 1684674000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 641,
+                    "name": "Stade Francis-Le Blé",
+                    "city": "Brest"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 106,
+                    "name": "Stade Brestois 29",
+                    "logo": "https://media-3.api-sports.io/football/teams/106.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 99,
+                    "name": "Clermont Foot",
+                    "logo": "https://media-2.api-sports.io/football/teams/99.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871828,
+                "referee": "F. Batta",
+                "timezone": "UTC",
+                "date": "2023-05-21T13:00:00+00:00",
+                "timestamp": 1684674000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 674,
+                    "name": "Stade Auguste-Delaune II",
+                    "city": "Reims"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 93,
+                    "name": "Reims",
+                    "logo": "https://media-3.api-sports.io/football/teams/93.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 77,
+                    "name": "Angers",
+                    "logo": "https://media-2.api-sports.io/football/teams/77.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871829,
+                "referee": "C. Turpin",
+                "timezone": "UTC",
+                "date": "2023-05-21T13:00:00+00:00",
+                "timestamp": 1684674000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 684,
+                    "name": "Stade de l'Aube",
+                    "city": "Troyes"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 110,
+                    "name": "Estac Troyes",
+                    "logo": "https://media-2.api-sports.io/football/teams/110.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 95,
+                    "name": "Strasbourg",
+                    "logo": "https://media-2.api-sports.io/football/teams/95.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871830,
+                "referee": "K. Abed",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 634,
+                    "name": "Stade Raymond-Kopa",
+                    "city": "Angers"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 77,
+                    "name": "Angers",
+                    "logo": "https://media-1.api-sports.io/football/teams/77.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 110,
+                    "name": "Estac Troyes",
+                    "logo": "https://media-3.api-sports.io/football/teams/110.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871831,
+                "referee": "F. Batta",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 644,
+                    "name": "Stade Gabriel Montpied",
+                    "city": "Clermont-Ferrand"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 99,
+                    "name": "Clermont Foot",
+                    "logo": "https://media-2.api-sports.io/football/teams/99.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 97,
+                    "name": "Lorient",
+                    "logo": "https://media-1.api-sports.io/football/teams/97.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871832,
+                "referee": "E. Wattellier",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 19207,
+                    "name": "Decathlon Arena – Stade Pierre-Mauroy",
+                    "city": "Villeneuve d'Ascq"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 79,
+                    "name": "Lille",
+                    "logo": "https://media-1.api-sports.io/football/teams/79.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 83,
+                    "name": "Nantes",
+                    "logo": "https://media-1.api-sports.io/football/teams/83.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871833,
+                "referee": "B. Millot",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 660,
+                    "name": "Stade de la Mosson",
+                    "city": "Montpellier"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 82,
+                    "name": "Montpellier",
+                    "logo": "https://media-1.api-sports.io/football/teams/82.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 84,
+                    "name": "Nice",
+                    "logo": "https://media-1.api-sports.io/football/teams/84.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871834,
+                "referee": "J. Stinat",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 666,
+                    "name": "Groupama Stadium",
+                    "city": "Décines-Charpieu"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 80,
+                    "name": "Lyon",
+                    "logo": "https://media-1.api-sports.io/football/teams/80.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 93,
+                    "name": "Reims",
+                    "logo": "https://media-1.api-sports.io/football/teams/93.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871835,
+                "referee": "S. Frappart",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 12678,
+                    "name": "Stade Orange Vélodrome",
+                    "city": "Marseille"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 81,
+                    "name": "Marseille",
+                    "logo": "https://media-1.api-sports.io/football/teams/81.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 106,
+                    "name": "Stade Brestois 29",
+                    "logo": "https://media-1.api-sports.io/football/teams/106.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871836,
+                "referee": "T. Léonard",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 654,
+                    "name": "Stade Bollaert-Delelis",
+                    "city": "Lens"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 116,
+                    "name": "Lens",
+                    "logo": "https://media-3.api-sports.io/football/teams/116.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 98,
+                    "name": "Ajaccio",
+                    "logo": "https://media-1.api-sports.io/football/teams/98.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871837,
+                "referee": "J. Brisard",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 681,
+                    "name": "Stade de la Meinau",
+                    "city": "Strasbourg"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 95,
+                    "name": "Strasbourg",
+                    "logo": "https://media-1.api-sports.io/football/teams/95.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 85,
+                    "name": "Paris Saint Germain",
+                    "logo": "https://media-3.api-sports.io/football/teams/85.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871838,
+                "referee": "C. Turpin",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 680,
+                    "name": "Roazhon Park",
+                    "city": "Rennes"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 94,
+                    "name": "Rennes",
+                    "logo": "https://media-2.api-sports.io/football/teams/94.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 91,
+                    "name": "Monaco",
+                    "logo": "https://media-1.api-sports.io/football/teams/91.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871839,
+                "referee": "M. Vernice",
+                "timezone": "UTC",
+                "date": "2023-05-27T19:00:00+00:00",
+                "timestamp": 1685214000,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 682,
+                    "name": "Stadium de Toulouse",
+                    "city": "Toulouse"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 37"
+            },
+            "teams": {
+                "home": {
+                    "id": 96,
+                    "name": "Toulouse",
+                    "logo": "https://media-1.api-sports.io/football/teams/96.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 108,
+                    "name": "Auxerre",
+                    "logo": "https://media-3.api-sports.io/football/teams/108.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871840,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 632,
+                    "name": "Stade François Coty",
+                    "city": "Ajaccio"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 98,
+                    "name": "Ajaccio",
+                    "logo": "https://media-2.api-sports.io/football/teams/98.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 81,
+                    "name": "Marseille",
+                    "logo": "https://media-2.api-sports.io/football/teams/81.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871841,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 636,
+                    "name": "Stade de l'Abbé Deschamps",
+                    "city": "Auxerre"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 108,
+                    "name": "Auxerre",
+                    "logo": "https://media-3.api-sports.io/football/teams/108.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 116,
+                    "name": "Lens",
+                    "logo": "https://media-2.api-sports.io/football/teams/116.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871842,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 659,
+                    "name": "Stade Louis II",
+                    "city": "Monaco"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 91,
+                    "name": "Monaco",
+                    "logo": "https://media-1.api-sports.io/football/teams/91.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 96,
+                    "name": "Toulouse",
+                    "logo": "https://media-3.api-sports.io/football/teams/96.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871843,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 656,
+                    "name": "Stade Yves Allainmat - Le Moustoir",
+                    "city": "Lorient"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 97,
+                    "name": "Lorient",
+                    "logo": "https://media-2.api-sports.io/football/teams/97.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 95,
+                    "name": "Strasbourg",
+                    "logo": "https://media-2.api-sports.io/football/teams/95.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871844,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 662,
+                    "name": "Stade de la Beaujoire - Louis Fonteneau",
+                    "city": "Nantes"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 83,
+                    "name": "Nantes",
+                    "logo": "https://media-2.api-sports.io/football/teams/83.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 77,
+                    "name": "Angers",
+                    "logo": "https://media-2.api-sports.io/football/teams/77.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871845,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 663,
+                    "name": "Allianz Riviera",
+                    "city": "Nice"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 84,
+                    "name": "Nice",
+                    "logo": "https://media-2.api-sports.io/football/teams/84.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 80,
+                    "name": "Lyon",
+                    "logo": "https://media-1.api-sports.io/football/teams/80.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871846,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 671,
+                    "name": "Parc des Princes",
+                    "city": "Paris"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 85,
+                    "name": "Paris Saint Germain",
+                    "logo": "https://media-2.api-sports.io/football/teams/85.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 99,
+                    "name": "Clermont Foot",
+                    "logo": "https://media-3.api-sports.io/football/teams/99.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871847,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 641,
+                    "name": "Stade Francis-Le Blé",
+                    "city": "Brest"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 106,
+                    "name": "Stade Brestois 29",
+                    "logo": "https://media-1.api-sports.io/football/teams/106.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 94,
+                    "name": "Rennes",
+                    "logo": "https://media-2.api-sports.io/football/teams/94.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871848,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 674,
+                    "name": "Stade Auguste-Delaune II",
+                    "city": "Reims"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 93,
+                    "name": "Reims",
+                    "logo": "https://media-3.api-sports.io/football/teams/93.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 82,
+                    "name": "Montpellier",
+                    "logo": "https://media-1.api-sports.io/football/teams/82.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 871849,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2023-06-03T19:00:00+00:00",
+                "timestamp": 1685818800,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 684,
+                    "name": "Stade de l'Aube",
+                    "city": "Troyes"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media-1.api-sports.io/football/leagues/61.png",
+                "flag": "https://media-1.api-sports.io/flags/fr.svg",
+                "season": 2022,
+                "round": "Regular Season - 38"
+            },
+            "teams": {
+                "home": {
+                    "id": 110,
+                    "name": "Estac Troyes",
+                    "logo": "https://media-1.api-sports.io/football/teams/110.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 79,
+                    "name": "Lille",
+                    "logo": "https://media-1.api-sports.io/football/teams/79.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        }
+    ]
+}

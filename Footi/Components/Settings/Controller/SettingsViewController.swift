@@ -89,15 +89,15 @@ class SettingsViewController: UITableViewController {
     // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 56
+        return AppConstants.baseCellHeight
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
+        return AppConstants.baseCellHeight
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 6
+        return AppConstants.baseSectionSpacing
     }
 }
 
@@ -143,6 +143,6 @@ extension SettingsViewController {
     private func styleView() {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

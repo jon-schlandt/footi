@@ -76,7 +76,7 @@ class SettingOptionViewController: UITableViewController {
     // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
+        return AppConstants.baseCellHeight
     }
 }
 
@@ -102,6 +102,6 @@ extension SettingOptionViewController {
     private func styleView() {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

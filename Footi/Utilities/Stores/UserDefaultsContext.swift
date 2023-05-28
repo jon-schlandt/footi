@@ -20,19 +20,31 @@ struct UserDefaultsContext {
         return nil
     }
     
-    public func getSelectedLeague() -> [String: Any]? {
+    public func getSelectedLeague() -> LeagueSelection? {
         let leagueMap = userDefaults.object(forKey: "leagues") as? [String: [String: Any]]
         guard let leagueMap = leagueMap else {
             return nil
         }
         
-        let selectedLeague = leagueMap.keys.first { league in
+        let leagueKey = leagueMap.keys.first { league in
             let isSelected = leagueMap[league]?["isSelected"] as? Bool
             return isSelected ?? false
         }
         
-        if let selectedLeague = selectedLeague {
-            return leagueMap[selectedLeague]
+        guard let leagueKey = leagueKey else {
+            return nil
+        }
+        
+        let selectedLeague = leagueMap[leagueKey]
+        guard let selectedLeague = selectedLeague else {
+            return nil
+        }
+        
+        let leagueId = selectedLeague["id"] as? Int
+        let leagueTitle = selectedLeague["displayName"] as? String
+        if let leagueId = leagueId,
+           let leagueTitle = leagueTitle {
+            return LeagueSelection(id: leagueId, key: leagueKey, title: leagueTitle)
         }
         
         return nil

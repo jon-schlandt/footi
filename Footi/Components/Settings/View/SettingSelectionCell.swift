@@ -16,7 +16,7 @@ class SettingSelectionCell: UITableViewCell {
     private let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         
         return label
     }()
@@ -26,8 +26,6 @@ class SettingSelectionCell: UITableViewCell {
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
         checkmark.tintColor = UIColor.Palette.secondaryIcon
-        checkmark.image = UIImage(systemName: "checkmark")
-        checkmark.isHidden = true
         
         return checkmark
     }()
@@ -55,15 +53,15 @@ class SettingSelectionCell: UITableViewCell {
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
             label.trailingAnchor.constraint(equalTo: checkmark.leadingAnchor),
-            label.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            label.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: AppConstants.baseMargin),
             label.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            checkmark.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            checkmark.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin),
             checkmark.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            checkmark.widthAnchor.constraint(equalToConstant: 18),
-            checkmark.heightAnchor.constraint(equalToConstant: 18)
+            checkmark.widthAnchor.constraint(equalToConstant: 20),
+            checkmark.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
     
@@ -72,7 +70,7 @@ class SettingSelectionCell: UITableViewCell {
         
         key = nil
         label.text = nil
-        checkmark.isHidden = true
+        checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
     }
     
     // MARK: Public
@@ -84,7 +82,9 @@ class SettingSelectionCell: UITableViewCell {
         label.text = selection.title
         
         if selection.isEnabled == true {
-            checkmark.isHidden = false
+            checkmark.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+        } else {
+            checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
         }
     }
 }

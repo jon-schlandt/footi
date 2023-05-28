@@ -16,7 +16,7 @@ class SettingOptionCell: UITableViewCell {
     private let label: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: 15)
+        title.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         title.textColor = UIColor.Palette.secondaryText
         
         return title
@@ -48,15 +48,15 @@ class SettingOptionCell: UITableViewCell {
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
             label.trailingAnchor.constraint(equalTo: disclosureArrow.leadingAnchor),
-            label.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            label.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: AppConstants.baseMargin),
             label.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            disclosureArrow.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            disclosureArrow.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin),
             disclosureArrow.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            disclosureArrow.widthAnchor.constraint(equalToConstant: 18),
-            disclosureArrow.heightAnchor.constraint(equalToConstant: 18)
+            disclosureArrow.widthAnchor.constraint(equalToConstant: 16),
+            disclosureArrow.heightAnchor.constraint(equalToConstant: 16)
         ])
     }
     

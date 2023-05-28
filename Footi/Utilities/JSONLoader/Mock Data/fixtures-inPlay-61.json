@@ -1,0 +1,17 @@
+{
+    "get": "fixtures",
+    "parameters": {
+        "league": "61",
+        "to": "2023-05-14",
+        "from": "2023-05-14",
+        "status": "1H-HT-2H-ET-BT-P-INT-LIVE",
+        "season": "2022"
+    },
+    "errors": [],
+    "results": 0,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": []
+}

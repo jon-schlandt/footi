@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-struct CoreDataContext {
+class CoreDataContext {
     
     var appDelegate: AppDelegate?
     var moc : NSManagedObjectContext!
@@ -16,12 +16,22 @@ struct CoreDataContext {
     let userDefaultsContext = UserDefaultsContext()
     let leaguesService = LeaguesService()
     
+    // MARK: Model
+    
+    var leagues: [LeagueEntity]?
+    
+    // MARK: Lifecycle
+    
     init() {
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         moc = appDelegate?.persistentContainer.viewContext
+        
+        leagues = try? moc.fetch(LeagueEntity.fetchRequest())
     }
     
-    func fetchCurrentSeason(for leagueId: Int) async -> Int? {
+    // MARK: Public
+    
+    public func fetchCurrentSeason(for leagueId: Int) async -> Int? {
         let league = await fetchLeague(for: leagueId)
         guard let league = league else {
             return nil
@@ -37,7 +47,7 @@ struct CoreDataContext {
         return nil
     }
     
-    func fetchSeasons(for leagueId: Int) async -> [Int]? {
+    public func fetchSeasons(for leagueId: Int) async -> [Int]? {
         let league = await fetchLeague(for: leagueId)
         guard let league = league else {
             return nil
@@ -49,14 +59,13 @@ struct CoreDataContext {
         return years
     }
     
-    func fetchSeasonStartDate(leagueId: Int, season: Int) async -> String? {
+    public func fetchSeasonStartDate(leagueId: Int, season: Int) async -> String? {
         let league = await fetchLeague(for: leagueId)
-        guard let league = league else {
+        guard let seasons = league?.seasons as? Set<SeasonEntity> else {
             return nil
         }
         
-        let seasons = league.seasons as? Set<SeasonEntity>
-        let season = seasons?.first { $0.year == Int16(season) }
+        let season = seasons.first { $0.year == Int16(season) }
         if let season = season {
             return season.startDate
         }
@@ -64,14 +73,13 @@ struct CoreDataContext {
         return nil
     }
     
-    func fetchSeasonEndDate(leagueId: Int, season: Int) async -> String? {
+    public func fetchSeasonEndDate(leagueId: Int, season: Int) async -> String? {
         let league = await fetchLeague(for: leagueId)
-        guard let league = league else {
+        guard let seasons = league?.seasons as? Set<SeasonEntity> else {
             return nil
         }
         
-        let seasons = league.seasons as? Set<SeasonEntity>
-        let season = seasons?.first { $0.year == Int16(season) }
+        let season = seasons.first { $0.year == Int16(season) }
         if let season = season {
             return season.endDate
         }
@@ -79,18 +87,19 @@ struct CoreDataContext {
         return nil
     }
     
-    func fetchLeague(for leagueId: Int) async -> LeagueEntity? {
-        let leagues = try? moc.fetch(LeagueEntity.fetchRequest())
+    // MARK: Private
+    
+    private func fetchLeague(for leagueId: Int) async -> LeagueEntity? {
         let league = leagues?.first { $0.id == leagueId }
         guard let league = league else {
             await loadLeague(for: leagueId)
             return await fetchLeague(for: leagueId)
         }
-
+        
         return league
     }
 
-    func loadLeague(for leagueId: Int) async {
+    private func loadLeague(for leagueId: Int) async {
         let league = await leaguesService.getLeagueBy(leagueId: leagueId)
         guard let league = league else {
             return
@@ -99,7 +108,7 @@ struct CoreDataContext {
         return await loadLeague(using: league)
     }
     
-    func loadLeague(using league: League) async {
+    private func loadLeague(using league: League) async {
         let leagueEntity = LeagueEntity(context: moc)
         leagueEntity.id = Int16(league.overview.id)
         leagueEntity.name = league.overview.name
@@ -116,5 +125,6 @@ struct CoreDataContext {
         }
         
         await appDelegate?.saveContext()
+        leagues = try? moc.fetch(LeagueEntity.fetchRequest())
     }
 }

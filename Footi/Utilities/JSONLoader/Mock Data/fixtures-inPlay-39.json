@@ -1,0 +1,87 @@
+{
+    "get": "fixtures",
+    "parameters": {
+        "league": "39",
+        "to": "2023-05-14",
+        "from": "2023-05-14",
+        "status": "1H-HT-2H-ET-BT-P-INT-LIVE",
+        "season": "2022"
+    },
+    "errors": [],
+    "results": 1,
+    "paging": {
+        "current": 1,
+        "total": 1
+    },
+    "response": [
+        {
+            "fixture": {
+                "id": 868296,
+                "referee": "Andy Madley, England",
+                "timezone": "UTC",
+                "date": "2023-05-14T15:30:00+00:00",
+                "timestamp": 1684078200,
+                "periods": {
+                    "first": 1684078200,
+                    "second": null
+                },
+                "venue": {
+                    "id": 494,
+                    "name": "Emirates Stadium",
+                    "city": "London"
+                },
+                "status": {
+                    "long": "First Half",
+                    "short": "1H",
+                    "elapsed": 9
+                }
+            },
+            "league": {
+                "id": 39,
+                "name": "Premier League",
+                "country": "England",
+                "logo": "https://media-2.api-sports.io/football/leagues/39.png",
+                "flag": "https://media-3.api-sports.io/flags/gb.svg",
+                "season": 2022,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 42,
+                    "name": "Arsenal",
+                    "logo": "https://media-1.api-sports.io/football/teams/42.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 51,
+                    "name": "Brighton",
+                    "logo": "https://media-3.api-sports.io/football/teams/51.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": 0,
+                "away": 0
+            },
+            "score": {
+                "halftime": {
+                    "home": 0,
+                    "away": 0
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        }
+    ]
+}
+

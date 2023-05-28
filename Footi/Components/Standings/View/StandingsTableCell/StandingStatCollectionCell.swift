@@ -16,7 +16,7 @@ class StandingStatCollectionCell: UICollectionViewCell {
     let statLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -43,7 +43,7 @@ class StandingStatCollectionCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        statLabel.font = UIFont.systemFont(ofSize: 14)
+        statLabel.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         statLabel.text = nil
     }
 }

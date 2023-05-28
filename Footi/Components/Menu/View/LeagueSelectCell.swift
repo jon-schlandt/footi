@@ -52,6 +52,8 @@ class LeagueSelectCell: UICollectionViewCell {
         ])
     }
     
+    // MARK: Public
+    
     public func configure(with selection: LeagueSelection) {
         self.selection = selection
         

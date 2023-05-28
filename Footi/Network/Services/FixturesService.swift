@@ -8,83 +8,103 @@
 import Foundation
 
 protocol FixturesServiceable {
-    func getFixturesForToday(for leagueId: Int) async -> [Fixture]?
-    func getFixturesInPlay(for leagueId: Int) async -> [Fixture]?
-    func getUpcomingFixtures(for leagueId: Int) async -> [Fixture]?
-    func getPastResults(for leagueId: Int) async -> [Fixture]?
-    func getFixturesBy(leagueId: Int, season: Int, from: String, to: String) async -> [Fixture]?
-    func getFixturesBy(leagueId: Int, season: Int, from: String, to: String, status: String) async -> [Fixture]?
+    func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [Fixture]
 }
 
 struct FixturesService: HTTPClient, FixturesServiceable {
     
     private let coreDataContext = CoreDataContext()
     
-    func getFixturesForToday(for leagueId: Int) async -> [Fixture]? {
-        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
-        guard let currentSeason = currentSeason else {
-            return nil
+    // MARK: Public
+    
+    public func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [Fixture] {
+        switch filterType {
+        case .inPlay:
+            return await getFixturesInPlay(for: leagueId)
+        case .today:
+            return await getFixturesToday(for: leagueId)
+        case .upcoming:
+            return await getFixturesUpcoming(for: leagueId)
+        case .past:
+            return await getFixturesPast(for: leagueId)
         }
-        
-        let dateToday = Date.getCurrentDate(as: "yyyy-MM-dd")
-        return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateToday, to: dateToday)
     }
     
-    func getFixturesInPlay(for leagueId: Int) async -> [Fixture]? {
+    // MARK: Private
+    
+    private func getFixturesInPlay(for leagueId: Int) async -> [Fixture] {
         let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
         guard let currentSeason = currentSeason else {
-            return nil
+            return [Fixture]()
         }
         
-        let dateToday = Date.getCurrentDate(as: "yyyy-MM-dd")
+        let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
         let statusInPlay = "1H-HT-2H-ET-BT-P-INT-LIVE"
         
         return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateToday, to: dateToday, status: statusInPlay)
     }
     
-    func getUpcomingFixtures(for leagueId: Int) async -> [Fixture]? {
+    private func getFixturesToday(for leagueId: Int) async -> [Fixture] {
         let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
         guard let currentSeason = currentSeason else {
-            return nil
+            return [Fixture]()
+        }
+
+        let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
+        return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateToday, to: dateToday)
+    }
+    
+    private func getFixturesUpcoming(for leagueId: Int) async -> [Fixture] {
+        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
+        guard let currentSeason = currentSeason else {
+            return [Fixture]()
         }
         
-        let dateTomorrow = Date.getDateTomorrow(as: "yyyy-MM-dd")
+        let dateTomorrow = Date.getDateStringTomorrow(as: "yyyy-MM-dd")
         
         let seasonEndDate = await coreDataContext.fetchSeasonEndDate(leagueId: leagueId, season: currentSeason)
         if let seasonEndDate = seasonEndDate {
             return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateTomorrow, to: seasonEndDate)
         }
         
-        return nil
+        return [Fixture]()
     }
     
-    func getPastResults(for leagueId: Int) async -> [Fixture]? {
+    private func getFixturesPast(for leagueId: Int) async -> [Fixture] {
         let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
         guard let currentSeason = currentSeason else {
-            return nil
+            return [Fixture]()
         }
         
-        let dateYesterday = Date.getDateYesterday(as: "yyyy-MM-dd")
+        let dateYesterday = Date.getDateStringYesterday(as: "yyyy-MM-dd")
         
         let seasonStartDate = await coreDataContext.fetchSeasonStartDate(leagueId: leagueId, season: currentSeason)
         if let seasonStartDate = seasonStartDate {
-            return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateYesterday, to: seasonStartDate)
+            return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: seasonStartDate, to: dateYesterday)
         }
         
-        return nil
+        return [Fixture]()
     }
     
-    func getFixturesBy(leagueId: Int, season: Int, from: String, to: String) async -> [Fixture]? {
+    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String) async -> [Fixture] {
         let endpoint = FixturesEndpoint.byDateRange(leagueId: leagueId, season: season, from: from, to: to)
-        let fixtures = try? (await sendRequest(to: endpoint, expect: Fixtures.self)).get().response
         
-        return fixtures
+        let fixtures = try? (await sendRequest(to: endpoint, expect: FixturesResponse.self)).get().response
+        if let fixtures = fixtures {
+            return fixtures
+        }
+        
+        return [Fixture]()
     }
     
-    func getFixturesBy(leagueId: Int, season: Int, from: String, to: String, status: String) async -> [Fixture]? {
+    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String, status: String) async -> [Fixture] {
         let endpoint = FixturesEndpoint.byDateRangeAndStatus(leagueId: leagueId, season: season, from: from, to: to, status: status)
-        let fixtures = try? (await sendRequest(to: endpoint, expect: Fixtures.self)).get().response
         
-        return fixtures
+        let fixtures = try? (await sendRequest(to: endpoint, expect: FixturesResponse.self)).get().response
+        if let fixtures = fixtures {
+            return fixtures
+        }
+        
+        return [Fixture]()
     }
 }

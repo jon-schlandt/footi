@@ -33,7 +33,7 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
         label.textColor = UIColor.Palette.tertiaryText
         label.text = "Club"
         view.addSubview(label)
@@ -57,7 +57,7 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin, bottom: 0, right: AppConstants.baseMargin)
         layout.itemSize = CGSize(width: 28, height: 52)
         layout.scrollDirection = .horizontal
         
@@ -103,7 +103,7 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
             container.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             container.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             container.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.baseMargin)
         ])
         
         NSLayoutConstraint.activate([
@@ -114,7 +114,7 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
         ])
         
         NSLayoutConstraint.activate([
-            separator.widthAnchor.constraint(equalToConstant: 1),
+            separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
             separator.topAnchor.constraint(equalTo: container.topAnchor),
             separator.leadingAnchor.constraint(equalTo: clubTitleView.trailingAnchor),
             separator.bottomAnchor.constraint(equalTo: container.bottomAnchor),
@@ -166,6 +166,6 @@ extension StandingsTableHeader: UICollectionViewDelegate {
 extension StandingsTableHeader {
     
     private func setStyling() {
-        self.addBorders(edges: [.top, .bottom], color: UIColor.Palette.border!)
+        self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = 1.0, offset: CGFloat = 0) {
+    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, offset: CGFloat = 0) {
         if (edges.contains(.all) || edges.contains(.top)) {
             let topBorder = createBorder(color: color)
             self.addSubview(topBorder)

@@ -36,7 +36,8 @@ extension UIColor {
     }
     
     struct Palette {
-        static let background = UIColor(named: "background")
+        static let primaryBackground = UIColor(named: "primaryBackground")
+        static let secondaryBackground = UIColor(named: "secondaryBackground")
         static let bar = UIColor(named: "bar")
         static let border = UIColor(named: "border")
         static let foreground = UIColor(named: "foreground")

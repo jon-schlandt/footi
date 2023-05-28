@@ -110,6 +110,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         let container = NSPersistentContainer(name: "Footi")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//            if let store = container.viewContext.persistentStoreCoordinator?.persistentStores.first {
+//                print("here")
+//                if let url = container.viewContext.persistentStoreCoordinator?.url(for: store) {
+//                    let fileManager = FileManager.default
+//
+//                    do {
+//                        try fileManager.removeItem(at: url)
+//                        print("Persistent store deleted.")
+//                    } catch {
+//                        print("Failed to delete persistent store: \(error)")
+//                    }
+//                }
+//            }
+            
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

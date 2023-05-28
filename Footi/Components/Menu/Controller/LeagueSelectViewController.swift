@@ -7,12 +7,6 @@
 
 import UIKit
 
-struct LeagueSelection {
-    var id: Int
-    var key: String
-    var title: String
-}
-
 protocol LeagueSelectViewControllerDelegate: AnyObject {
     func selectLeague()
 }

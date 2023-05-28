@@ -34,7 +34,7 @@ class StandingsTableCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin, bottom: 0, right: AppConstants.baseMargin)
         layout.itemSize = CGSize(width: 28, height: 54)
         layout.scrollDirection = .horizontal
         
@@ -88,7 +88,7 @@ class StandingsTableCell: UITableViewCell {
             container.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             container.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             container.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.baseMargin)
         ])
         
         NSLayoutConstraint.activate([
@@ -99,7 +99,7 @@ class StandingsTableCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            separator.widthAnchor.constraint(equalToConstant: 1),
+            separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
             separator.topAnchor.constraint(equalTo: container.topAnchor),
             separator.trailingAnchor.constraint(equalTo: statsView.leadingAnchor),
             separator.bottomAnchor.constraint(equalTo: container.bottomAnchor),
@@ -129,19 +129,19 @@ class StandingsTableCell: UITableViewCell {
     
     // MARK: Public
     
-    public func configure(with standing: ClubStanding) {
-        clubPositionView.positionLabel.text = String(standing.position)
-        clubPositionView.clubBadge.load(url: URL(string: standing.clubBadgeUrl)!)
-        clubPositionView.clubTitle.text = standing.clubTitle
+    public func configure(with standing: Standing) {
+        clubPositionView.positionLabel.text = String(standing.rank)
+        clubPositionView.clubBadge.load(url: URL(string: standing.club.logo)!)
+        clubPositionView.clubTitle.text = standing.club.name
         
-        stats.append(String(standing.matchesPlayed))
-        stats.append(String(standing.goalsFor))
-        stats.append(String(standing.goalsAgainst))
+        stats.append(String(standing.record.played))
+        stats.append(String(standing.record.goals.scored))
+        stats.append(String(standing.record.goals.conceded))
         stats.append(String(standing.points))
-        stats.append(String(standing.wins))
-        stats.append(String(standing.draws))
-        stats.append(String(standing.losses))
-        stats.append(String(standing.goalDeficit))
+        stats.append(String(standing.record.won))
+        stats.append(String(standing.record.drew))
+        stats.append(String(standing.record.lost))
+        stats.append(String(standing.goalDifference))
         
         statsView.reloadData()
     }
@@ -162,7 +162,7 @@ extension StandingsTableCell: UICollectionViewDataSource {
         let stat = stats[indexPath.row]
         
         if indexPath.row == 3 {
-            cell.statLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+            cell.statLabel.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
         }
         
         cell.statLabel.text = stat

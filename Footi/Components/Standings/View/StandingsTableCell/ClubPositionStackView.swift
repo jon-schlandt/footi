@@ -21,7 +21,7 @@ class ClubPositionStackView: UIStackView {
     let positionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -43,8 +43,8 @@ class ClubPositionStackView: UIStackView {
         badge.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-            badge.widthAnchor.constraint(equalToConstant: 18),
-            badge.heightAnchor.constraint(equalToConstant: 18)
+            badge.widthAnchor.constraint(equalToConstant: ComponentConstants.clubBadgeWidth),
+            badge.heightAnchor.constraint(equalToConstant: ComponentConstants.clubBadgeWidth)
         ])
         
         return badge
@@ -52,7 +52,7 @@ class ClubPositionStackView: UIStackView {
     
     let clubTitle: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: 14)
+        title.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         title.textColor = UIColor.Palette.primaryText
         
         return title

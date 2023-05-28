@@ -8,15 +8,21 @@
 import Foundation
 
 extension Date {
+    
+    // MARK: Public
+    
+    public static func getDateFromISO8601(using isoString: String) -> Date? {
+        let dateFormatter = ISO8601DateFormatter()
+        let date = dateFormatter.date(from: isoString)
+        
+        return date
+    }
 
-    static func getCurrentDate(as format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-
-        return dateFormatter.string(from: Date())
+    public static func getCurrentDateString(as format: String) -> String {
+        return getDateString(from: Date(), as: format)
     }
     
-    static func getDateYesterday(as format: String) -> String {
+    public static func getDateStringYesterday(as format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         
@@ -26,7 +32,7 @@ extension Date {
         return dateFormatter.string(from: yesterday)
     }
     
-    static func getDateTomorrow(as format: String) -> String {
+    public static func getDateStringTomorrow(as format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         
@@ -34,5 +40,12 @@ extension Date {
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: noonToday)!
         
         return dateFormatter.string(from: tomorrow)
+    }
+    
+    public static func getDateString(from date: Date, as format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.string(from: date)
     }
 }

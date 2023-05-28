@@ -24,7 +24,7 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
     private let title: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        title.font = UIFont.systemFont(ofSize: FontConstants.mediumSize, weight: .medium)
         
         return title
     }()
@@ -45,7 +45,7 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
         ])
         
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.baseMargin),
             title.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
@@ -54,15 +54,13 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Public
+    
     public func configure(with group: SettingGroup) {
         title.text = group.title
     }
     
     public func style(for section: Int) {
-        if (section != 0) {
-            self.addBorders(edges: [.top], color: UIColor.Palette.border!)
-        }
-        
         self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

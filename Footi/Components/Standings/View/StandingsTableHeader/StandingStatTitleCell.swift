@@ -16,7 +16,7 @@ class StandingStatTitleCell: UICollectionViewCell {
     let statTitle: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        title.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
         title.textColor = UIColor.Palette.tertiaryText
         
         return title

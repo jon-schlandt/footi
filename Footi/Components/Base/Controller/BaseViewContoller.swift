@@ -25,6 +25,7 @@ class BaseViewContoller: UIViewController {
     
     var menuNav: BaseNavigationController!
     var leagueDataFilterNav: BaseNavigationController!
+    var baseStackView: UIStackView!
     var leagueHeader = LeagueHeaderView()
     
     // MARK: Model
@@ -33,6 +34,37 @@ class BaseViewContoller: UIViewController {
     var leagueHeaderDetails: LeagueHeaderDetails!
     
     // MARK: Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        let rootView = UIView()
+        
+        baseStackView = UIStackView()
+        baseStackView.translatesAutoresizingMaskIntoConstraints = false
+        baseStackView.axis = .vertical
+        baseStackView.distribution = .fill
+        baseStackView.alignment = .center
+        baseStackView.spacing = AppConstants.baseSectionSpacing
+        
+        baseStackView.addArrangedSubview(self.leagueHeader)
+        rootView.addSubview(baseStackView)
+        
+        NSLayoutConstraint.activate([
+            baseStackView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
+            baseStackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
+            baseStackView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor),
+            baseStackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            leagueHeader.trailingAnchor.constraint(equalTo: baseStackView.trailingAnchor),
+            leagueHeader.leadingAnchor.constraint(equalTo: baseStackView.leadingAnchor),
+            leagueHeader.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight)
+        ])
+        
+        view = rootView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

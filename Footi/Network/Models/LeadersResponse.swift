@@ -1,5 +1,5 @@
 //
-//  TopScorers.swift
+//  LeadersResponse.swift
 //  Footi
 //
 //  Created by Jon Schlandt on 2/22/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Leaders: Codable {
+struct LeadersResponse: Codable {
     let errors: [ApiError]
     let results: Int
     let paging: ApiPaging
@@ -26,6 +26,7 @@ struct Leader: Codable {
 
 struct LeaderOverview: Codable {
     var id: Int
+    var position: Int?
     var displayName: String
     var firstName: String
     var lastName: String

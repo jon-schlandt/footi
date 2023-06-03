@@ -18,69 +18,54 @@ struct FixturesService: HTTPClient, FixturesServiceable {
     // MARK: Public
     
     public func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [Fixture] {
+        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
+        guard let currentSeason = currentSeason else {
+            return [Fixture]()
+        }
+        
         switch filterType {
         case .inPlay:
-            return await getFixturesInPlay(for: leagueId)
+            return await getFixturesInPlay(for: leagueId, season: currentSeason)
         case .today:
-            return await getFixturesToday(for: leagueId)
+            return await getFixturesToday(for: leagueId, season: currentSeason)
         case .upcoming:
-            return await getFixturesUpcoming(for: leagueId)
+            return await getFixturesUpcoming(for: leagueId, season: currentSeason)
         case .past:
-            return await getFixturesPast(for: leagueId)
+            return await getFixturesPast(for: leagueId, season: currentSeason)
         }
     }
     
     // MARK: Private
     
-    private func getFixturesInPlay(for leagueId: Int) async -> [Fixture] {
-        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
-        guard let currentSeason = currentSeason else {
-            return [Fixture]()
-        }
-        
+    private func getFixturesInPlay(for leagueId: Int, season: Int) async -> [Fixture] {
         let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
         let statusInPlay = "1H-HT-2H-ET-BT-P-INT-LIVE"
         
-        return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateToday, to: dateToday, status: statusInPlay)
+        return await getFixturesBy(leagueId: leagueId, season: season, from: dateToday, to: dateToday, status: statusInPlay)
     }
     
-    private func getFixturesToday(for leagueId: Int) async -> [Fixture] {
-        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
-        guard let currentSeason = currentSeason else {
-            return [Fixture]()
-        }
-
+    private func getFixturesToday(for leagueId: Int, season: Int) async -> [Fixture] {
         let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
-        return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateToday, to: dateToday)
+        return await getFixturesBy(leagueId: leagueId, season: season, from: dateToday, to: dateToday)
     }
     
-    private func getFixturesUpcoming(for leagueId: Int) async -> [Fixture] {
-        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
-        guard let currentSeason = currentSeason else {
-            return [Fixture]()
-        }
-        
+    private func getFixturesUpcoming(for leagueId: Int, season: Int) async -> [Fixture] {
         let dateTomorrow = Date.getDateStringTomorrow(as: "yyyy-MM-dd")
         
-        let seasonEndDate = await coreDataContext.fetchSeasonEndDate(leagueId: leagueId, season: currentSeason)
+        let seasonEndDate = await coreDataContext.fetchSeasonEndDate(leagueId: leagueId, season: season)
         if let seasonEndDate = seasonEndDate {
-            return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: dateTomorrow, to: seasonEndDate)
+            return await getFixturesBy(leagueId: leagueId, season: season, from: dateTomorrow, to: seasonEndDate)
         }
         
         return [Fixture]()
     }
     
-    private func getFixturesPast(for leagueId: Int) async -> [Fixture] {
-        let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
-        guard let currentSeason = currentSeason else {
-            return [Fixture]()
-        }
-        
+    private func getFixturesPast(for leagueId: Int, season: Int) async -> [Fixture] {
         let dateYesterday = Date.getDateStringYesterday(as: "yyyy-MM-dd")
         
-        let seasonStartDate = await coreDataContext.fetchSeasonStartDate(leagueId: leagueId, season: currentSeason)
+        let seasonStartDate = await coreDataContext.fetchSeasonStartDate(leagueId: leagueId, season: season)
         if let seasonStartDate = seasonStartDate {
-            return await getFixturesBy(leagueId: leagueId, season: currentSeason, from: seasonStartDate, to: dateYesterday)
+            return await getFixturesBy(leagueId: leagueId, season: season, from: seasonStartDate, to: dateYesterday)
         }
         
         return [Fixture]()

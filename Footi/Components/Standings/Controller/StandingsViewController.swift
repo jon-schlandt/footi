@@ -13,7 +13,7 @@ protocol StandingsScrollViewDelegate: AnyObject {
 
 class StandingsViewController: BaseViewContoller {
     
-    // MARK: Controllers and Views
+    // MARK: View
     
     let standingsTableVC: UITableViewController = {
         let vc = UITableViewController()
@@ -37,41 +37,14 @@ class StandingsViewController: BaseViewContoller {
     override func loadView() {
         super.loadView()
         
-        let rootView = UIView()
-        
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .center
-        stackView.spacing = AppConstants.baseSectionSpacing
-        rootView.addSubview(stackView)
-        
         let standingsTable = standingsTableVC.tableView!
-        
-        stackView.addArrangedSubview(self.leagueHeader)
-        stackView.addArrangedSubview(standingsTable)
+        self.baseStackView.addArrangedSubview(standingsTable)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
+            standingsTable.trailingAnchor.constraint(equalTo: self.baseStackView.trailingAnchor),
+            standingsTable.bottomAnchor.constraint(equalTo: self.baseStackView.bottomAnchor),
+            standingsTable.leadingAnchor.constraint(equalTo: self.baseStackView.leadingAnchor),
         ])
-        
-        NSLayoutConstraint.activate([
-            self.leagueHeader.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            self.leagueHeader.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            self.leagueHeader.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
-            standingsTable.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            standingsTable.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
-            standingsTable.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-        ])
-        
-        view = rootView
     }
     
     override func viewDidLoad() {
@@ -89,8 +62,8 @@ class StandingsViewController: BaseViewContoller {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if (self.hasLeagueChanged()) {
             _Concurrency.Task {
@@ -128,16 +101,15 @@ class StandingsViewController: BaseViewContoller {
     }
     
     override func loadModel() async {
-        initializeModel()
-        
         guard let filterOption = self.getEnabledFilterOption(),
               let filterValue = Int(filterOption.value) else {
             return
         }
         
+        initializeModel()
+        
         standings = getMockStandings(for: self.leagueHeaderDetails.leagueId, season: filterValue)
 //        standings = await standingsService.getStandingsBy(leagueId: self.leagueHeaderDetails.leagueId, season: filterValue)
-        
         standingsTableVC.tableView.reloadData()
     }
 }

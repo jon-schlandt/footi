@@ -32,41 +32,14 @@ class FixturesViewController: BaseViewContoller {
     override func loadView() {
         super.loadView()
         
-        let rootView = UIView()
-        
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .center
-        stackView.spacing = AppConstants.baseSectionSpacing
-        rootView.addSubview(stackView)
-        
         let fixturesTable = fixturesTableVC.tableView!
-        
-        stackView.addArrangedSubview(self.leagueHeader)
-        stackView.addArrangedSubview(fixturesTable)
+        self.baseStackView.addArrangedSubview(fixturesTable)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
+            fixturesTable.trailingAnchor.constraint(equalTo: self.baseStackView.trailingAnchor),
+            fixturesTable.bottomAnchor.constraint(equalTo: self.baseStackView.bottomAnchor),
+            fixturesTable.leadingAnchor.constraint(equalTo: self.baseStackView.leadingAnchor),
         ])
-        
-        NSLayoutConstraint.activate([
-            self.leagueHeader.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            self.leagueHeader.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-            self.leagueHeader.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight)
-        ])
-        
-        NSLayoutConstraint.activate([
-            fixturesTable.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            fixturesTable.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
-            fixturesTable.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-        ])
-        
-        view = rootView
     }
     
     override func viewDidLoad() {
@@ -84,8 +57,8 @@ class FixturesViewController: BaseViewContoller {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if (self.hasLeagueChanged()) {
             _Concurrency.Task {
@@ -118,8 +91,8 @@ class FixturesViewController: BaseViewContoller {
             return
         }
         
-        var fixtures = await fixturesService.getFixtures(leagueId: self.leagueHeaderDetails.leagueId, filterType: filterValue)
-//        var fixtures = getMockFixtures(for: self.leagueHeaderDetails.leagueId, using: filterValue)
+//        var fixtures = await fixturesService.getFixtures(leagueId: self.leagueHeaderDetails.leagueId, filterType: filterValue)
+        var fixtures = getMockFixtures(for: self.leagueHeaderDetails.leagueId, using: filterValue)
         
         if (filterValue == .past) {
             fixtures.sort { $0.overview.date > $1.overview.date }
@@ -234,25 +207,13 @@ extension FixturesViewController {
     
     private func getMockFixtures(for leagueId: Int, using filterValue: FixtureFilterType) -> [Fixture] {
         let daysSince = numberOfDaysSince(Date.getDateFromISO8601(using: "2023-05-14T12:00:00Z")!)
-        var fileName: String
         
-        switch filterValue {
-        case .inPlay:
-            fileName = "fixtures-inPlay-\(leagueId)"
-        case .today:
-            fileName = "fixtures-today-\(leagueId)"
-        case .upcoming:
-            fileName = "fixtures-upcoming-\(leagueId)"
-        case .past:
-            fileName = "fixtures-past-\(leagueId)"
-        }
-        
-        let fixtures = JSONLoader.loadJSONData(from: fileName, decodingType: FixturesResponse.self)?.response
+        let fixtures = JSONLoader.loadJSONData(from: "fixtures-\(filterValue.rawValue)-\(leagueId)", decodingType: FixturesResponse.self)?.response
         guard var fixtures = fixtures else {
             return [Fixture]()
         }
         
-        if fileName.range(of: "today", options: .caseInsensitive) != nil {
+        if filterValue == .today {
             fixtures = fixtures.map { fixture in
                 var fixture = fixture
                 fixture.overview.date = updateISODateString(isoString: fixture.overview.date, byDays: daysSince)!

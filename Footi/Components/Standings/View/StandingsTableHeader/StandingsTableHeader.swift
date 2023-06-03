@@ -100,10 +100,10 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            container.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            container.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: AppConstants.baseMargin)
+            container.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            container.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            container.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            container.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: AppConstants.baseMargin)
         ])
         
         NSLayoutConstraint.activate([

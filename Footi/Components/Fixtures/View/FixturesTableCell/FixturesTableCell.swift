@@ -11,9 +11,9 @@ class FixturesTableCell: UITableViewCell {
 
     static let identifier = String(describing: FixturesTableHeader.self)
     
-    // MARK: Views
+    // MARK: View
     
-    let container: UIStackView = {
+    private let container: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
@@ -22,9 +22,9 @@ class FixturesTableCell: UITableViewCell {
         return view
     }()
     
-    let matchupView = FixtureMatchupView()
+    private let matchupView = FixtureMatchupView()
     
-    let separatorView: UIView = {
+    private let separatorView: UIView = {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         
@@ -47,7 +47,7 @@ class FixturesTableCell: UITableViewCell {
         return container
     }()
     
-    var statusView = UIView()
+    private var statusView = UIView()
     
     // MARK: Lifecycle
 
@@ -83,8 +83,7 @@ class FixturesTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        matchupView.homeSide.initialize()
-        matchupView.awaySide.initialize()
+        matchupView.initialize()
         
         container.removeArrangedSubview(statusView)
         statusView.removeFromSuperview()
@@ -114,10 +113,13 @@ class FixturesTableCell: UITableViewCell {
     }
 }
 
+/// Private methods
 extension FixturesTableCell {
     
     private func setStyling() {
         self.selectionStyle = .none
+        
+        self.contentView.backgroundColor = UIColor.Palette.foreground
         self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

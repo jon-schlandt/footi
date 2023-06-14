@@ -9,14 +9,14 @@ import UIKit
 
 class LeagueDataFilterTableCell: UITableViewCell {
     
-    static let identifier = String(describing: LeagueDataFilterTableCell.self)
+    public static let identifier = String(describing: LeagueDataFilterTableCell.self)
     
     // MARK: Views
     
     private let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         
         return label
     }()
@@ -25,7 +25,9 @@ class LeagueDataFilterTableCell: UITableViewCell {
         let checkmark = UIImageView()
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
+        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16.0, weight: .light, scale: .medium))
         checkmark.tintColor = UIColor.Palette.secondaryIcon
+        checkmark.isHidden = true
         
         return checkmark
     }()
@@ -43,7 +45,7 @@ class LeagueDataFilterTableCell: UITableViewCell {
         self.contentView.addSubview(label)
         self.contentView.addSubview(checkmark)
         
-        self.style()
+        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -59,9 +61,7 @@ class LeagueDataFilterTableCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             checkmark.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin),
-            checkmark.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            checkmark.widthAnchor.constraint(equalToConstant: 20),
-            checkmark.heightAnchor.constraint(equalToConstant: 20)
+            checkmark.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     
@@ -70,7 +70,7 @@ class LeagueDataFilterTableCell: UITableViewCell {
         
         value = nil
         label.text = nil
-        checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+        checkmark.isHidden = true
     }
     
     // MARK: Public
@@ -82,9 +82,9 @@ class LeagueDataFilterTableCell: UITableViewCell {
         label.text = option.displayName
         
         if option.isEnabled {
-            checkmark.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            checkmark.isHidden = false
         } else {
-            checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            checkmark.isHidden = true
         }
     }
 }
@@ -92,7 +92,7 @@ class LeagueDataFilterTableCell: UITableViewCell {
 /// Private methods
 extension LeagueDataFilterTableCell {
     
-    private func style() {
+    private func setStyling() {
         self.selectionStyle = .none
         
         self.backgroundColor = UIColor.Palette.foreground

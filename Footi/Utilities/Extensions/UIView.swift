@@ -10,15 +10,16 @@ import UIKit
 
 extension UIView {
     
-    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, offset: CGFloat = 0) {
+    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, lOffset: CGFloat = 0, rOffset: CGFloat = 0) {
+        
         if (edges.contains(.all) || edges.contains(.top)) {
             let topBorder = createBorder(color: color)
             self.addSubview(topBorder)
             
             NSLayoutConstraint.activate([
                 topBorder.topAnchor.constraint(equalTo: self.topAnchor),
-                topBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: offset),
-                topBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -offset),
+                topBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lOffset),
+                topBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -rOffset),
                 topBorder.heightAnchor.constraint(equalToConstant: width)
             ])
         }
@@ -28,8 +29,8 @@ extension UIView {
             self.addSubview(leftBorder)
             
             NSLayoutConstraint.activate([
-                leftBorder.topAnchor.constraint(equalTo: self.topAnchor, constant: offset),
-                leftBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offset),
+                leftBorder.topAnchor.constraint(equalTo: self.topAnchor, constant: lOffset),
+                leftBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -rOffset),
                 leftBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 leftBorder.widthAnchor.constraint(equalToConstant: width)
             ])
@@ -40,8 +41,8 @@ extension UIView {
             self.addSubview(rightBorder)
             
             NSLayoutConstraint.activate([
-                rightBorder.topAnchor.constraint(equalTo: self.topAnchor, constant: offset),
-                rightBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -offset),
+                rightBorder.topAnchor.constraint(equalTo: self.topAnchor, constant: lOffset),
+                rightBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -rOffset),
                 rightBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 rightBorder.widthAnchor.constraint(equalToConstant: width)
             ])
@@ -53,8 +54,8 @@ extension UIView {
             
             NSLayoutConstraint.activate([
                 bottomBorder.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                bottomBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: offset),
-                bottomBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -offset),
+                bottomBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: lOffset),
+                bottomBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -rOffset),
                 bottomBorder.heightAnchor.constraint(equalToConstant: width)
             ])
         }

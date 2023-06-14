@@ -9,9 +9,9 @@ import UIKit
 
 class MatchupSideStackView: UIStackView {
 
-    // MARK: Views
+    // MARK: View
     
-    let clubView: UIStackView = {
+    private let clubView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fill
@@ -21,7 +21,7 @@ class MatchupSideStackView: UIStackView {
         return view
     }()
     
-    let clubBadge: UIImageView = {
+    public let clubBadge: UIImageView = {
         let badge = UIImageView()
         badge.translatesAutoresizingMaskIntoConstraints = false
         badge.contentMode = .scaleAspectFit
@@ -34,15 +34,15 @@ class MatchupSideStackView: UIStackView {
         return badge
     }()
     
-    let clubTitle: UILabel = {
+    public let clubTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: "Inter-Regular", size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
     }()
     
-    let scoreView: UIStackView = {
+    private let scoreView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fill
@@ -52,11 +52,11 @@ class MatchupSideStackView: UIStackView {
         return view
     }()
     
-    let scoreLabel: UILabel = {
+    public let scoreLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: "Inter-Regular", size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         NSLayoutConstraint.activate([
@@ -66,7 +66,7 @@ class MatchupSideStackView: UIStackView {
         return label
     }()
     
-    let winIndicator: UIImageView = {
+    public let winIndicator: UIImageView = {
         let indicator = UIImageView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.contentMode = .scaleAspectFit

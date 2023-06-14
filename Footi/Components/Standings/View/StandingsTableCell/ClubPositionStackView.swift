@@ -9,25 +9,25 @@ import UIKit
 
 class ClubPositionStackView: UIStackView {
     
-    // MARK: Views
+    // MARK: View
     
-    let positionView: UIView = {
+    private let positionView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
     
-    let positionLabel: UILabel = {
+    private let positionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
     }()
     
-    let clubView: UIStackView = {
+    private let clubView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fill
@@ -37,7 +37,7 @@ class ClubPositionStackView: UIStackView {
         return view
     }()
     
-    let clubBadge: UIImageView = {
+    private let clubBadge: UIImageView = {
         let badge = UIImageView()
         badge.translatesAutoresizingMaskIntoConstraints = false
         badge.contentMode = .scaleAspectFit
@@ -50,9 +50,9 @@ class ClubPositionStackView: UIStackView {
         return badge
     }()
     
-    let clubTitle: UILabel = {
+    private let clubTitle: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        title.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         title.textColor = UIColor.Palette.primaryText
         
         return title
@@ -73,9 +73,8 @@ class ClubPositionStackView: UIStackView {
         clubView.addArrangedSubview(clubBadge)
         clubView.addArrangedSubview(clubTitle)
         
-        [positionView, clubView].forEach { item in
-            self.addArrangedSubview(item)
-        }
+        self.addArrangedSubview(positionView)
+        self.addArrangedSubview(clubView)
     }
     
     required init(coder: NSCoder) {
@@ -90,5 +89,19 @@ class ClubPositionStackView: UIStackView {
             positionLabel.centerXAnchor.constraint(equalTo: positionView.centerXAnchor),
             positionLabel.centerYAnchor.constraint(equalTo: positionView.centerYAnchor)
         ])
+    }
+    
+    // MARK: Public
+    
+    public func configure(with standing: Standing) {
+        positionLabel.text = String(standing.rank)
+        clubBadge.load(url: URL(string: standing.club.logo)!)
+        clubTitle.text = standing.club.name
+    }
+    
+    public func initialize() {
+        positionLabel.text = nil
+        clubBadge.image = nil
+        clubTitle.text = nil
     }
 }

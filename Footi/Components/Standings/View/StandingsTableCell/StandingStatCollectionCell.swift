@@ -11,12 +11,12 @@ class StandingStatCollectionCell: UICollectionViewCell {
     
     static let identifier = String(describing: StandingStatCollectionCell.self)
     
-    // MARK: Views
+    // MARK: View
     
-    let statLabel: UILabel = {
+    private let statLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -45,5 +45,15 @@ class StandingStatCollectionCell: UICollectionViewCell {
         
         statLabel.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         statLabel.text = nil
+    }
+    
+    // MARK: Public
+    
+    public func configure(stat: String, index: Int) {
+        statLabel.text = stat
+        
+        if index == 3 {
+            statLabel.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
+        }
     }
 }

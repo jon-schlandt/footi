@@ -7,24 +7,17 @@
 
 import UIKit
 
-class StandingsTableHeader: UITableViewHeaderFooterView {
+class StandingsTableHeader: BaseTableHeader {
 
-    static let identifier = String(describing: StandingsTableHeader.self)
+    public static let identifier = String(describing: StandingsTableHeader.self)
     
-    // MARK: Views
+    // MARK: View
     
-    private let background: UIView = {
-        let background = UIView()
-        background.backgroundColor = UIColor.Palette.foreground
+    private let standingsTitleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        return background
-    }()
-    
-    private let container: UIView = {
-        let container = UIView()
-        container.translatesAutoresizingMaskIntoConstraints = false
-        
-        return container
+        return view
     }()
     
     private let clubTitleView: UIView = {
@@ -33,7 +26,7 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
+        label.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.tertiaryText
         label.text = "Club"
         view.addSubview(label)
@@ -71,25 +64,21 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
     
     // MARK: Model
     
-    var scrollDelegate: StandingsScrollViewDelegate?
-    let statTitles = ["MP", "GF", "GA", "Pts", "W", "D", "L", "GD"]
+    public weak var scrollDelegate: StandingsScrollViewDelegate?
+    private let statTitles = ["MP", "GF", "GA", "Pts", "W", "D", "L", "GD"]
     
     // MARK: Lifecycle
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        self.backgroundView = background
-        self.contentView.addSubview(container)
-        
-        container.addSubview(clubTitleView)
-        container.addSubview(separator)
-        container.addSubview(statTitleView)
+        standingsTitleView.addSubview(clubTitleView)
+        standingsTitleView.addSubview(separator)
+        standingsTitleView.addSubview(statTitleView)
+        self.container.addArrangedSubview(standingsTitleView)
         
         statTitleView.dataSource = self
         statTitleView.delegate = self
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -100,31 +89,24 @@ class StandingsTableHeader: UITableViewHeaderFooterView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            container.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            container.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: AppConstants.baseMargin)
-        ])
-        
-        NSLayoutConstraint.activate([
             clubTitleView.widthAnchor.constraint(equalToConstant: 194),
-            clubTitleView.topAnchor.constraint(equalTo: container.topAnchor),
-            clubTitleView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            clubTitleView.leadingAnchor.constraint(equalTo: container.leadingAnchor)
+            clubTitleView.topAnchor.constraint(equalTo: standingsTitleView.topAnchor),
+            clubTitleView.bottomAnchor.constraint(equalTo: standingsTitleView.bottomAnchor),
+            clubTitleView.leadingAnchor.constraint(equalTo: standingsTitleView.leadingAnchor, constant: AppConstants.baseMargin)
         ])
         
         NSLayoutConstraint.activate([
             separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
-            separator.topAnchor.constraint(equalTo: container.topAnchor),
+            separator.topAnchor.constraint(equalTo: standingsTitleView.topAnchor),
             separator.leadingAnchor.constraint(equalTo: clubTitleView.trailingAnchor),
-            separator.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            separator.bottomAnchor.constraint(equalTo: standingsTitleView.bottomAnchor),
             separator.trailingAnchor.constraint(equalTo: statTitleView.leadingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            statTitleView.topAnchor.constraint(equalTo: container.topAnchor),
-            statTitleView.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            statTitleView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            statTitleView.topAnchor.constraint(equalTo: standingsTitleView.topAnchor),
+            statTitleView.trailingAnchor.constraint(equalTo: standingsTitleView.trailingAnchor),
+            statTitleView.bottomAnchor.constraint(equalTo: standingsTitleView.bottomAnchor),
             statTitleView.leadingAnchor.constraint(equalTo: separator.trailingAnchor)
         ])
     }
@@ -159,13 +141,5 @@ extension StandingsTableHeader: UICollectionViewDelegate {
         } else {
             separator.backgroundColor = .clear
         }
-    }
-}
-
-/// Private methods
-extension StandingsTableHeader {
-    
-    private func setStyling() {
-        self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

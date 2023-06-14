@@ -9,9 +9,9 @@ import UIKit
 
 class FixturesViewController: BaseViewContoller {
     
-    // MARK: Controllers and Views
+    // MARK: View
     
-    let fixturesTableVC: UITableViewController = {
+    private let fixturesTableVC: UITableViewController = {
         let vc = UITableViewController()
         vc.tableView.register(FixturesTableHeader.self, forHeaderFooterViewReuseIdentifier: FixturesTableHeader.identifier)
         vc.tableView.register(FixturesTableCell.self, forCellReuseIdentifier: FixturesTableCell.identifier)
@@ -24,8 +24,8 @@ class FixturesViewController: BaseViewContoller {
     
     // MARK: Model
     
-    var matchdays = [Int]()
-    var fixtureMap = [Int: [Fixture]]()
+    private var matchdays = [Int]()
+    private var fixtureMap = [Int: [Fixture]]()
     
     // MARK: Lifecycle
     
@@ -34,12 +34,6 @@ class FixturesViewController: BaseViewContoller {
         
         let fixturesTable = fixturesTableVC.tableView!
         self.baseStackView.addArrangedSubview(fixturesTable)
-        
-        NSLayoutConstraint.activate([
-            fixturesTable.trailingAnchor.constraint(equalTo: self.baseStackView.trailingAnchor),
-            fixturesTable.bottomAnchor.constraint(equalTo: self.baseStackView.bottomAnchor),
-            fixturesTable.leadingAnchor.constraint(equalTo: self.baseStackView.leadingAnchor),
-        ])
     }
     
     override func viewDidLoad() {
@@ -79,17 +73,17 @@ class FixturesViewController: BaseViewContoller {
         filterOptions.append(DataFilterOption(displayName: "Upcoming", value: FixtureFilterType.upcoming.rawValue, isEnabled: false))
         filterOptions.append(DataFilterOption(displayName: "Past", value: FixtureFilterType.past.rawValue, isEnabled: false))
         
-        self.leagueHeaderDetails.filter = LeagueDataFilter(title: nil, options: filterOptions)
+        self.leagueHeaderDetails.filter = LeagueDataFilter(title: "By Date", options: filterOptions)
         self.leagueHeader.configure(with: self.leagueHeaderDetails)
     }
     
     override func loadModel() async {
-        initializeModel()
-        
         guard let filterOption = self.getEnabledFilterOption(),
               let filterValue = FixtureFilterType(rawValue: filterOption.value) else {
             return
         }
+        
+        initializeModel()
         
 //        var fixtures = await fixturesService.getFixtures(leagueId: self.leagueHeaderDetails.leagueId, filterType: filterValue)
         var fixtures = getMockFixtures(for: self.leagueHeaderDetails.leagueId, using: filterValue)
@@ -161,32 +155,16 @@ extension FixturesViewController: UITableViewDataSource {
         cell.configure(with: fixture)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == tableView.numberOfSections - 1 {
-            return nil
-        }
-        
-        return UIView()
-    }
 }
 
 extension FixturesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return AppConstants.baseCellHeight
+        return AppConstants.baseCellHeight + AppConstants.baseSectionSpacing
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return AppConstants.baseCellHeight * 2
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == tableView.numberOfSections - 1 {
-            return 0
-        }
-        
-        return AppConstants.baseSectionSpacing
     }
 }
 

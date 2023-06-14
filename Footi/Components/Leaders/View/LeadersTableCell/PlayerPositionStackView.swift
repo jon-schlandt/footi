@@ -21,7 +21,7 @@ class PlayerPositionStackView: UIStackView {
     private let positionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -42,14 +42,15 @@ class PlayerPositionStackView: UIStackView {
     private let playerNameView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.distribution = .fillEqually
+        view.distribution = .equalCentering
+        view.spacing = 2
         
         return view
     }()
     
     private let playerName: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
+        label.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -57,7 +58,7 @@ class PlayerPositionStackView: UIStackView {
     
     private let playerClub: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: FontConstants.extraSmallSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.extraSmallSize)
         label.textColor = UIColor.Palette.secondaryText
         
         return label

@@ -15,19 +15,19 @@ class LeagueDataFilterDropdown: UIStackView {
     
     // MARK: Views
     
-    let selectionLabel: UILabel = {
+    private let selectionLabel: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: FontConstants.mediumSize, weight: .medium)
+        title.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
         title.textColor = UIColor.Palette.primaryText
         
         return title
     }()
     
-    let dropdownIcon: UIImageView = {
+    private let dropdownIcon: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(systemName: "chevron.down")
+        image.image = UIImage(systemName: "chevron.down")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 8.0, weight: .light, scale: .medium))
         image.tintColor = UIColor.Palette.secondaryIcon
         
         return image
@@ -35,8 +35,8 @@ class LeagueDataFilterDropdown: UIStackView {
     
     // MARK: Model
     
-    weak var delegate: LeagueDataFilterDropdownDelegate?
-    var options: [DataFilterOption]! { didSet { setSelectionLabel(using: options) }}
+    public weak var delegate: LeagueDataFilterDropdownDelegate?
+    private var options: [DataFilterOption]! { didSet { setSelectionLabel(using: options) }}
     
     // MARK: Lifecycle
     
@@ -46,7 +46,7 @@ class LeagueDataFilterDropdown: UIStackView {
         self.axis = .horizontal
         self.distribution = .fill
         self.alignment = .center
-        self.spacing = 1
+        self.spacing = 2
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentFilter))
         self.addGestureRecognizer(tapGesture)
@@ -59,11 +59,10 @@ class LeagueDataFilterDropdown: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        NSLayoutConstraint.activate([
-            dropdownIcon.widthAnchor.constraint(equalToConstant: 15),
-            dropdownIcon.heightAnchor.constraint(equalToConstant: 15)
-        ])
+    // MARK: Public
+    
+    public func configure(with options: [DataFilterOption]) {
+        self.options = options
     }
 }
 

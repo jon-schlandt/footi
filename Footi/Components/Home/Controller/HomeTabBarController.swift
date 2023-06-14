@@ -30,8 +30,8 @@ extension HomeTabBarController {
         viewController.title = "Standings"
         viewController.tabBarItem = UITabBarItem(
             title: viewController.title,
-            image: UIImage(systemName: "trophy", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
-            selectedImage: UIImage(systemName: "trophy.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            image: UIImage(systemName: "trophy")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
+            selectedImage: UIImage(systemName: "trophy.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium))
         )
         
         return BaseNavigationController(rootViewController: viewController)
@@ -42,8 +42,8 @@ extension HomeTabBarController {
         viewController.title = "Fixtures"
         viewController.tabBarItem = UITabBarItem(
             title: viewController.title,
-            image: UIImage(systemName: "sportscourt", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
-            selectedImage: UIImage(systemName: "sportscourt.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            image: UIImage(systemName: "sportscourt")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
+            selectedImage: UIImage(systemName: "sportscourt.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium))
         )
         
         return BaseNavigationController(rootViewController: viewController)
@@ -54,8 +54,8 @@ extension HomeTabBarController {
         viewController.title = "Leaders"
         viewController.tabBarItem = UITabBarItem(
             title: viewController.title,
-            image: UIImage(systemName: "medal", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
-            selectedImage: UIImage(systemName: "medal.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            image: UIImage(systemName: "medal")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
+            selectedImage: UIImage(systemName: "medal.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium))
         )
         
         return BaseNavigationController(rootViewController: viewController)

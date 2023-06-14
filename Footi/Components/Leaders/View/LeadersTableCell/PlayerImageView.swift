@@ -38,16 +38,16 @@ class PlayerImageView: UIView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 44),
-            self.heightAnchor.constraint(equalToConstant: 44)
+            self.widthAnchor.constraint(equalToConstant: 40),
+            self.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.masksToBounds = true
         
         NSLayoutConstraint.activate([
-            playerImage.widthAnchor.constraint(equalToConstant: 34),
-            playerImage.heightAnchor.constraint(equalToConstant: 34),
+            playerImage.widthAnchor.constraint(equalToConstant: 30),
+            playerImage.heightAnchor.constraint(equalToConstant: 30),
             playerImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             playerImage.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])

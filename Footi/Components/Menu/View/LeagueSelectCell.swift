@@ -13,11 +13,11 @@ protocol LeagueSelectCellDelegate: AnyObject {
 
 class LeagueSelectCell: UICollectionViewCell {
     
-    static let identifier = String(describing: LeagueSelectCell.self)
+    public static let identifier = String(describing: LeagueSelectCell.self)
     
     // MARK: Views
     
-    let leagueButton: UIButton = {
+    private let leagueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.contentMode = .scaleAspectFit
@@ -25,12 +25,12 @@ class LeagueSelectCell: UICollectionViewCell {
         return button
     }()
     
-    var leagueImage: UIImage!
+    private var leagueImage: UIImage!
     
     // MARK: Model
     
-    weak var delegate: LeagueSelectCellDelegate?
-    var selection: LeagueSelection!
+    public weak var delegate: LeagueSelectCellDelegate?
+    private var selection: LeagueSelection!
     
     // MARK: Lifecycle
     
@@ -62,11 +62,11 @@ class LeagueSelectCell: UICollectionViewCell {
         leagueButton.addTarget(self, action: #selector(selectLeague), for: .touchUpInside)
     }
     
-    public func style(for indexPath: IndexPath) {
+    public func style(for index: Int) {
         self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
         
-        if indexPath.row % 3 == 1 {
-            self.contentView.addBorders(edges: [.left, .right], color: UIColor.Palette.border!, offset: 20)
+        if index % 3 == 1 {
+            self.contentView.addBorders(edges: [.left, .right], color: UIColor.Palette.border!, lOffset: 20, rOffset: 20)
         }
     }
 }

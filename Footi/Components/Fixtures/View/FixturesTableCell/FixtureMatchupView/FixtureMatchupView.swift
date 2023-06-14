@@ -9,26 +9,26 @@ import UIKit
 
 class FixtureMatchupView: UIView {
     
-    // MARK: Views
+    // MARK: View
     
-    let container: UIStackView = {
+    private let container: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
         view.distribution = .fillEqually
-        view.spacing = 24
+        view.spacing = 20
         
         return view
     }()
     
-    let homeSide: MatchupSideStackView = {
+    private let homeSide: MatchupSideStackView = {
         let side = MatchupSideStackView()
         side.alignment = .bottom
         
         return side
     }()
     
-    let awaySide: MatchupSideStackView = {
+    private let awaySide: MatchupSideStackView = {
         let side = MatchupSideStackView()
         side.alignment = .top
         
@@ -40,9 +40,9 @@ class FixtureMatchupView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addSubview(container)
         container.addArrangedSubview(homeSide)
         container.addArrangedSubview(awaySide)
+        self.addSubview(container)
     }
     
     required init(coder: NSCoder) {
@@ -88,5 +88,10 @@ class FixtureMatchupView: UIView {
                 homeSide.scoreLabel.textColor = UIColor.Palette.secondaryText
             }
         }
+    }
+    
+    public func initialize() {
+        homeSide.initialize()
+        awaySide.initialize()
     }
 }

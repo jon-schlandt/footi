@@ -15,7 +15,7 @@ class StandingsViewController: BaseViewContoller {
     
     // MARK: View
     
-    let standingsTableVC: UITableViewController = {
+    private let standingsTableVC: UITableViewController = {
         let vc = UITableViewController()
         vc.tableView.register(StandingsTableHeader.self, forHeaderFooterViewReuseIdentifier: StandingsTableHeader.identifier)
         vc.tableView.register(StandingsTableCell.self, forCellReuseIdentifier: StandingsTableCell.identifier)
@@ -26,11 +26,11 @@ class StandingsViewController: BaseViewContoller {
         return vc
     }()
     
-    var scrollViews = [UIScrollView]()
+    private var scrollViews = [UIScrollView]()
     
     // MARK: Model
 
-    var standings = [Standing]()
+    private var standings = [Standing]()
     
     // MARK: Lifecycle
     
@@ -39,12 +39,6 @@ class StandingsViewController: BaseViewContoller {
         
         let standingsTable = standingsTableVC.tableView!
         self.baseStackView.addArrangedSubview(standingsTable)
-        
-        NSLayoutConstraint.activate([
-            standingsTable.trailingAnchor.constraint(equalTo: self.baseStackView.trailingAnchor),
-            standingsTable.bottomAnchor.constraint(equalTo: self.baseStackView.bottomAnchor),
-            standingsTable.leadingAnchor.constraint(equalTo: self.baseStackView.leadingAnchor),
-        ])
     }
     
     override func viewDidLoad() {
@@ -96,7 +90,7 @@ class StandingsViewController: BaseViewContoller {
             filterOptions.append(DataFilterOption(displayName: displayName, value: String(value), isEnabled: isEnabled))
         }
         
-        self.leagueHeaderDetails.filter = LeagueDataFilter(title: nil, options: filterOptions)
+        self.leagueHeaderDetails.filter = LeagueDataFilter(title: "By Season", options: filterOptions)
         self.leagueHeader.configure(with: self.leagueHeaderDetails)
     }
     
@@ -141,7 +135,6 @@ extension StandingsViewController: UITableViewDataSource {
         
         cell.configure(with: standing)
         cell.scrollDelegate = self
-        
         return cell
     }
 }
@@ -149,7 +142,7 @@ extension StandingsViewController: UITableViewDataSource {
 extension StandingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return AppConstants.baseCellHeight
+        return AppConstants.baseCellHeight + AppConstants.baseSectionSpacing
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -11,27 +11,27 @@ class BaseViewContoller: UIViewController {
 
     // MARK: Data stores
     
-    let coreDataContext = CoreDataContext()
-    let userDefaultsContext = UserDefaultsContext()
+    internal let coreDataContext = CoreDataContext()
+    internal let userDefaultsContext = UserDefaultsContext()
     
     // MARK: Networking
     
-    let fixturesService = FixturesService()
-    let leadersService = LeadersService()
-    let leaguesService = LeaguesService()
-    let standingsService = StandingsService()
+    internal let fixturesService = FixturesService()
+    internal let leadersService = LeadersService()
+    internal let leaguesService = LeaguesService()
+    internal let standingsService = StandingsService()
     
-    // MARK: Controllers and Views
+    // MARK: View
     
-    var menuNav: BaseNavigationController!
-    var leagueDataFilterNav: BaseNavigationController!
-    var baseStackView: UIStackView!
-    var leagueHeader = LeagueHeaderView()
+    internal var menuNav: BaseNavigationController!
+    internal var leagueDataFilterNav: BaseNavigationController!
+    internal var baseStackView: UIStackView!
+    internal var leagueHeader = LeagueHeaderView()
     
     // MARK: Model
     
-    var selectedLeague: LeagueSelection!
-    var leagueHeaderDetails: LeagueHeaderDetails!
+    internal var selectedLeague: LeagueSelection!
+    internal var leagueHeaderDetails: LeagueHeaderDetails!
     
     // MARK: Lifecycle
     
@@ -44,8 +44,6 @@ class BaseViewContoller: UIViewController {
         baseStackView.translatesAutoresizingMaskIntoConstraints = false
         baseStackView.axis = .vertical
         baseStackView.distribution = .fill
-        baseStackView.alignment = .center
-        baseStackView.spacing = AppConstants.baseSectionSpacing
         
         baseStackView.addArrangedSubview(self.leagueHeader)
         rootView.addSubview(baseStackView)
@@ -55,12 +53,6 @@ class BaseViewContoller: UIViewController {
             baseStackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
             baseStackView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor),
             baseStackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            leagueHeader.trailingAnchor.constraint(equalTo: baseStackView.trailingAnchor),
-            leagueHeader.leadingAnchor.constraint(equalTo: baseStackView.leadingAnchor),
-            leagueHeader.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight)
         ])
         
         view = rootView
@@ -129,7 +121,6 @@ extension BaseViewContoller: MenuViewControllerDelegate {
         
         _Concurrency.Task {
             await reloadSelectedLeague()
-            
             await loadLeagueHeaderDetails()
             await loadModel()
         }
@@ -189,9 +180,9 @@ extension BaseViewContoller {
     
     private func setupNavigation() {
         self.navigationItem.backButtonTitle = ""
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "line.3.horizontal", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
+            image: UIImage(systemName: "line.3.horizontal")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(displayMenu)
@@ -216,6 +207,6 @@ extension BaseViewContoller {
     }
     
     private func styleView() {
-        self.view.backgroundColor = UIColor.Palette.primaryBackground
+        self.view.backgroundColor = UIColor.Palette.background
     }
 }

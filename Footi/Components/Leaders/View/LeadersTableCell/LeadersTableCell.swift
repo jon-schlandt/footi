@@ -52,7 +52,7 @@ class LeadersTableCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            playerStatView.widthAnchor.constraint(equalToConstant: 56)
+            playerStatView.widthAnchor.constraint(equalToConstant: 48)
         ])
     }
     
@@ -83,12 +83,16 @@ class LeadersTableCell: UITableViewCell {
         
         playerStatView.configure(with: String(stat))
     }
+    
+
 }
 
 /// Private methods
 extension LeadersTableCell {
     
     private func setStyling() {
+        self.selectionStyle = .none
+        
         self.contentView.backgroundColor = UIColor.Palette.foreground
         self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }

@@ -102,6 +102,6 @@ extension SettingOptionViewController {
     private func styleView() {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
-        self.view.backgroundColor = UIColor.Palette.primaryBackground
+        self.view.backgroundColor = UIColor.Palette.background
     }
 }

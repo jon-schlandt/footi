@@ -11,12 +11,12 @@ class SettingSelectionCell: UITableViewCell {
 
     static let identifier = String(describing: SettingSelectionCell.self)
     
-    // MARK: Views
+    // MARK: View
     
     private let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         
         return label
     }()
@@ -25,15 +25,17 @@ class SettingSelectionCell: UITableViewCell {
         let checkmark = UIImageView()
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
+        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16.0, weight: .light, scale: .medium))
         checkmark.tintColor = UIColor.Palette.secondaryIcon
+        checkmark.isHidden = true
         
         return checkmark
     }()
     
     // MARK: Model
     
-    var key: String!
-    var isEnabled: Bool!
+    public var key: String!
+    public var isEnabled = false
     
     // MARK: Lifecycle
     
@@ -43,7 +45,7 @@ class SettingSelectionCell: UITableViewCell {
         self.contentView.addSubview(label)
         self.contentView.addSubview(checkmark)
         
-        self.style()
+        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -59,9 +61,7 @@ class SettingSelectionCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             checkmark.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin),
-            checkmark.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            checkmark.widthAnchor.constraint(equalToConstant: 20),
-            checkmark.heightAnchor.constraint(equalToConstant: 20)
+            checkmark.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     
@@ -70,21 +70,21 @@ class SettingSelectionCell: UITableViewCell {
         
         key = nil
         label.text = nil
-        checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+        checkmark.isHidden = true
     }
     
     // MARK: Public
     
     public func configure(with selection: SettingSelection) {
         key = selection.key
-        isEnabled = selection.isEnabled
+        isEnabled = selection.isEnabled ?? false
         
         label.text = selection.title
         
         if selection.isEnabled == true {
-            checkmark.image = UIImage(systemName: "checkmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            checkmark.isHidden = false
         } else {
-            checkmark.image = UIImage(systemName: "circle", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+            checkmark.isHidden = true
         }
     }
 }
@@ -92,10 +92,10 @@ class SettingSelectionCell: UITableViewCell {
 /// Private methods
 extension SettingSelectionCell {
     
-    private func style() {
+    private func setStyling() {
         self.selectionStyle = .none
-        
         self.contentView.backgroundColor = UIColor.Palette.foreground
+        
         self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

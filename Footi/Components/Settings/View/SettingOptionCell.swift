@@ -11,13 +11,13 @@ class SettingOptionCell: UITableViewCell {
 
     static let identifier = String(describing: SettingOptionCell.self)
     
-    // MARK: Views
+    // MARK: View
     
     private let label: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
-        title.textColor = UIColor.Palette.secondaryText
+        title.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
+        title.textColor = UIColor.Palette.primaryText
         
         return title
     }()
@@ -27,7 +27,7 @@ class SettingOptionCell: UITableViewCell {
         disclosureArrow.translatesAutoresizingMaskIntoConstraints = false
         disclosureArrow.contentMode = .scaleAspectFit
         disclosureArrow.tintColor = UIColor.Palette.secondaryIcon
-        disclosureArrow.image = UIImage(systemName: "chevron.right")
+        disclosureArrow.image = UIImage(systemName: "chevron.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .light, scale: .medium))
         
         return disclosureArrow
     }()
@@ -39,6 +39,8 @@ class SettingOptionCell: UITableViewCell {
         
         self.contentView.addSubview(label)
         self.contentView.addSubview(disclosureArrow)
+        
+        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -54,9 +56,7 @@ class SettingOptionCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             disclosureArrow.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin),
-            disclosureArrow.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            disclosureArrow.widthAnchor.constraint(equalToConstant: 16),
-            disclosureArrow.heightAnchor.constraint(equalToConstant: 16)
+            disclosureArrow.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     
@@ -65,14 +65,21 @@ class SettingOptionCell: UITableViewCell {
         label.text = nil
     }
     
+    // MARK: Public
+    
     public func configure(with option: SettingOption) {
         label.text = option.title
     }
+}
+
+/// Private methods
+extension SettingOptionCell {
     
-    public func style() {
+    private func setStyling() {
         self.selectionStyle = .none
-        
         self.backgroundColor = UIColor.Palette.foreground
+        
         self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
+    
 }

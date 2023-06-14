@@ -11,26 +11,26 @@ class InPlayStatusView: UIView, FixtureStatusView {
 
     // MARK: Views
     
-    let statusLabel: UILabel = {
+    private let statusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.smallSize, weight: .semibold)
+        label.font = UIFont(name: FontConstants.title, size: FontConstants.smallSize)
         label.textColor = UIColor.Palette.live
         
         return label
     }()
     
-    let inPlayIndicator: UIView = {
+    private let inPlayIndicator: UIView = {
         let indicator = UIView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.layer.cornerRadius = 5 / 2
         indicator.clipsToBounds = true
-        indicator.backgroundColor = UIColor.Palette.secondaryBackground
+        indicator.backgroundColor = UIColor.Palette.background
         
         return indicator
     }()
     
-    let indicatorLight: UIView = {
+    private let indicatorLight: UIView = {
         let light = UIView()
         light.translatesAutoresizingMaskIntoConstraints = false
         light.layer.cornerRadius = 5 / 2

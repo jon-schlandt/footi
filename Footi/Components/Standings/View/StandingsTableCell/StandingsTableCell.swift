@@ -11,7 +11,7 @@ class StandingsTableCell: UITableViewCell {
     
     static let identifier = String(describing: StandingsTableCell.self)
     
-    // MARK: Views
+    // MARK: View
     
     private let container: UIView = {
         let container = UIView()
@@ -46,19 +46,19 @@ class StandingsTableCell: UITableViewCell {
         return view
     }()
     
-    let matchesPlayedLabel = UILabel()
-    let goalsForLabel = UILabel()
-    let goalsAgainstLabel = UILabel()
-    let pointsLabel = UILabel()
-    let winsLabel = UILabel()
-    let drawsLabel = UILabel()
-    let lossesLabel = UILabel()
-    let goalDeficitLabel = UILabel()
+    private let matchesPlayedLabel = UILabel()
+    private let goalsForLabel = UILabel()
+    private let goalsAgainstLabel = UILabel()
+    private let pointsLabel = UILabel()
+    private let winsLabel = UILabel()
+    private let drawsLabel = UILabel()
+    private let lossesLabel = UILabel()
+    private let goalDeficitLabel = UILabel()
     
     // MARK: Model
     
-    var scrollDelegate: StandingsScrollViewDelegate?
-    var stats = [String]()
+    public weak var scrollDelegate: StandingsScrollViewDelegate?
+    private var stats = [String]()
     
     // MARK: Lifecycle
     
@@ -73,7 +73,7 @@ class StandingsTableCell: UITableViewCell {
 
         statsView.dataSource = self
         statsView.delegate = self
-                
+        
         setStyling()
     }
     
@@ -119,9 +119,7 @@ class StandingsTableCell: UITableViewCell {
         
         stats.removeAll()
         
-        clubPositionView.positionLabel.text = nil
-        clubPositionView.clubBadge.image = nil
-        clubPositionView.clubTitle.text = nil
+        clubPositionView.initialize()
         
         let statLabels = [matchesPlayedLabel, goalsForLabel, goalsAgainstLabel, pointsLabel, winsLabel, drawsLabel, lossesLabel, goalDeficitLabel]
         statLabels.forEach { $0.text = nil }
@@ -130,9 +128,7 @@ class StandingsTableCell: UITableViewCell {
     // MARK: Public
     
     public func configure(with standing: Standing) {
-        clubPositionView.positionLabel.text = String(standing.rank)
-        clubPositionView.clubBadge.load(url: URL(string: standing.club.logo)!)
-        clubPositionView.clubTitle.text = standing.club.name
+        clubPositionView.configure(with: standing)
         
         stats.append(String(standing.record.played))
         stats.append(String(standing.record.goals.scored))
@@ -161,11 +157,7 @@ extension StandingsTableCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StandingStatCollectionCell.identifier, for: indexPath) as! StandingStatCollectionCell
         let stat = stats[indexPath.row]
         
-        if indexPath.row == 3 {
-            cell.statLabel.font = UIFont.systemFont(ofSize: FontConstants.standardSize, weight: .semibold)
-        }
-        
-        cell.statLabel.text = stat
+        cell.configure(stat: stat, index: indexPath.row)
         return cell
     }
 }
@@ -187,6 +179,8 @@ extension StandingsTableCell: UICollectionViewDelegate {
 extension StandingsTableCell {
     
     private func setStyling() {
+        self.selectionStyle = .none
+        
         self.contentView.backgroundColor = UIColor.Palette.foreground
         self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }

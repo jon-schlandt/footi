@@ -11,7 +11,7 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
 
     static let identifier = String(describing: SettingGroupHeader.self)
     
-    // MARK: Views
+    // MARK: View
     
     private let background: UIView = {
         let background = UIView()
@@ -24,7 +24,7 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
     private let title: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = UIFont.systemFont(ofSize: FontConstants.mediumSize, weight: .medium)
+        title.font = UIFont(name: "Inter-Regular_SemiBold", size: FontConstants.standardSize)
         
         return title
     }()
@@ -36,6 +36,8 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
         
         self.backgroundView = background
         contentView.addSubview(title)
+        
+        setStyling()
     }
     
     override func layoutSubviews() {
@@ -59,8 +61,12 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
     public func configure(with group: SettingGroup) {
         title.text = group.title
     }
+}
+
+/// Private methods
+extension SettingGroupHeader {
     
-    public func style(for section: Int) {
+    private func setStyling() {
         self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

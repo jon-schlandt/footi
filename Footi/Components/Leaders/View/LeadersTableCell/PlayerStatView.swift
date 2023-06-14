@@ -14,7 +14,7 @@ class PlayerStatView: UIView {
     private let playerStat: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label

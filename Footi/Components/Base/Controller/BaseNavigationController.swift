@@ -16,13 +16,16 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backIndicator = UIImage(systemName: "arrow.left", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
+        let backIndicator = UIImage(systemName: "arrow.backward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium))
         
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.setBackIndicatorImage(backIndicator, transitionMaskImage: backIndicator)
         navigationBarAppearance.configureWithDefaultBackground()
         navigationBarAppearance.backgroundColor = UIColor.Palette.bar
-        navigationBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: FontConstants.title, size: FontConstants.largeSize)!,
+            NSAttributedString.Key.foregroundColor: UIColor.Palette.barText!
+        ]
 
         self.navigationBar.standardAppearance = navigationBarAppearance
         self.navigationBar.compactAppearance = navigationBarAppearance

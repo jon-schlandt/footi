@@ -15,7 +15,7 @@ class LeagueHeaderView: UIView {
     
     // MARK: Views
     
-    let container: UIStackView = {
+    private let container: UIStackView = {
         let container = UIStackView()
         container.translatesAutoresizingMaskIntoConstraints = false
         container.axis = .horizontal
@@ -25,8 +25,8 @@ class LeagueHeaderView: UIView {
         return container
     }()
     
-    let leagueDisplay = LeagueDisplayStackView()
-    let filterDropdown = LeagueDataFilterDropdown()
+    private let leagueDisplay = LeagueDisplayStackView()
+    private let filterDropdown = LeagueDataFilterDropdown()
     
     // MARK: Model
     
@@ -53,6 +53,10 @@ class LeagueHeaderView: UIView {
     
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
+            self.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
             container.topAnchor.constraint(equalTo: self.topAnchor),
             container.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -AppConstants.baseMargin),
             container.bottomAnchor.constraint(equalTo: self.bottomAnchor),
@@ -61,9 +65,8 @@ class LeagueHeaderView: UIView {
     }
     
     public func configure(with headerDetails: LeagueHeaderDetails) {
-        leagueDisplay.leagueLogo.image =  UIImage(named: String(headerDetails.leagueId))
-        leagueDisplay.leagueTitle.text = headerDetails.leagueTitle
-        filterDropdown.options = headerDetails.filter.options
+        leagueDisplay.configure(with: headerDetails)
+        filterDropdown.configure(with: headerDetails.filter.options)
     }
 }
 

@@ -9,9 +9,9 @@ import UIKit
 
 class LeagueDisplayStackView: UIStackView {
     
-    // MARK: Views
+    // MARK: View
 
-    let leagueLogo: UIImageView = {
+    private let leagueLogo: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
@@ -19,15 +19,15 @@ class LeagueDisplayStackView: UIStackView {
         return image
     }()
     
-    let leagueTitle: UILabel = {
+    private let leagueTitle: UILabel = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: FontConstants.largeSize, weight: .medium)
+        title.font = UIFont(name: FontConstants.title, size: FontConstants.largeSize)
         title.textColor = UIColor.Palette.primaryText
         
         return title
     }()
     
-    let separator: UIView = {
+    private let separator: UIView = {
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.backgroundColor = UIColor.Palette.border
@@ -36,7 +36,7 @@ class LeagueDisplayStackView: UIStackView {
         return separator
     }()
     
-    let liveImage: UIImageView = {
+    private let liveImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
@@ -69,18 +69,25 @@ class LeagueDisplayStackView: UIStackView {
     
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
-            leagueLogo.widthAnchor.constraint(equalToConstant: 24),
-            leagueLogo.heightAnchor.constraint(equalToConstant: 24)
+            leagueLogo.widthAnchor.constraint(equalToConstant: 22),
+            leagueLogo.heightAnchor.constraint(equalToConstant: 22)
         ])
         
         NSLayoutConstraint.activate([
             separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
-            separator.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            separator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            separator.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.baseMargin),
+            separator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -AppConstants.baseMargin)
         ])
         
         NSLayoutConstraint.activate([
             liveImage.widthAnchor.constraint(equalToConstant: 34)
         ])
+    }
+    
+    // MARK: Public
+    
+    public func configure(with headerDetails: LeagueHeaderDetails) {
+        leagueLogo.image = UIImage(named: String(headerDetails.leagueId))
+        leagueTitle.text = headerDetails.leagueTitle
     }
 }

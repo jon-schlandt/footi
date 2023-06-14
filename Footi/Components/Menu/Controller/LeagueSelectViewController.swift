@@ -15,11 +15,11 @@ class LeagueSelectViewController: UICollectionViewController {
     
     // MARK: Model
     
-    var flowLayout: UICollectionViewFlowLayout!
-    weak var delegate: LeagueSelectViewControllerDelegate?
+    private var flowLayout: UICollectionViewFlowLayout!
+    public weak var delegate: LeagueSelectViewControllerDelegate?
     
-    let userDefaultsContext = UserDefaultsContext()
-    var selections = [LeagueSelection]()
+    private let userDefaultsContext = UserDefaultsContext()
+    private var selections = [LeagueSelection]()
     
     // MARK: Lifecycle
     
@@ -57,7 +57,7 @@ class LeagueSelectViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LeagueSelectCell.identifier, for: indexPath) as! LeagueSelectCell
         cell.delegate = self
         cell.configure(with: selections[indexPath.row])
-        cell.style(for: indexPath)
+        cell.style(for: indexPath.row)
         
         return cell
     }

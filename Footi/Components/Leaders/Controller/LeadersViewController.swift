@@ -33,12 +33,6 @@ class LeadersViewController: BaseViewContoller {
         
         let leadersTable = leadersTableVC.tableView!
         self.baseStackView.addArrangedSubview(leadersTable)
-        
-        NSLayoutConstraint.activate([
-            leadersTable.trailingAnchor.constraint(equalTo: self.baseStackView.trailingAnchor),
-            leadersTable.bottomAnchor.constraint(equalTo: self.baseStackView.bottomAnchor),
-            leadersTable.leadingAnchor.constraint(equalTo: self.baseStackView.leadingAnchor)
-        ])
     }
     
     override func viewDidLoad() {
@@ -77,7 +71,7 @@ class LeadersViewController: BaseViewContoller {
         filterOptions.append(DataFilterOption(displayName: "Yellow Cards", value: LeaderFilterType.yellowCards.rawValue, isEnabled: false))
         filterOptions.append(DataFilterOption(displayName: "Red Cards", value: LeaderFilterType.redCards.rawValue, isEnabled: false))
         
-        self.leagueHeaderDetails.filter = LeagueDataFilter(title: nil, options: filterOptions)
+        self.leagueHeaderDetails.filter = LeagueDataFilter(title: "By Stat", options: filterOptions)
         self.leagueHeader.configure(with: self.leagueHeaderDetails)
     }
     
@@ -129,11 +123,11 @@ extension LeadersViewController: UITableViewDataSource {
 extension LeadersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return AppConstants.baseCellHeight
+        return AppConstants.baseCellHeight + AppConstants.baseSectionSpacing
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AppConstants.baseCellHeight + 24
+        return AppConstants.baseCellHeight + 20
     }
 }
 

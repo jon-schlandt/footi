@@ -9,31 +9,31 @@ import UIKit
 
 class FinishedStatusView: UIStackView, FixtureStatusView {
 
-    // MARK: Views
+    // MARK: View
     
-    let statusView: UIView = {
+    private let statusView: UIView = {
         let view = UIView()
         return view
     }()
     
-    let statusLabel: UILabel = {
+    private let statusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.smallSize, weight: .semibold)
+        label.font = UIFont(name: FontConstants.title, size: FontConstants.smallSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
     }()
     
-    let dateView: UIView = {
+    private let dateView: UIView = {
         let view = UIView()
         return view
     }()
     
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.smallSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.smallSize)
         label.textColor = UIColor.Palette.secondaryText
         
         return label

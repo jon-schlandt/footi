@@ -15,13 +15,13 @@ protocol MenuViewControllerDelegate: AnyObject {
 
 class MenuViewController: UIViewController {
     
-    // MARK: Controllers
+    // MARK: View
     
-    var leagueSelectVC: LeagueSelectViewController!
+    private var leagueSelectVC: LeagueSelectViewController!
     
     // MARK: Model
     
-    weak var delegate: MenuViewControllerDelegate?
+    public weak var delegate: MenuViewControllerDelegate?
     
     // MARK: Lifecycle
     
@@ -66,14 +66,14 @@ extension MenuViewController {
     
     private func setupNavigation() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
+            image: UIImage(systemName: "gearshape")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(displaySettings)
         )
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(weight: .light)),
+            image: UIImage(systemName: "xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(closeMenu)
@@ -89,6 +89,6 @@ extension MenuViewController {
     }
     
     private func styleView() {
-        self.view.backgroundColor = UIColor.Palette.primaryBackground
+        self.view.backgroundColor = UIColor.Palette.background
     }
 }

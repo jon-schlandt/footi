@@ -11,29 +11,29 @@ class UpcomingStatusView: UIStackView, FixtureStatusView {
     
     // MARK: Views
     
-    let topView: UIView = {
+    private let topView: UIView = {
         let view = UIView()
         return view
     }()
     
-    let topLabel: UILabel = {
+    private let topLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.smallSize, weight: .semibold)
+        label.font = UIFont(name: FontConstants.title, size: FontConstants.smallSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
     }()
     
-    let bottomView: UIView = {
+    private let bottomView: UIView = {
         let view = UIView()
         return view
     }()
     
-    let bottomLabel: UILabel = {
+    private let bottomLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: FontConstants.smallSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.smallSize)
         label.textColor = UIColor.Palette.secondaryText
         
         return label

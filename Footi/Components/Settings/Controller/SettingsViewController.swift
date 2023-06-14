@@ -7,28 +7,15 @@
 
 import UIKit
 
-struct SettingGroup {
-    let key: String
-    let title: String
-    var options: [SettingOption]
-}
-
-struct SettingOption {
-    let key: String
-    let title: String
-    var selections: [SettingSelection]
-}
-
-struct SettingSelection {
-    let key: String
-    let title: String
-    var isEnabled: Bool?
-}
-
 class SettingsViewController: UITableViewController {
     
-    var groups = [SettingGroup]()
     var userDefaultsContext = UserDefaultsContext()
+    
+    // MARK: Model
+    
+    var groups = [SettingGroup]()
+    
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +45,6 @@ class SettingsViewController: UITableViewController {
         let group = groups[section]
         
         header.configure(with: group)
-        header.style(for: section)
-        
         return header
     }
     
@@ -69,8 +54,6 @@ class SettingsViewController: UITableViewController {
         let option = group.options[indexPath.row]
 
         cell.configure(with: option)
-        cell.style()
-        
         return cell
     }
     
@@ -112,7 +95,7 @@ extension SettingsViewController {
     private func getLeagueOptions() -> SettingGroup {
         var leagueOptions = SettingGroup(key: "leagueOptions", title: "League Options", options: [SettingOption]())
         
-        var defaultLeague = SettingOption(key: "defaultLeague", title: "Default League", selections: [SettingSelection]())
+        var defaultLeague = SettingOption(key: "defaultLeague", title: "Default league", selections: [SettingSelection]())
         defaultLeague.selections.append(SettingSelection(key: "bundesliga", title: "Bundesliga"))
         defaultLeague.selections.append(SettingSelection(key: "laLiga", title: "LaLiga"))
         defaultLeague.selections.append(SettingSelection(key: "ligue1", title: "Ligue 1"))
@@ -143,6 +126,7 @@ extension SettingsViewController {
     private func styleView() {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
-        self.view.backgroundColor = UIColor.Palette.primaryBackground
+        
+        self.view.backgroundColor = UIColor.Palette.background
     }
 }

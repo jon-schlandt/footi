@@ -21,7 +21,6 @@
 		FC1AC90929A958AA00693DB3 /* StandingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90829A958AA00693DB3 /* StandingsService.swift */; };
 		FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */; };
 		FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */; };
-		FC227F2D2A2CD4C40073F6BD /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC227F2C2A2CD4C40073F6BD /* Nunito-VariableFont_wght.ttf */; };
 		FC2B81262A25040300600BDD /* LeaderFilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B81252A25040300600BDD /* LeaderFilterType.swift */; };
 		FC2B81292A2506E600600BDD /* LeadersTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B81282A2506E600600BDD /* LeadersTableHeader.swift */; };
 		FC2B812B2A25075200600BDD /* LeadersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2B812A2A25075200600BDD /* LeadersTableCell.swift */; };
@@ -61,19 +60,14 @@
 		FC5E906929E8EFCC007047F8 /* LeagueDisplayStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E906829E8EFCC007047F8 /* LeagueDisplayStackView.swift */; };
 		FC5E906B29E8FC8C007047F8 /* LeagueDataFilterDropdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E906A29E8FC8C007047F8 /* LeagueDataFilterDropdown.swift */; };
 		FC6903E029EC7B2C008EEB82 /* LeagueDataFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6903DF29EC7B2C008EEB82 /* LeagueDataFilterViewController.swift */; };
-		FC6DEDAC2A2ECFA3003F4B7E /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDAB2A2ECFA3003F4B7E /* Lato-Regular.ttf */; };
-		FC6DEDAE2A2ED049003F4B7E /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDAD2A2ED049003F4B7E /* Lato-Bold.ttf */; };
-		FC6DEDB02A2F8EB3003F4B7E /* Urbanist-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDAF2A2F8EB3003F4B7E /* Urbanist-VariableFont_wght.ttf */; };
-		FC6DEDB22A300E83003F4B7E /* Manrope-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDB12A300E83003F4B7E /* Manrope-VariableFont_wght.ttf */; };
-		FC6DEDB42A3021B4003F4B7E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDB32A3021B4003F4B7E /* Roboto-Regular.ttf */; };
-		FC6DEDB62A3021BF003F4B7E /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDB52A3021BF003F4B7E /* Roboto-Medium.ttf */; };
-		FC6DEDB82A3021CC003F4B7E /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDB72A3021CC003F4B7E /* Roboto-Bold.ttf */; };
 		FC6DEDBA2A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6DEDB92A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf */; };
 		FC7D0C4729B2E35F00BC9B46 /* CoreDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */; };
 		FC7D16E929BE47A9009B408B /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16E829BE47A9009B408B /* StandingsViewController.swift */; };
 		FC7D16EB29BE48B1009B408B /* LeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16EA29BE48B1009B408B /* LeadersViewController.swift */; };
 		FC7D16ED29BE48CD009B408B /* FixturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */; };
 		FC7E07412A102CFD00BED0B2 /* FixtureMatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */; };
+		FC841E9B2A41EB35008D819D /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9A2A41EB35008D819D /* BaseTableCell.swift */; };
+		FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */; };
 		FC9243A22A2257780084AB4D /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9243A12A2257780084AB4D /* JSONLoader.swift */; };
 		FC9243A52A225AAE0084AB4D /* league-39.json in Resources */ = {isa = PBXBuildFile; fileRef = FC9243A42A225AAE0084AB4D /* league-39.json */; };
 		FC9243A72A225D1C0084AB4D /* league-61.json in Resources */ = {isa = PBXBuildFile; fileRef = FC9243A62A225D1B0084AB4D /* league-61.json */; };
@@ -95,6 +89,12 @@
 		FC9243C72A229FC50084AB4D /* standings-39-2021.json in Resources */ = {isa = PBXBuildFile; fileRef = FC9243C62A229FC50084AB4D /* standings-39-2021.json */; };
 		FC97F82E29FB4FCA00755CFA /* StandingStatTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97F82D29FB4FCA00755CFA /* StandingStatTitleCell.swift */; };
 		FC97F83029FB64DB00755CFA /* StandingStatCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97F82F29FB64DB00755CFA /* StandingStatCollectionCell.swift */; };
+		FC9E56902A3CDFBB000AFDA3 /* ConcertOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC9E568F2A3CDFBB000AFDA3 /* ConcertOne-Regular.ttf */; };
+		FC9E56922A3CE5BC000AFDA3 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC9E56912A3CE5BC000AFDA3 /* FugazOne-Regular.ttf */; };
+		FC9E56942A3CE5C6000AFDA3 /* BellotaText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC9E56932A3CE5C6000AFDA3 /* BellotaText-Bold.ttf */; };
+		FC9E56962A3CE73A000AFDA3 /* Oregano-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC9E56952A3CE73A000AFDA3 /* Oregano-Regular.ttf */; };
+		FC9E56982A3CF038000AFDA3 /* Gugi-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC9E56972A3CF038000AFDA3 /* Gugi-Regular.ttf */; };
+		FC9E569A2A3CFB08000AFDA3 /* LeagueSelectHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E56992A3CFB08000AFDA3 /* LeagueSelectHeader.swift */; };
 		FCA3D13529B6DC4C0038D8A2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3D13429B6DC4C0038D8A2 /* Date.swift */; };
 		FCB507A329D091E4001CB2C2 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB507A229D091E4001CB2C2 /* UIImageView.swift */; };
 		FCB5A44329E37B43009FC8D9 /* StandingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB5A44229E37B43009FC8D9 /* StandingsTableCell.swift */; };
@@ -130,7 +130,6 @@
 		FC1AC90829A958AA00693DB3 /* StandingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsService.swift; sourceTree = "<group>"; };
 		FC1AC90A29A9A1C700693DB3 /* FixturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesService.swift; sourceTree = "<group>"; };
 		FC1AC90C29A9B2B500693DB3 /* LeadersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersService.swift; sourceTree = "<group>"; };
-		FC227F2C2A2CD4C40073F6BD /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		FC2B81252A25040300600BDD /* LeaderFilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderFilterType.swift; sourceTree = "<group>"; };
 		FC2B81282A2506E600600BDD /* LeadersTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersTableHeader.swift; sourceTree = "<group>"; };
 		FC2B812A2A25075200600BDD /* LeadersTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersTableCell.swift; sourceTree = "<group>"; };
@@ -172,19 +171,14 @@
 		FC5E906829E8EFCC007047F8 /* LeagueDisplayStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDisplayStackView.swift; sourceTree = "<group>"; };
 		FC5E906A29E8FC8C007047F8 /* LeagueDataFilterDropdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterDropdown.swift; sourceTree = "<group>"; };
 		FC6903DF29EC7B2C008EEB82 /* LeagueDataFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterViewController.swift; sourceTree = "<group>"; };
-		FC6DEDAB2A2ECFA3003F4B7E /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		FC6DEDAD2A2ED049003F4B7E /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
-		FC6DEDAF2A2F8EB3003F4B7E /* Urbanist-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		FC6DEDB12A300E83003F4B7E /* Manrope-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-VariableFont_wght.ttf"; sourceTree = "<group>"; };
-		FC6DEDB32A3021B4003F4B7E /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		FC6DEDB52A3021BF003F4B7E /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		FC6DEDB72A3021CC003F4B7E /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		FC6DEDB92A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
 		FC7D0C4629B2E35F00BC9B46 /* CoreDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContext.swift; sourceTree = "<group>"; };
 		FC7D16E829BE47A9009B408B /* StandingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
 		FC7D16EA29BE48B1009B408B /* LeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersViewController.swift; sourceTree = "<group>"; };
 		FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewController.swift; sourceTree = "<group>"; };
 		FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureMatchupView.swift; sourceTree = "<group>"; };
+		FC841E9A2A41EB35008D819D /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterTableHeader.swift; sourceTree = "<group>"; };
 		FC9243A12A2257780084AB4D /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		FC9243A42A225AAE0084AB4D /* league-39.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "league-39.json"; sourceTree = "<group>"; };
 		FC9243A62A225D1B0084AB4D /* league-61.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "league-61.json"; sourceTree = "<group>"; };
@@ -206,6 +200,12 @@
 		FC9243C62A229FC50084AB4D /* standings-39-2021.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "standings-39-2021.json"; sourceTree = "<group>"; };
 		FC97F82D29FB4FCA00755CFA /* StandingStatTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingStatTitleCell.swift; sourceTree = "<group>"; };
 		FC97F82F29FB64DB00755CFA /* StandingStatCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingStatCollectionCell.swift; sourceTree = "<group>"; };
+		FC9E568F2A3CDFBB000AFDA3 /* ConcertOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ConcertOne-Regular.ttf"; sourceTree = "<group>"; };
+		FC9E56912A3CE5BC000AFDA3 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
+		FC9E56932A3CE5C6000AFDA3 /* BellotaText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BellotaText-Bold.ttf"; sourceTree = "<group>"; };
+		FC9E56952A3CE73A000AFDA3 /* Oregano-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oregano-Regular.ttf"; sourceTree = "<group>"; };
+		FC9E56972A3CF038000AFDA3 /* Gugi-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gugi-Regular.ttf"; sourceTree = "<group>"; };
+		FC9E56992A3CFB08000AFDA3 /* LeagueSelectHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSelectHeader.swift; sourceTree = "<group>"; };
 		FCA3D13429B6DC4C0038D8A2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		FCB507A229D091E4001CB2C2 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		FCB5A44229E37B43009FC8D9 /* StandingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTableCell.swift; sourceTree = "<group>"; };
@@ -266,15 +266,12 @@
 		FC227F2B2A2CD28C0073F6BD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				FC227F2C2A2CD4C40073F6BD /* Nunito-VariableFont_wght.ttf */,
-				FC6DEDAB2A2ECFA3003F4B7E /* Lato-Regular.ttf */,
-				FC6DEDAD2A2ED049003F4B7E /* Lato-Bold.ttf */,
-				FC6DEDAF2A2F8EB3003F4B7E /* Urbanist-VariableFont_wght.ttf */,
-				FC6DEDB12A300E83003F4B7E /* Manrope-VariableFont_wght.ttf */,
-				FC6DEDB32A3021B4003F4B7E /* Roboto-Regular.ttf */,
-				FC6DEDB52A3021BF003F4B7E /* Roboto-Medium.ttf */,
-				FC6DEDB72A3021CC003F4B7E /* Roboto-Bold.ttf */,
+				FC9E56972A3CF038000AFDA3 /* Gugi-Regular.ttf */,
+				FC9E56952A3CE73A000AFDA3 /* Oregano-Regular.ttf */,
+				FC9E56932A3CE5C6000AFDA3 /* BellotaText-Bold.ttf */,
+				FC9E56912A3CE5BC000AFDA3 /* FugazOne-Regular.ttf */,
 				FC6DEDB92A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf */,
+				FC9E568F2A3CDFBB000AFDA3 /* ConcertOne-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -347,9 +344,9 @@
 			isa = PBXGroup;
 			children = (
 				FC391B702A15CFC200851462 /* FixtureStatusView.swift */,
-				FC391B6A2A15B4DB00851462 /* FinishedStatusView.swift */,
 				FC391B682A14833800851462 /* InPlayStatusView.swift */,
 				FC391B6C2A15B4F400851462 /* UpcomingStatusView.swift */,
+				FC391B6A2A15B4DB00851462 /* FinishedStatusView.swift */,
 			);
 			path = FixtureStatusView;
 			sourceTree = "<group>";
@@ -429,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				FCF99AC129EE2F2300BB8E5A /* LeagueDataFilterTableCell.swift */,
+				FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -543,6 +541,7 @@
 		FC4AAF4F29F4834100736DBE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC9E56992A3CFB08000AFDA3 /* LeagueSelectHeader.swift */,
 				FC4D8EC829CF8F59002E0CE3 /* LeagueSelectCell.swift */,
 			);
 			path = View;
@@ -556,7 +555,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FC4AAF5129F483DA00736DBE /* Components */ = {
+		FC4AAF5129F483DA00736DBE /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				FC36D4B429C66B9E008E1507 /* Base */,
@@ -570,7 +569,7 @@
 				FC63538229EF774E001B3BDC /* LeagueDataFilter */,
 				FC6903DB29EC7869008EEB82 /* Shared */,
 			);
-			path = Components;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		FC4FD2412A07F87400BDE0E5 /* Model */ = {
@@ -585,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				FC54563B2A34CA5800093AD1 /* BaseTableHeader.swift */,
+				FC841E9A2A41EB35008D819D /* BaseTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -612,7 +612,7 @@
 				FC5845F4296676840032B543 /* AppDelegate.swift */,
 				FC5845F6296676840032B543 /* SceneDelegate.swift */,
 				FC584600296676850032B543 /* Assets.xcassets */,
-				FC4AAF5129F483DA00736DBE /* Components */,
+				FC4AAF5129F483DA00736DBE /* UI */,
 				FC58460B29668BFD0032B543 /* Network */,
 				FC39ED3629C782A2001722FC /* Utilities */,
 				FC227F2A2A2CD2820073F6BD /* Resources */,
@@ -865,25 +865,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC6DEDB62A3021BF003F4B7E /* Roboto-Medium.ttf in Resources */,
 				FC9243A92A225D840084AB4D /* standings-39-2022.json in Resources */,
 				FC9243AF2A225EF50084AB4D /* fixtures-inPlay-39.json in Resources */,
-				FC6DEDB42A3021B4003F4B7E /* Roboto-Regular.ttf in Resources */,
 				FC9243C12A2269910084AB4D /* leaders-yellowCards-39.json in Resources */,
-				FC6DEDB82A3021CC003F4B7E /* Roboto-Bold.ttf in Resources */,
 				FC9243B72A2263920084AB4D /* fixtures-inPlay-61.json in Resources */,
-				FC6DEDAC2A2ECFA3003F4B7E /* Lato-Regular.ttf in Resources */,
 				FC6DEDBA2A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf in Resources */,
-				FC6DEDB02A2F8EB3003F4B7E /* Urbanist-VariableFont_wght.ttf in Resources */,
 				FC9243AB2A225E390084AB4D /* standings-61-2022.json in Resources */,
 				FC9243BB2A22670A0084AB4D /* fixtures-past-61.json in Resources */,
 				FC9243B12A225F930084AB4D /* fixtures-upcoming-39.json in Resources */,
 				FC9243B32A2262700084AB4D /* fixtures-past-39.json in Resources */,
-				FC227F2D2A2CD4C40073F6BD /* Nunito-VariableFont_wght.ttf in Resources */,
+				FC9E56962A3CE73A000AFDA3 /* Oregano-Regular.ttf in Resources */,
+				FC9E56982A3CF038000AFDA3 /* Gugi-Regular.ttf in Resources */,
+				FC9E56942A3CE5C6000AFDA3 /* BellotaText-Bold.ttf in Resources */,
 				FC9243BF2A2269300084AB4D /* leaders-assists-39.json in Resources */,
-				FC6DEDAE2A2ED049003F4B7E /* Lato-Bold.ttf in Resources */,
+				FC9E56922A3CE5BC000AFDA3 /* FugazOne-Regular.ttf in Resources */,
 				FC9243B52A2263240084AB4D /* fixtures-today-61.json in Resources */,
-				FC6DEDB22A300E83003F4B7E /* Manrope-VariableFont_wght.ttf in Resources */,
 				FC9243C52A229F850084AB4D /* standings-61-2015.json in Resources */,
 				FC9243A52A225AAE0084AB4D /* league-39.json in Resources */,
 				FC9243AD2A225E9D0084AB4D /* fixtures-today-39.json in Resources */,
@@ -892,6 +888,7 @@
 				FC9243B92A2266860084AB4D /* fixtures-upcoming-61.json in Resources */,
 				FC9243C72A229FC50084AB4D /* standings-39-2021.json in Resources */,
 				FC584601296676850032B543 /* Assets.xcassets in Resources */,
+				FC9E56902A3CDFBB000AFDA3 /* ConcertOne-Regular.ttf in Resources */,
 				FC9243BD2A22690D0084AB4D /* leaders-goals-39.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -904,6 +901,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCEF04932A23A64B00B46435 /* FontConstants.swift in Sources */,
+				FC9E569A2A3CFB08000AFDA3 /* LeagueSelectHeader.swift in Sources */,
 				FC391B6B2A15B4DB00851462 /* FinishedStatusView.swift in Sources */,
 				FC42462729F725980056A3F6 /* ClubPositionStackView.swift in Sources */,
 				FC4E599B2A1C491B0031C2F6 /* FixtureFilterType.swift in Sources */,
@@ -919,6 +917,7 @@
 				FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */,
 				FCF2147B29C157A30031E0D6 /* MenuViewController.swift in Sources */,
 				FC0DB1F729A70932009E9668 /* Club.swift in Sources */,
+				FC841E9B2A41EB35008D819D /* BaseTableCell.swift in Sources */,
 				FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */,
 				FC0BB10329DBD08300C07140 /* SettingOptionViewController.swift in Sources */,
 				FCE0765E2A09DC1000B8DFD3 /* LeagueDataFilter.swift in Sources */,
@@ -937,6 +936,7 @@
 				FCE076652A09E41300B8DFD3 /* FixturesTableCell.swift in Sources */,
 				FC6903E029EC7B2C008EEB82 /* LeagueDataFilterViewController.swift in Sources */,
 				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
+				FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */,
 				FCC4D1C829BD4ECD00750657 /* HomeTabBarController.swift in Sources */,
 				FC1A062129D5340700A735E4 /* SettingGroupHeader.swift in Sources */,
 				FC391B692A14833800851462 /* InPlayStatusView.swift in Sources */,
@@ -1147,6 +1147,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pastelsior.Footi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

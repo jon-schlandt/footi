@@ -9,6 +9,17 @@ import Foundation
 import UIKit
 
 extension UIImageView {
+    
+    func loadFromCache(url: URL) {
+        let request = URLRequest(url: url)
+        
+        if let cachedResponse = URLCache.shared.cachedResponse(for: request) {
+            self.image = UIImage(data: cachedResponse.data)
+        } else {
+            load(url: url)
+        }
+    }
+    
     func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {

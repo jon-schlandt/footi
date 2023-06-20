@@ -10,7 +10,8 @@ import UIKit
 
 extension UIView {
     
-    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, lOffset: CGFloat = 0, rOffset: CGFloat = 0) {
+    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, lOffset: CGFloat = 0, rOffset: CGFloat = 0) -> [UIView] {
+        var borders = [UIView]()
         
         if (edges.contains(.all) || edges.contains(.top)) {
             let topBorder = createBorder(color: color)
@@ -22,6 +23,8 @@ extension UIView {
                 topBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -rOffset),
                 topBorder.heightAnchor.constraint(equalToConstant: width)
             ])
+            
+            borders.append(topBorder)
         }
         
         if (edges.contains(.all) || edges.contains(.left)) {
@@ -34,6 +37,8 @@ extension UIView {
                 leftBorder.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 leftBorder.widthAnchor.constraint(equalToConstant: width)
             ])
+            
+            borders.append(leftBorder)
         }
         
         if (edges.contains(.all) || edges.contains(.right)) {
@@ -46,6 +51,8 @@ extension UIView {
                 rightBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 rightBorder.widthAnchor.constraint(equalToConstant: width)
             ])
+            
+            borders.append(rightBorder)
         }
         
         if (edges.contains(.all) || edges.contains(.bottom)) {
@@ -58,7 +65,11 @@ extension UIView {
                 bottomBorder.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -rOffset),
                 bottomBorder.heightAnchor.constraint(equalToConstant: width)
             ])
+            
+            borders.append(bottomBorder)
         }
+        
+        return borders
     }
     
     private func createBorder(color: UIColor) -> UIView {

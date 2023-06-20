@@ -4,6 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Gugi-Regular.ttf</string>
+		<string>Oregano-Regular.ttf</string>
+		<string>BellotaText-Bold.ttf</string>
+		<string>FugazOne-Regular.ttf</string>
+		<string>ConcertOne-Regular.ttf</string>
 		<string>Inter-VariableFont_slnt,wght.ttf</string>
 		<string>Roboto-Medium.ttf</string>
 		<string>Roboto-Regular.ttf</string>

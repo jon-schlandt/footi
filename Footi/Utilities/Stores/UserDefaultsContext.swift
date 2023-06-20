@@ -85,7 +85,7 @@ struct UserDefaultsContext {
         return enabledSelection
     }
     
-    public func setEnabledSelection(groupKey: String, optionKey: String, selectionKey: String) {
+    public func setEnabledSetting(groupKey: String, optionKey: String, selectionKey: String) {
         let settingMap = UserDefaults().object(forKey: "settings") as? [String: Any]
         guard var settingMap = settingMap else {
             return

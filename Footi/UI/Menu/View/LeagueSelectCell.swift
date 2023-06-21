@@ -17,21 +17,28 @@ class LeagueSelectCell: UICollectionViewCell {
     
     // MARK: Views
     
-    private let leagueButton: UIButton = {
-        let button = UIButton()
+    private let leagueButton: UIView = {
+        let button = UIView()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.contentMode = .scaleAspectFit
+        button.layer.cornerRadius = 8
+        button.backgroundColor = .clear
         
         return button
     }()
     
-    private var leagueImage: UIImage!
+    private var leagueImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        
+        return image
+    }()
     
     private let checkmark: UIImageView = {
         let checkmark = UIImageView()
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
-        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16.0, weight: .medium, scale: .medium))
+        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 12.0, weight: .medium, scale: .medium))
         checkmark.tintColor = UIColor.Palette.emphasisIcon
         checkmark.isHidden = true
         
@@ -48,8 +55,13 @@ class LeagueSelectCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        leagueButton.addSubview(leagueImage)
+        leagueButton.addSubview(checkmark)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectLeague))
+        leagueButton.addGestureRecognizer(tapGesture)
+        
         self.contentView.addSubview(leagueButton)
-        self.contentView.addSubview(checkmark)
     }
     
     required init?(coder: NSCoder) {
@@ -67,13 +79,20 @@ class LeagueSelectCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             leagueButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             leagueButton.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-            leagueButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, constant: -56),
-            leagueButton.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, constant: -56)
+            leagueButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, constant: -40),
+            leagueButton.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, constant: -40)
         ])
         
         NSLayoutConstraint.activate([
-            checkmark.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: AppConstants.baseMargin),
-            checkmark.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -AppConstants.baseMargin)
+            leagueImage.centerXAnchor.constraint(equalTo: leagueButton.centerXAnchor),
+            leagueImage.centerYAnchor.constraint(equalTo: leagueButton.centerYAnchor),
+            leagueImage.widthAnchor.constraint(equalTo: leagueButton.widthAnchor, multiplier: 1 / 2),
+            leagueImage.heightAnchor.constraint(equalTo: leagueButton.heightAnchor, multiplier: 1 / 2)
+        ])
+        
+        NSLayoutConstraint.activate([
+            checkmark.topAnchor.constraint(equalTo: leagueButton.topAnchor, constant: 8),
+            checkmark.trailingAnchor.constraint(equalTo: leagueButton.trailingAnchor, constant: -8)
         ])
     }
     
@@ -82,14 +101,14 @@ class LeagueSelectCell: UICollectionViewCell {
     public func configure(with selection: LeagueSelection) {
         self.selection = selection
         
-        let leagueImage = UIImage(named: String(self.selection.id))
-        leagueButton.setImage(leagueImage, for: .normal)
-        leagueButton.addTarget(self, action: #selector(selectLeague), for: .touchUpInside)
+        leagueImage.image = UIImage(named: String(self.selection.id))
         
         if selection.isEnabled == true {
             checkmark.isHidden = false
+            leagueButton.backgroundColor = UIColor.Palette.secondaryBackground
         } else {
             checkmark.isHidden = true
+            leagueButton.backgroundColor = .clear
         }
     }
     

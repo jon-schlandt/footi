@@ -64,9 +64,15 @@ class LeagueHeaderView: UIView {
         ])
     }
     
+    // MARK: Public
+    
     public func configure(with headerDetails: LeagueHeaderDetails) {
         leagueDisplay.configure(with: headerDetails)
         filterDropdown.configure(with: headerDetails.filter.options)
+    }
+    
+    public func resetDropdown() {
+        filterDropdown.resetDropdown()
     }
 }
 

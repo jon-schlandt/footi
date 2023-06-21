@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     struct Palette {
-        static let background = UIColor(named: "background")
+        static let primaryBackground = UIColor(named: "primaryBackground")
         static let bar = UIColor(named: "bar")
         static let barText = UIColor(named: "barText")
         static let border = UIColor(named: "border")
@@ -20,6 +20,7 @@ extension UIColor {
         static let live = UIColor(named: "live")
         static let primaryIcon = UIColor(named: "primaryIcon")
         static let primaryText = UIColor(named: "primaryText")
+        static let secondaryBackground = UIColor(named: "secondaryBackground")
         static let secondaryIcon = UIColor(named: "secondaryIcon")
         static let secondaryText = UIColor(named: "secondaryText")
         static let tertiaryIcon = UIColor(named: "tertiaryIcon")

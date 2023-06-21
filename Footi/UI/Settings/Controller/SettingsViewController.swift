@@ -189,6 +189,6 @@ extension SettingsViewController {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
         
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

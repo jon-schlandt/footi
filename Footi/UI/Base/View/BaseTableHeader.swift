@@ -30,7 +30,7 @@ class BaseTableHeader: UITableViewHeaderFooterView {
     private let sectionSpacer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.Palette.background
+        view.backgroundColor = UIColor.Palette.primaryBackground
         
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: AppConstants.baseSectionSpacing)

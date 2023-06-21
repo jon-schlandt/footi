@@ -9,7 +9,7 @@ import UIKit
 
 class UpcomingStatusView: UIStackView, FixtureStatusView {
     
-    // MARK: Views
+    // MARK: View
     
     private let topView: UIView = {
         let view = UIView()

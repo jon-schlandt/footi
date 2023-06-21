@@ -92,6 +92,6 @@ extension MenuViewController {
     }
     
     private func styleView() {
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

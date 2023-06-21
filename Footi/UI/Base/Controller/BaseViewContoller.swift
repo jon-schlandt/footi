@@ -24,7 +24,7 @@ class BaseViewContoller: UIViewController {
     // MARK: View
     
     internal var menuNav: BaseNavigationController!
-    internal var leagueDataFilterNav: BaseNavigationController!
+    internal var leagueDataFilterNav: LeagueDataFilterNavigationController!
     internal var baseStackView: UIStackView!
     internal var leagueHeader = LeagueHeaderView()
     
@@ -147,7 +147,8 @@ extension BaseViewContoller: LeagueHeaderViewDelegate {
         vc.delegate = self
         vc.modalPresentationStyle = .pageSheet
         
-        leagueDataFilterNav = BaseNavigationController(rootViewController: vc)
+        leagueDataFilterNav = LeagueDataFilterNavigationController(rootViewController: vc)
+        leagueDataFilterNav.dismissDelegate = self
         
         if let sheet = leagueDataFilterNav.sheetPresentationController {
             sheet.detents = [.medium()]
@@ -173,7 +174,15 @@ extension BaseViewContoller: LeagueDataFilterDelegate {
     }
     
     internal func dismissFilter() {
+        leagueHeader.resetDropdown()
         leagueDataFilterNav.dismiss(animated: true)
+    }
+}
+
+extension BaseViewContoller: LeagueDataFilterDismissDelegate {
+    
+    internal func resetDropdown() {
+        leagueHeader.resetDropdown()
     }
 }
 
@@ -209,6 +218,6 @@ extension BaseViewContoller {
     }
     
     private func styleView() {
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

@@ -59,10 +59,10 @@ class FixturesViewController: BaseViewContoller {
                 await self.reloadSelectedLeague()
                 await loadLeagueHeaderDetails()
                 await loadModel()
-                
-                fixturesTableVC.tableView.reloadData()
             }
         }
+        
+        fixturesTableVC.tableView.reloadData()
     }
     
     override func loadLeagueHeaderDetails() async {

@@ -68,6 +68,8 @@
 		FC7E07412A102CFD00BED0B2 /* FixtureMatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */; };
 		FC841E9B2A41EB35008D819D /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9A2A41EB35008D819D /* BaseTableCell.swift */; };
 		FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */; };
+		FC841E9F2A435411008D819D /* LeagueDataFilterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9E2A435411008D819D /* LeagueDataFilterNavigationController.swift */; };
+		FC841EA22A43970F008D819D /* InPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841EA12A43970F008D819D /* InPlayIndicator.swift */; };
 		FC9243A22A2257780084AB4D /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9243A12A2257780084AB4D /* JSONLoader.swift */; };
 		FC9243A52A225AAE0084AB4D /* league-39.json in Resources */ = {isa = PBXBuildFile; fileRef = FC9243A42A225AAE0084AB4D /* league-39.json */; };
 		FC9243A72A225D1C0084AB4D /* league-61.json in Resources */ = {isa = PBXBuildFile; fileRef = FC9243A62A225D1B0084AB4D /* league-61.json */; };
@@ -179,6 +181,8 @@
 		FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureMatchupView.swift; sourceTree = "<group>"; };
 		FC841E9A2A41EB35008D819D /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
 		FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterTableHeader.swift; sourceTree = "<group>"; };
+		FC841E9E2A435411008D819D /* LeagueDataFilterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterNavigationController.swift; sourceTree = "<group>"; };
+		FC841EA12A43970F008D819D /* InPlayIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPlayIndicator.swift; sourceTree = "<group>"; };
 		FC9243A12A2257780084AB4D /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
 		FC9243A42A225AAE0084AB4D /* league-39.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "league-39.json"; sourceTree = "<group>"; };
 		FC9243A62A225D1B0084AB4D /* league-61.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "league-61.json"; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 				FC391B682A14833800851462 /* InPlayStatusView.swift */,
 				FC391B6C2A15B4F400851462 /* UpcomingStatusView.swift */,
 				FC391B6A2A15B4DB00851462 /* FinishedStatusView.swift */,
+				FC841EA12A43970F008D819D /* InPlayIndicator.swift */,
 			);
 			path = FixtureStatusView;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 		FC4AAF5029F483A200736DBE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FC841E9E2A435411008D819D /* LeagueDataFilterNavigationController.swift */,
 				FC6903DF29EC7B2C008EEB82 /* LeagueDataFilterViewController.swift */,
 			);
 			path = Controller;
@@ -690,7 +696,6 @@
 			children = (
 				FC391B632A1470F000851462 /* Model */,
 				FCE0765F2A09E04A00B8DFD3 /* View */,
-				FC4AAF4129F47AC000736DBE /* Controller */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -803,6 +808,7 @@
 			children = (
 				FC0B0FD12A113AC400C76B7B /* FixturesTableHeader */,
 				FC7E073F2A102CAF00BED0B2 /* FixturesTableCell */,
+				FC4AAF4129F47AC000736DBE /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -916,6 +922,7 @@
 				FC1AC90D29A9B2B500693DB3 /* LeadersService.swift in Sources */,
 				FC1AC90B29A9A1C700693DB3 /* FixturesService.swift in Sources */,
 				FCF2147B29C157A30031E0D6 /* MenuViewController.swift in Sources */,
+				FC841EA22A43970F008D819D /* InPlayIndicator.swift in Sources */,
 				FC0DB1F729A70932009E9668 /* Club.swift in Sources */,
 				FC841E9B2A41EB35008D819D /* BaseTableCell.swift in Sources */,
 				FC5845F7296676840032B543 /* SceneDelegate.swift in Sources */,
@@ -934,6 +941,7 @@
 				FC36D4B629C66BB5008E1507 /* BaseViewContoller.swift in Sources */,
 				FC0DB1FC29A72393009E9668 /* LeaguesEndpoint.swift in Sources */,
 				FCE076652A09E41300B8DFD3 /* FixturesTableCell.swift in Sources */,
+				FC841E9F2A435411008D819D /* LeagueDataFilterNavigationController.swift in Sources */,
 				FC6903E029EC7B2C008EEB82 /* LeagueDataFilterViewController.swift in Sources */,
 				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
 				FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */,

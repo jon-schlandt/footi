@@ -64,6 +64,12 @@ class LeagueDataFilterDropdown: UIStackView {
     public func configure(with options: [DataFilterOption]) {
         self.options = options
     }
+    
+    public func resetDropdown() {
+        UIView.animate(withDuration: 0.20) {
+            self.dropdownIcon.transform = .identity
+        }
+    }
 }
 
 /// Private methods
@@ -77,6 +83,10 @@ extension LeagueDataFilterDropdown {
     }
     
     @objc private func presentFilter() {
+        UIView.animate(withDuration: 0.20) {
+            self.dropdownIcon.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2) // Rotate 45 degrees (π/4 radians)
+        }
+        
         delegate?.presentFilter()
     }
 }

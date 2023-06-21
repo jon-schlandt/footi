@@ -51,13 +51,6 @@ class LeagueDataFilterViewController: UITableViewController {
         return filter.options.count
     }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: LeagueDataFilterTableHeader.identifier) as! LeagueDataFilterTableHeader
-//        header.configure(with: filter.title)
-//
-//        return header
-//    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LeagueDataFilterTableCell.identifier, for: indexPath) as! LeagueDataFilterTableCell
         let filterOption = filter.options[indexPath.row]
@@ -68,10 +61,6 @@ class LeagueDataFilterViewController: UITableViewController {
     }
     
     // MARK: UITableViewDelegate
-    
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return AppConstants.baseCellHeight
-//    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return AppConstants.baseCellHeight
@@ -123,6 +112,6 @@ extension LeagueDataFilterViewController {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
         
-        self.view.backgroundColor = UIColor.Palette.background
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

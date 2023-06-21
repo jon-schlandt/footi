@@ -8,8 +8,8 @@
 import UIKit
 
 class InPlayStatusView: UIView, FixtureStatusView {
-
-    // MARK: Views
+    
+    // MARK: View
     
     private let statusLabel: UILabel = {
         let label = UILabel()
@@ -20,31 +20,12 @@ class InPlayStatusView: UIView, FixtureStatusView {
         return label
     }()
     
-    private let inPlayIndicator: UIView = {
-        let indicator = UIView()
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-        indicator.layer.cornerRadius = 5 / 2
-        indicator.clipsToBounds = true
-        indicator.backgroundColor = UIColor.Palette.background
-        
-        return indicator
-    }()
-    
-    private let indicatorLight: UIView = {
-        let light = UIView()
-        light.translatesAutoresizingMaskIntoConstraints = false
-        light.layer.cornerRadius = 5 / 2
-        light.backgroundColor = UIColor.Palette.emphasisIcon
-        
-        return light
-    }()
+    private let inPlayIndicator = InPlayIndicator()
     
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        inPlayIndicator.addSubview(indicatorLight)
         
         self.addSubview(statusLabel)
         self.addSubview(inPlayIndicator)
@@ -67,13 +48,6 @@ class InPlayStatusView: UIView, FixtureStatusView {
             inPlayIndicator.heightAnchor.constraint(equalToConstant: 5),
             inPlayIndicator.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             inPlayIndicator.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20)
-        ])
-        
-        NSLayoutConstraint.activate([
-            indicatorLight.widthAnchor.constraint(equalToConstant: 5),
-            indicatorLight.heightAnchor.constraint(equalToConstant: 5),
-            indicatorLight.centerYAnchor.constraint(equalTo: inPlayIndicator.centerYAnchor),
-            indicatorLight.leadingAnchor.constraint(equalTo: inPlayIndicator.leadingAnchor)
         ])
     }
     

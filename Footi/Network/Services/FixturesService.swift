@@ -8,19 +8,21 @@
 import Foundation
 
 protocol FixturesServiceable {
-    func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [Fixture]
+    func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [FixtureResponse]
+    func getMockFixtures(for leagueId: Int, using filterValue: FixtureFilterType) -> [FixtureResponse]
+    func getMockFixturesInPlay(for leagueId: Int) -> [FixtureResponse]
 }
 
 struct FixturesService: HTTPClient, FixturesServiceable {
     
     private let coreDataContext = CoreDataContext()
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [Fixture] {
+    public func getFixtures(leagueId: Int, filterType: FixtureFilterType) async -> [FixtureResponse] {
         let currentSeason = await coreDataContext.fetchCurrentSeason(for: leagueId)
         guard let currentSeason = currentSeason else {
-            return [Fixture]()
+            return [FixtureResponse]()
         }
         
         switch filterType {
@@ -35,21 +37,42 @@ struct FixturesService: HTTPClient, FixturesServiceable {
         }
     }
     
-    // MARK: Private
+    public func getMockFixtures(for leagueId: Int, using filterValue: FixtureFilterType) -> [FixtureResponse] {
+        let fixtures = JSONLoader.loadJSONData(from: "fixtures-\(filterValue.rawValue)-\(leagueId)", decodingType: FixturesResponse.self)?.response
+        guard let fixtures = fixtures else {
+            return [FixtureResponse]()
+        }
+        
+        return fixtures
+    }
     
-    private func getFixturesInPlay(for leagueId: Int, season: Int) async -> [Fixture] {
+    public func getMockFixturesInPlay(for leagueId: Int) -> [FixtureResponse] {
+        let fixtures = JSONLoader.loadJSONData(from: "fixtures-inPlay-\(leagueId)", decodingType: FixturesResponse.self)?.response
+        guard let fixtures = fixtures else {
+            return [FixtureResponse]()
+        }
+        
+        return fixtures
+    }
+}
+
+// MARK: Private helpers
+
+extension FixturesService {
+    
+    private func getFixturesInPlay(for leagueId: Int, season: Int) async -> [FixtureResponse] {
         let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
         let statusInPlay = "1H-HT-2H-ET-BT-P-INT-LIVE"
         
         return await getFixturesBy(leagueId: leagueId, season: season, from: dateToday, to: dateToday, status: statusInPlay)
     }
     
-    private func getFixturesToday(for leagueId: Int, season: Int) async -> [Fixture] {
+    private func getFixturesToday(for leagueId: Int, season: Int) async -> [FixtureResponse] {
         let dateToday = Date.getCurrentDateString(as: "yyyy-MM-dd")
         return await getFixturesBy(leagueId: leagueId, season: season, from: dateToday, to: dateToday)
     }
     
-    private func getFixturesUpcoming(for leagueId: Int, season: Int) async -> [Fixture] {
+    private func getFixturesUpcoming(for leagueId: Int, season: Int) async -> [FixtureResponse] {
         let dateTomorrow = Date.getDateStringTomorrow(as: "yyyy-MM-dd")
         
         let seasonEndDate = await coreDataContext.fetchSeasonEndDate(leagueId: leagueId, season: season)
@@ -57,10 +80,10 @@ struct FixturesService: HTTPClient, FixturesServiceable {
             return await getFixturesBy(leagueId: leagueId, season: season, from: dateTomorrow, to: seasonEndDate)
         }
         
-        return [Fixture]()
+        return [FixtureResponse]()
     }
     
-    private func getFixturesPast(for leagueId: Int, season: Int) async -> [Fixture] {
+    private func getFixturesPast(for leagueId: Int, season: Int) async -> [FixtureResponse] {
         let dateYesterday = Date.getDateStringYesterday(as: "yyyy-MM-dd")
         
         let seasonStartDate = await coreDataContext.fetchSeasonStartDate(leagueId: leagueId, season: season)
@@ -68,10 +91,10 @@ struct FixturesService: HTTPClient, FixturesServiceable {
             return await getFixturesBy(leagueId: leagueId, season: season, from: seasonStartDate, to: dateYesterday)
         }
         
-        return [Fixture]()
+        return [FixtureResponse]()
     }
     
-    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String) async -> [Fixture] {
+    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String) async -> [FixtureResponse] {
         let endpoint = FixturesEndpoint.byDateRange(leagueId: leagueId, season: season, from: from, to: to)
         
         let fixtures = try? (await sendRequest(to: endpoint, expect: FixturesResponse.self)).get().response
@@ -79,10 +102,10 @@ struct FixturesService: HTTPClient, FixturesServiceable {
             return fixtures
         }
         
-        return [Fixture]()
+        return [FixtureResponse]()
     }
     
-    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String, status: String) async -> [Fixture] {
+    private func getFixturesBy(leagueId: Int, season: Int, from: String, to: String, status: String) async -> [FixtureResponse] {
         let endpoint = FixturesEndpoint.byDateRangeAndStatus(leagueId: leagueId, season: season, from: from, to: to, status: status)
         
         let fixtures = try? (await sendRequest(to: endpoint, expect: FixturesResponse.self)).get().response
@@ -90,6 +113,6 @@ struct FixturesService: HTTPClient, FixturesServiceable {
             return fixtures
         }
         
-        return [Fixture]()
+        return [FixtureResponse]()
     }
 }

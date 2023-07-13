@@ -13,6 +13,8 @@ protocol LeagueHeaderViewDelegate: AnyObject {
 
 class LeagueHeaderView: UIView {
     
+    weak var delegate: LeagueHeaderViewDelegate?
+    
     // MARK: Views
     
     private let container: UIStackView = {
@@ -28,16 +30,14 @@ class LeagueHeaderView: UIView {
     private let leagueDisplay = LeagueDisplayStackView()
     private let filterDropdown = LeagueDataFilterDropdown()
     
-    // MARK: Model
-    
-    weak var delegate: LeagueHeaderViewDelegate?
-    
     // MARK: Lifecycle
     
     init() {
         super.init(frame: .zero)
         
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.layer.zPosition = 1
+        
         filterDropdown.delegate = self
         
         container.addArrangedSubview(leagueDisplay)

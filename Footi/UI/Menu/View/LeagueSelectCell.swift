@@ -15,13 +15,11 @@ class LeagueSelectCell: UICollectionViewCell {
     
     public static let identifier = String(describing: LeagueSelectCell.self)
     
-    // MARK: Views
+    // MARK: View
     
     private let leagueButton: UIView = {
         let button = UIView()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 8
-        button.backgroundColor = .clear
         
         return button
     }()
@@ -38,7 +36,7 @@ class LeagueSelectCell: UICollectionViewCell {
         let checkmark = UIImageView()
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
-        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 12.0, weight: .medium, scale: .medium))
+        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .medium, scale: .medium))
         checkmark.tintColor = UIColor.Palette.emphasisIcon
         checkmark.isHidden = true
         
@@ -91,8 +89,8 @@ class LeagueSelectCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            checkmark.topAnchor.constraint(equalTo: leagueButton.topAnchor, constant: 8),
-            checkmark.trailingAnchor.constraint(equalTo: leagueButton.trailingAnchor, constant: -8)
+            checkmark.topAnchor.constraint(equalTo: leagueButton.topAnchor, constant: 6),
+            checkmark.trailingAnchor.constraint(equalTo: leagueButton.trailingAnchor, constant: -6)
         ])
     }
     
@@ -105,14 +103,13 @@ class LeagueSelectCell: UICollectionViewCell {
         
         if selection.isEnabled == true {
             checkmark.isHidden = false
-            leagueButton.backgroundColor = UIColor.Palette.secondaryBackground
         } else {
             checkmark.isHidden = true
-            leagueButton.backgroundColor = .clear
         }
     }
     
     public func style(for index: Int) {
+        self.backgroundColor = UIColor.Palette.foreground
         _ = self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
         
         if index % 3 == 1 {
@@ -121,7 +118,7 @@ class LeagueSelectCell: UICollectionViewCell {
     }
 }
 
-/// Private methods
+/// Helper methods
 extension LeagueSelectCell {
     
     @objc private func selectLeague() {

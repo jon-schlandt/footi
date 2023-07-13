@@ -57,10 +57,11 @@ class LeagueSelectHeader: UICollectionReusableView {
     }
 }
 
-/// Private methods
+/// Helper methods
 extension LeagueSelectHeader {
     
     private func setStyling() {
+        self.backgroundColor = UIColor.Palette.foreground
         _ = self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

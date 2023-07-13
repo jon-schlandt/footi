@@ -7,25 +7,27 @@
 
 import UIKit
 
-class BaseViewContoller: UIViewController {
+// MARK: Implementation
 
-    // MARK: Data stores
+class BaseViewContoller: UIViewController {
     
     internal let coreDataContext = CoreDataContext()
     internal let userDefaultsContext = UserDefaultsContext()
-    
-    // MARK: Networking
     
     internal let fixturesService = FixturesService()
     internal let leadersService = LeadersService()
     internal let leaguesService = LeaguesService()
     internal let standingsService = StandingsService()
     
-    // MARK: View
+    // MARK: Controllers
     
     internal var menuNav: BaseNavigationController!
     internal var leagueDataFilterNav: LeagueDataFilterNavigationController!
-    internal var baseStackView: UIStackView!
+    internal var baseTableVC: BaseTableViewController!
+    
+    // MARK: Subviews
+    
+    internal var baseStackView = BaseStackView()
     internal var leagueHeader = LeagueHeaderView()
     
     // MARK: Model
@@ -40,12 +42,7 @@ class BaseViewContoller: UIViewController {
         
         let rootView = UIView()
         
-        baseStackView = UIStackView()
-        baseStackView.translatesAutoresizingMaskIntoConstraints = false
-        baseStackView.axis = .vertical
-        baseStackView.distribution = .fill
-        
-        baseStackView.addArrangedSubview(self.leagueHeader)
+        baseStackView.addArrangedSubview(leagueHeader)
         rootView.addSubview(baseStackView)
         
         NSLayoutConstraint.activate([
@@ -61,47 +58,57 @@ class BaseViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        baseTableVC.delegate = self
         leagueHeader.delegate = self
-        selectedLeague = userDefaultsContext.getSelectedLeague()
         
         setupNavigation()
         setupMenu()
         styleView()
     }
     
-    // MARK: Internal
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (self.hasLeagueChanged()) {
+            _Concurrency.Task {
+                self.setBaseTableToOrigin()
+                
+                await self.reloadSelectedLeague()
+                await loadLeagueHeaderDetails()
+                await reloadModel()
+            }
+        }
+    }
+    
+    // MARK: Base methods
     
     internal func loadLeagueHeaderDetails() async {
-        let leagueId = selectedLeague.id
-        let leagueTitle = selectedLeague.title
+        selectedLeague = userDefaultsContext.getSelectedLeague()
         
         leagueHeaderDetails = LeagueHeaderDetails(
-            leagueId: leagueId,
-            leagueTitle: leagueTitle,
-            filter: LeagueDataFilter(title: leagueTitle, options: [DataFilterOption]())
+            leagueId: selectedLeague.id,
+            leagueTitle: selectedLeague.title
         )
     }
     
-    internal func loadModel() async {
-        fatalError("loadModel() has not been implemented")
+    internal func reloadLeagueHeaderDetails() async {}
+    internal func loadModel() async {}
+    
+    internal func reloadModel() async {
+        baseTableVC.model = Any.self
+        await loadModel()
     }
     
-    final internal func hasLeagueChanged() -> Bool {
-        let selectedLeague = userDefaultsContext.getSelectedLeague()
-        guard let selectedLeague = selectedLeague else {
-            return false
-        }
-        
-        return self.selectedLeague != selectedLeague
-    }
+    // MARK: Base helpers
     
-    final internal func reloadSelectedLeague() async {
-        let selectedLeague = userDefaultsContext.getSelectedLeague()
-        guard let selectedLeague = selectedLeague else {
-            return
-        }
+    final internal func setTitle(as title: String) {
+        let label = UILabel()
+        label.font = UIFont(name: FontConstants.title, size: 17.0)
+        label.textColor = UIColor.Palette.barText
+        label.text = title
         
-        self.selectedLeague = selectedLeague
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
+        self.navigationItem.titleView = UIView()
     }
     
     final internal func getEnabledFilterOption() -> DataFilterOption? {
@@ -114,17 +121,20 @@ class BaseViewContoller: UIViewController {
     }
 }
 
+// MARK: Delegates
+
 extension BaseViewContoller: MenuViewControllerDelegate {
     
     internal func selectLeague() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-            self.closeMenu()
-            
             _Concurrency.Task {
                 await self.reloadSelectedLeague()
                 await self.loadLeagueHeaderDetails()
-                await self.loadModel()
+                await self.reloadModel()
             }
+            
+            self.closeMenu()
+            self.setBaseTableToOrigin()
         }
     }
     
@@ -140,37 +150,19 @@ extension BaseViewContoller: MenuViewControllerDelegate {
     }
 }
 
-extension BaseViewContoller: LeagueHeaderViewDelegate {
-    
-    internal func presentFilter() {
-        let vc = LeagueDataFilterViewController(filter: leagueHeaderDetails.filter)
-        vc.delegate = self
-        vc.modalPresentationStyle = .pageSheet
-        
-        leagueDataFilterNav = LeagueDataFilterNavigationController(rootViewController: vc)
-        leagueDataFilterNav.dismissDelegate = self
-        
-        if let sheet = leagueDataFilterNav.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.selectedDetentIdentifier = .medium
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-        }
-        
-        self.present(leagueDataFilterNav, animated: true)
-    }
-}
-
 extension BaseViewContoller: LeagueDataFilterDelegate {
     
     internal func setFilter(to filter: LeagueDataFilter) {
         leagueHeaderDetails.filter = filter
         leagueHeader.configure(with: leagueHeaderDetails)
         
-        dismissFilter()
-        
         _Concurrency.Task {
-            await loadModel()
+            await reloadLeagueHeaderDetails()
+            await reloadModel()
         }
+        
+        setBaseTableToOrigin()
+        dismissFilter()
     }
     
     internal func dismissFilter() {
@@ -186,28 +178,46 @@ extension BaseViewContoller: LeagueDataFilterDismissDelegate {
     }
 }
 
-/// Private methods
+extension BaseViewContoller: LeagueHeaderViewDelegate {
+    
+    internal func presentFilter() {
+        let vc = LeagueDataFilterViewController(filter: leagueHeaderDetails.filter)
+        vc.modalPresentationStyle = .pageSheet
+        vc.delegate = self
+        
+        leagueDataFilterNav = LeagueDataFilterNavigationController(rootViewController: vc)
+        leagueDataFilterNav.dismissDelegate = self
+        
+        if let sheet = leagueDataFilterNav.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        
+        self.present(leagueDataFilterNav, animated: true)
+    }
+}
+
+extension BaseViewContoller: BaseTableViewControllerDelegate {
+    
+    internal func refreshTable() async {
+        await reloadModel()
+    }
+}
+
+// MARK: Private helpers
+
 extension BaseViewContoller {
     
     private func setupNavigation() {
         self.navigationItem.backButtonTitle = ""
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "line.3.horizontal")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 19.0, weight: .light, scale: .medium)),
+            image: UIImage(systemName: "line.3.horizontal")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(displayMenu)
         )
-    }
-    
-    @objc private func displayMenu() {
-        if let sheet = menuNav.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.selectedDetentIdentifier = .medium
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-        }
-        
-        present(menuNav, animated: true)
     }
     
     private func setupMenu() {
@@ -219,5 +229,41 @@ extension BaseViewContoller {
     
     private func styleView() {
         self.view.backgroundColor = UIColor.Palette.primaryBackground
+    }
+    
+    private func hasLeagueChanged() -> Bool {
+        guard self.selectedLeague != nil else {
+            return false
+        }
+        
+        let selectedLeague = userDefaultsContext.getSelectedLeague()
+        guard let selectedLeague = selectedLeague else {
+            return false
+        }
+        
+        return self.selectedLeague != selectedLeague
+    }
+    
+    private func reloadSelectedLeague() async {
+        let selectedLeague = userDefaultsContext.getSelectedLeague()
+        guard let selectedLeague = selectedLeague else {
+            return
+        }
+        
+        self.selectedLeague = selectedLeague
+    }
+    
+    private func setBaseTableToOrigin() {
+        self.baseTableVC.setTableToOrigin()
+    }
+    
+    @objc private func displayMenu() {
+        if let sheet = menuNav.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.selectedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        
+        present(menuNav, animated: true)
     }
 }

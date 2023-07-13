@@ -33,7 +33,7 @@
                 "status": {
                     "long": "First Half",
                     "short": "1H",
-                    "elapsed": 15
+                    "elapsed": 52
                 }
             },
             "league": {
@@ -61,7 +61,7 @@
             },
             "goals": {
                 "home": 0,
-                "away": 0
+                "away": 1
             },
             "score": {
                 "halftime": {

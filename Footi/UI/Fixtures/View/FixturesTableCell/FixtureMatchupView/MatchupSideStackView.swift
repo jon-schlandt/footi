@@ -9,14 +9,14 @@ import UIKit
 
 class MatchupSideStackView: UIStackView {
 
-    // MARK: View
+    // MARK: Subviews
     
     private let clubView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fill
         view.alignment = .center
-        view.spacing = 10
+        view.spacing = 8
         
         return view
     }()
@@ -104,7 +104,7 @@ class MatchupSideStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func initialize() {
         clubBadge.image = nil

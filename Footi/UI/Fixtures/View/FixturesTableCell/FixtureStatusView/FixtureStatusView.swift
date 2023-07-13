@@ -8,5 +8,5 @@
 import Foundation
 
 protocol FixtureStatusView {
-    func configure(with fixture: Fixture)
+    func configure(with fixture: FixtureResponse)
 }

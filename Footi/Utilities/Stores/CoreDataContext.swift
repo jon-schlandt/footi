@@ -100,12 +100,22 @@ class CoreDataContext {
     }
 
     private func loadLeague(for leagueId: Int) async {
-        let league = await leaguesService.getLeagueBy(leagueId: leagueId)
-        guard let league = league else {
-            return
+        var league: League?
+        
+        #if DEBUG
+        league = leaguesService.getMockLeague(leagueId: leagueId)
+        if league == nil {
+            league = await leaguesService.getLeagueBy(leagueId: leagueId)
+        }
+        #else
+        league = await leaguesService.getLeagueBy(leagueId: leagueId)
+        #endif
+        
+        if let league = league {
+            return await loadLeague(using: league)
         }
 
-        return await loadLeague(using: league)
+        return
     }
     
     private func loadLeague(using league: League) async {

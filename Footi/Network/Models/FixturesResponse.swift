@@ -11,15 +11,15 @@ struct FixturesResponse: Codable {
     let errors: [ApiError]
     let results: Int
     let paging: ApiPaging
-    let response: [Fixture]
+    let response: [FixtureResponse]
 }
 
-struct Fixture: Codable {
-    var overview: FixtureOverview
-    var league: FixtureLeague
-    var matchup: FixtureMatchup
-    var score: FixtureScore
-    var timeline: ScoreTimeline
+struct FixtureResponse: Codable {
+    var overview: FixtureOverviewResponse
+    var league: FixtureLeagueResponse
+    var matchup: FixtureMatchupResponse
+    var score: FixtureScoreResponse
+    var timeline: ScoreTimelineResponse
     
     enum CodingKeys: String, CodingKey {
         case overview = "fixture"
@@ -30,14 +30,14 @@ struct Fixture: Codable {
     }
 }
 
-struct FixtureOverview: Codable {
+struct FixtureOverviewResponse: Codable {
     var id: Int
     var timezone: String
     var date: String
-    var status: FixtureStatus
+    var status: FixtureStatusResponse
 }
 
-struct FixtureLeague: Codable {
+struct FixtureLeagueResponse: Codable {
     var id: Int
     var season: Int
     var matchday: String
@@ -49,7 +49,7 @@ struct FixtureLeague: Codable {
     }
 }
 
-struct FixtureStatus: Codable {
+struct FixtureStatusResponse: Codable {
     var short: String
     var long: String
     var type: FixtureStatusType?
@@ -62,12 +62,12 @@ struct FixtureStatus: Codable {
     }
 }
 
-struct FixtureMatchup: Codable {
-    var home: MatchupSide
-    var away: MatchupSide
+struct FixtureMatchupResponse: Codable {
+    var home: MatchupSideResponse
+    var away: MatchupSideResponse
 }
 
-struct MatchupSide: Codable {
+struct MatchupSideResponse: Codable {
     var id: Int
     var name: String
     var logo: String
@@ -81,11 +81,11 @@ struct MatchupSide: Codable {
     }
 }
 
-struct ScoreTimeline: Codable {
-    var halftime: FixtureScore
-    var fulltime: FixtureScore
-    var extratime: FixtureScore
-    var penalties: FixtureScore
+struct ScoreTimelineResponse: Codable {
+    var halftime: FixtureScoreResponse
+    var fulltime: FixtureScoreResponse
+    var extratime: FixtureScoreResponse
+    var penalties: FixtureScoreResponse
     
     enum CodingKeys: String, CodingKey {
         case halftime
@@ -95,7 +95,7 @@ struct ScoreTimeline: Codable {
     }
 }
 
-struct FixtureScore: Codable {
+struct FixtureScoreResponse: Codable {
     var home: Int?
     var away: Int?
 }

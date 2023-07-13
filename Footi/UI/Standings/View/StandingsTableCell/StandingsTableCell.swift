@@ -34,7 +34,7 @@ class StandingsTableCell: BaseTableCell {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin, bottom: 0, right: AppConstants.baseMargin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin / 2, bottom: 0, right: AppConstants.baseMargin)
         layout.itemSize = CGSize(width: 28, height: 54)
         layout.scrollDirection = .horizontal
         
@@ -58,18 +58,17 @@ class StandingsTableCell: BaseTableCell {
     // MARK: Model
     
     public weak var scrollDelegate: StandingsScrollViewDelegate?
-    public var stats = [String]()
+    public var stats = [StandingStat]()
     
     // MARK: Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.contentView.addSubview(container)
-        
         container.addSubview(clubPositionView)
         container.addSubview(separator)
         container.addSubview(statsView)
+        self.contentView.addSubview(container)
         
         NSLayoutConstraint.activate([
             statsView.topAnchor.constraint(equalTo: container.topAnchor),
@@ -80,8 +79,6 @@ class StandingsTableCell: BaseTableCell {
 
         statsView.dataSource = self
         statsView.delegate = self
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -99,7 +96,7 @@ class StandingsTableCell: BaseTableCell {
         ])
         
         NSLayoutConstraint.activate([
-            clubPositionView.widthAnchor.constraint(equalToConstant: 194),
+            clubPositionView.widthAnchor.constraint(equalToConstant: 200),
             clubPositionView.topAnchor.constraint(equalTo: container.topAnchor),
             clubPositionView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             clubPositionView.leadingAnchor.constraint(equalTo: container.leadingAnchor)
@@ -130,15 +127,15 @@ class StandingsTableCell: BaseTableCell {
         super.configure(isLast: isLast)
         
         clubPositionView.configure(with: standing)
-    
-        stats.append(String(standing.record.played))
-        stats.append(String(standing.record.goals.scored))
-        stats.append(String(standing.record.goals.conceded))
-        stats.append(String(standing.points))
-        stats.append(String(standing.record.won))
-        stats.append(String(standing.record.drew))
-        stats.append(String(standing.record.lost))
-        stats.append(String(standing.goalDifference))
+        
+        stats.append(standing.matchesPlayed)
+        stats.append(standing.goalDifference)
+        stats.append(standing.points)
+        stats.append(standing.matchesWon)
+        stats.append(standing.matchesDrawn)
+        stats.append(standing.matchesLost)
+        stats.append(standing.goalsScored)
+        stats.append(standing.goalsConceded)
         
         statsView.reloadData()
     }
@@ -170,18 +167,13 @@ extension StandingsTableCell: UICollectionViewDelegate {
             return
         }
 
-        scrollDelegate?.setScroll(originatingView: scrollView, offset: scrollView.contentOffset)
+        scrollDelegate?.setStatsOffset(originatingView: scrollView, offset: scrollView.contentOffset)
         setScrollBorder(using: scrollView.contentOffset)
     }
 }
 
 /// Private methods
 extension StandingsTableCell {
-    
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.contentView.backgroundColor = UIColor.Palette.foreground
-    }
     
     private func setScrollBorder(using offset: CGPoint) {
         if offset.x > 0 {

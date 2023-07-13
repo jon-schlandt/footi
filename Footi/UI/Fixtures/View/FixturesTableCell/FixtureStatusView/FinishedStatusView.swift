@@ -9,7 +9,7 @@ import UIKit
 
 class FinishedStatusView: UIStackView, FixtureStatusView {
 
-    // MARK: View
+    // MARK: Subviews
     
     private let statusView: UIView = {
         let view = UIView()
@@ -74,9 +74,9 @@ class FinishedStatusView: UIStackView, FixtureStatusView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with fixture: Fixture) {
+    public func configure(with fixture: FixtureResponse) {
         guard let fixtureDate = Date.getDateFromISO8601(using: fixture.overview.date) else {
             return
         }

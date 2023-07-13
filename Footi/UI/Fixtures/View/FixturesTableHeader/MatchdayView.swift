@@ -10,7 +10,7 @@ import UIKit
 
 class MatchdayView: UIView {
     
-    // MARK: View
+    // MARK: Subviews
     
     private let matchdayLabel: UILabel = {
         let label = UILabel()
@@ -25,6 +25,8 @@ class MatchdayView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(matchdayLabel)
     }
     
@@ -41,7 +43,7 @@ class MatchdayView: UIView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with matchday: Int) {
         matchdayLabel.text = "Matchday \(matchday)"

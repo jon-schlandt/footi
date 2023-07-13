@@ -14,6 +14,7 @@ extension UIColor {
         static let primaryBackground = UIColor(named: "primaryBackground")
         static let bar = UIColor(named: "bar")
         static let barText = UIColor(named: "barText")
+        static let secondaryBorder = UIColor(named: "secondaryBorder")
         static let border = UIColor(named: "border")
         static let emphasisIcon = UIColor(named: "emphasisIcon")
         static let foreground = UIColor(named: "foreground")

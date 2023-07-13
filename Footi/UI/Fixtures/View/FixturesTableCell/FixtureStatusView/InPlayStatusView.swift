@@ -9,7 +9,7 @@ import UIKit
 
 class InPlayStatusView: UIView, FixtureStatusView {
     
-    // MARK: View
+    // MARK: Subviews
     
     private let statusLabel: UILabel = {
         let label = UILabel()
@@ -29,6 +29,8 @@ class InPlayStatusView: UIView, FixtureStatusView {
         
         self.addSubview(statusLabel)
         self.addSubview(inPlayIndicator)
+        
+        inPlayIndicator.beginAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -51,9 +53,9 @@ class InPlayStatusView: UIView, FixtureStatusView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with fixture: Fixture) {
+    public func configure(with fixture: FixtureResponse) {
         if let minutesPlayed = fixture.overview.status.minutesPlayed {
             statusLabel.text = String(minutesPlayed) + "'"
         }

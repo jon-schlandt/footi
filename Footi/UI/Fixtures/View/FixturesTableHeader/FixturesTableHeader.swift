@@ -11,7 +11,7 @@ class FixturesTableHeader: BaseTableHeader {
     
     static let identifier = String(describing: FixturesTableHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let matchdayView = MatchdayView()
     
@@ -19,14 +19,25 @@ class FixturesTableHeader: BaseTableHeader {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        self.container.addArrangedSubview(matchdayView)
+        self.content.addSubview(matchdayView)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            matchdayView.topAnchor.constraint(equalTo: self.content.topAnchor),
+            matchdayView.trailingAnchor.constraint(equalTo: self.content.trailingAnchor),
+            matchdayView.bottomAnchor.constraint(equalTo: self.content.bottomAnchor),
+            matchdayView.leadingAnchor.constraint(equalTo: self.content.leadingAnchor)
+        ])
+    }
+    
+    // MARK: Public methods
     
     public func configure(with matchday: Int) {
         matchdayView.configure(with: matchday)

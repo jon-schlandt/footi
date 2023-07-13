@@ -9,7 +9,7 @@ import UIKit
 
 class FixtureMatchupView: UIView {
     
-    // MARK: View
+    // MARK: Subviews
     
     private let container: UIStackView = {
         let view = UIStackView()
@@ -60,9 +60,9 @@ class FixtureMatchupView: UIView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with fixture: Fixture) {
+    public func configure(with fixture: FixtureResponse) {
         homeSide.clubBadge.loadFromCache(url: URL(string: fixture.matchup.home.logo)!)
         homeSide.clubTitle.text = fixture.matchup.home.name
         

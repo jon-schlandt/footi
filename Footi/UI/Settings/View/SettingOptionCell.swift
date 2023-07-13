@@ -54,7 +54,7 @@ class SettingOptionCell: BaseTableCell {
         disclosureArrow.translatesAutoresizingMaskIntoConstraints = false
         disclosureArrow.contentMode = .scaleAspectFit
         disclosureArrow.tintColor = UIColor.Palette.secondaryIcon
-        disclosureArrow.image = UIImage(systemName: "chevron.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 12.0, weight: .light, scale: .medium))
+        disclosureArrow.image = UIImage(systemName: "chevron.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 10.0, weight: .light, scale: .medium))
         
         return disclosureArrow
     }()

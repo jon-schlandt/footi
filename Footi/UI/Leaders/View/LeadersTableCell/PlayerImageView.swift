@@ -9,7 +9,7 @@ import UIKit
 
 class PlayerImageView: UIView {
 
-    // MARK: View
+    // MARK: Subviews
     
     public let playerImage: UIImageView = {
         let image = UIImageView()
@@ -38,16 +38,16 @@ class PlayerImageView: UIView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 40),
-            self.heightAnchor.constraint(equalToConstant: 40)
+            self.widthAnchor.constraint(equalToConstant: 38),
+            self.heightAnchor.constraint(equalToConstant: 38)
         ])
         
         self.layer.cornerRadius = self.frame.size.width / 2
         self.layer.masksToBounds = true
         
         NSLayoutConstraint.activate([
-            playerImage.widthAnchor.constraint(equalToConstant: 30),
-            playerImage.heightAnchor.constraint(equalToConstant: 30),
+            playerImage.widthAnchor.constraint(equalToConstant: 28),
+            playerImage.heightAnchor.constraint(equalToConstant: 28),
             playerImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             playerImage.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
@@ -57,7 +57,8 @@ class PlayerImageView: UIView {
     }
 }
 
-/// Private methods
+// MARK: Helper methods
+
 extension PlayerImageView {
     
     private func setStyling() {

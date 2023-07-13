@@ -10,5 +10,6 @@ import Foundation
 struct LeagueHeaderDetails {
     var leagueId: Int
     var leagueTitle: String
-    var filter: LeagueDataFilter
+    var isLive: Bool?
+    var filter: LeagueDataFilter!
 }

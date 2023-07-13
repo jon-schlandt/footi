@@ -50,7 +50,7 @@ class StandingsTableHeader: BaseTableHeader {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
-        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin, bottom: 0, right: AppConstants.baseMargin)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: AppConstants.baseMargin / 2, bottom: 0, right: AppConstants.baseMargin)
         layout.itemSize = CGSize(width: 28, height: 52)
         layout.scrollDirection = .horizontal
         
@@ -58,6 +58,7 @@ class StandingsTableHeader: BaseTableHeader {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.showsHorizontalScrollIndicator = false
         view.register(StandingStatTitleCell.self, forCellWithReuseIdentifier: StandingStatTitleCell.identifier)
+        view.backgroundColor = .clear
         
         return view
     }()
@@ -65,7 +66,7 @@ class StandingsTableHeader: BaseTableHeader {
     // MARK: Model
     
     public weak var scrollDelegate: StandingsScrollViewDelegate?
-    private let statTitles = ["MP", "GF", "GA", "Pts", "W", "D", "L", "GD"]
+    private let statTitles = ["MP", "GD", "Pts", "W", "D", "L", "GF", "GA"]
     
     // MARK: Lifecycle
     
@@ -75,7 +76,7 @@ class StandingsTableHeader: BaseTableHeader {
         standingsTitleView.addSubview(clubTitleView)
         standingsTitleView.addSubview(separator)
         standingsTitleView.addSubview(statTitleView)
-        self.container.addArrangedSubview(standingsTitleView)
+        self.content.addSubview(standingsTitleView)
         
         statTitleView.dataSource = self
         statTitleView.delegate = self
@@ -89,7 +90,14 @@ class StandingsTableHeader: BaseTableHeader {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            clubTitleView.widthAnchor.constraint(equalToConstant: 194),
+            standingsTitleView.topAnchor.constraint(equalTo: self.content.topAnchor),
+            standingsTitleView.trailingAnchor.constraint(equalTo: self.content.trailingAnchor),
+            standingsTitleView.bottomAnchor.constraint(equalTo: self.content.bottomAnchor),
+            standingsTitleView.leadingAnchor.constraint(equalTo: self.content.leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            clubTitleView.widthAnchor.constraint(equalToConstant: 200),
             clubTitleView.topAnchor.constraint(equalTo: standingsTitleView.topAnchor),
             clubTitleView.bottomAnchor.constraint(equalTo: standingsTitleView.bottomAnchor),
             clubTitleView.leadingAnchor.constraint(equalTo: standingsTitleView.leadingAnchor, constant: AppConstants.baseMargin)
@@ -134,7 +142,7 @@ extension StandingsTableHeader: UICollectionViewDataSource {
 extension StandingsTableHeader: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollDelegate?.setScroll(originatingView: scrollView, offset: scrollView.contentOffset)
+        scrollDelegate?.setStatsOffset(originatingView: scrollView, offset: scrollView.contentOffset)
         
         if scrollView.contentOffset.x > 0 {
             separator.backgroundColor = UIColor.Palette.border

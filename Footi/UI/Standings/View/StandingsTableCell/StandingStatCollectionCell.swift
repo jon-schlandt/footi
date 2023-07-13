@@ -13,6 +13,17 @@ class StandingStatCollectionCell: UICollectionViewCell {
     
     // MARK: View
     
+    private let statView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .equalCentering
+        view.spacing = 2
+        
+        return view
+    }()
+    
     private let statLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -22,11 +33,22 @@ class StandingStatCollectionCell: UICollectionViewCell {
         return label
     }()
     
+    private let statModifier: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: FontConstants.paragraph, size: 10.0)
+        label.textColor = UIColor.Palette.emphasisIcon
+        
+        return label
+    }()
+    
     // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(statLabel)
+        
+        statView.addArrangedSubview(statLabel)
+        self.contentView.addSubview(statView)
     }
     
     required init?(coder: NSCoder) {
@@ -35,24 +57,31 @@ class StandingStatCollectionCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
-            statLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            statLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            statView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            statView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        statLabel.font = UIFont.systemFont(ofSize: FontConstants.standardSize)
         statLabel.text = nil
+        statLabel.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
+        
+        statModifier.text = nil
     }
     
     // MARK: Public
     
-    public func configure(stat: String, index: Int) {
-        statLabel.text = stat
+    public func configure(stat: StandingStat, index: Int) {
+        statLabel.text = String(stat.value)
         
-        if index == 3 {
+        if let modifier = stat.modifier {
+            statView.addArrangedSubview(statModifier)
+            statModifier.text = "\(modifier >= 0 ? "+" : "")" + "\(modifier)"
+        }
+        
+        if index == 2 {
             statLabel.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
         }
     }

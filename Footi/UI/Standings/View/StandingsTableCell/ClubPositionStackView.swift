@@ -11,11 +11,25 @@ class ClubPositionStackView: UIStackView {
     
     // MARK: View
     
-    private let positionView: UIView = {
-        let view = UIView()
+    private let positionView: UIStackView = {
+        let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .equalCentering
+        view.spacing = 2
         
         return view
+    }()
+    
+    private let upIndicator: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "chevron.up")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 8.0, weight: .semibold, scale: .medium))
+        imageView.tintColor = UIColor.systemGreen
+        imageView.alpha = 0.0
+        
+        return imageView
     }()
     
     private let positionLabel: UILabel = {
@@ -27,12 +41,22 @@ class ClubPositionStackView: UIStackView {
         return label
     }()
     
+    private let downIndicator: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "chevron.down")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 8.0, weight: .semibold, scale: .medium))
+        imageView.tintColor = UIColor.systemRed
+        imageView.alpha = 0.0
+        
+        return imageView
+    }()
+    
     private let clubView: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
         view.distribution = .fill
         view.alignment = .center
-        view.spacing = 10
+        view.spacing = 8
         
         return view
     }()
@@ -50,12 +74,25 @@ class ClubPositionStackView: UIStackView {
         return badge
     }()
     
+    private let clubTitleView: UIView = {
+        return UIView()
+    }()
+    
     private let clubTitle: UILabel = {
         let title = UILabel()
+        title.translatesAutoresizingMaskIntoConstraints = false
         title.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         title.textColor = UIColor.Palette.primaryText
         
         return title
+    }()
+    
+    private let inPlayIndicator: InPlayIndicator = {
+        let indicator = InPlayIndicator()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.isHidden = true
+        
+        return indicator
     }()
     
     // MARK: Lifecycle
@@ -69,11 +106,16 @@ class ClubPositionStackView: UIStackView {
         self.alignment = .center
         self.spacing = 10
         
-        positionView.addSubview(positionLabel)
-        clubView.addArrangedSubview(clubBadge)
-        clubView.addArrangedSubview(clubTitle)
-        
+        positionView.addArrangedSubview(upIndicator)
+        positionView.addArrangedSubview(positionLabel)
+        positionView.addArrangedSubview(downIndicator)
         self.addArrangedSubview(positionView)
+        
+        clubTitleView.addSubview(clubTitle)
+        clubTitleView.addSubview(inPlayIndicator)
+        
+        clubView.addArrangedSubview(clubBadge)
+        clubView.addArrangedSubview(clubTitleView)
         self.addArrangedSubview(clubView)
     }
     
@@ -89,19 +131,52 @@ class ClubPositionStackView: UIStackView {
             positionLabel.centerXAnchor.constraint(equalTo: positionView.centerXAnchor),
             positionLabel.centerYAnchor.constraint(equalTo: positionView.centerYAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            clubTitle.centerYAnchor.constraint(equalTo: clubTitleView.centerYAnchor),
+            clubTitle.leadingAnchor.constraint(equalTo: clubTitleView.leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            inPlayIndicator.widthAnchor.constraint(equalToConstant: 20),
+            inPlayIndicator.heightAnchor.constraint(equalToConstant: 5),
+            inPlayIndicator.centerYAnchor.constraint(equalTo: clubTitleView.centerYAnchor),
+            inPlayIndicator.leadingAnchor.constraint(equalTo: clubTitle.trailingAnchor, constant: 8)
+        ])
     }
     
     // MARK: Public
     
     public func configure(with standing: Standing) {
-        positionLabel.text = String(standing.rank)
-        clubBadge.loadFromCache(url: URL(string: standing.club.logo)!)
-        clubTitle.text = standing.club.name
+        positionLabel.text = String(standing.position.total)
+        clubBadge.loadFromCache(url: standing.clubLogo)
+        clubTitle.text = standing.clubTitle
+        
+        if let positionModifier = standing.position.modifier {
+            if positionModifier > 0 {
+                downIndicator.alpha = 1.0
+            }
+            
+            if positionModifier < 0 {
+                upIndicator.alpha = 1.0
+            }
+        }
+        
+        if standing.inPlay {
+            inPlayIndicator.beginAnimation()
+            inPlayIndicator.isHidden = false
+        }
     }
     
     public func initialize() {
         positionLabel.text = nil
         clubBadge.image = nil
         clubTitle.text = nil
+        
+        upIndicator.alpha = 0.0
+        downIndicator.alpha = 0.0
+        
+        inPlayIndicator.initialize()
+        inPlayIndicator.isHidden = true
     }
 }

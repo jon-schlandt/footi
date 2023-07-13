@@ -16,8 +16,8 @@ class LeagueDataFilterViewController: UITableViewController {
 
     // MARK: Model
     
-    public weak var delegate: LeagueDataFilterDelegate?
     private var filter: LeagueDataFilter!
+    public weak var delegate: LeagueDataFilterDelegate?
     
     // MARK: Lifecycle
     
@@ -92,20 +92,17 @@ class LeagueDataFilterViewController: UITableViewController {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension LeagueDataFilterViewController {
     
     private func setupNavigation() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 19.0, weight: .light, scale: .medium)),
+            image: UIImage(systemName: "xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(dismissFilter)
         )
-    }
-    
-    @objc private func dismissFilter() {
-        delegate?.dismissFilter()
     }
     
     private func styleView() {
@@ -113,5 +110,9 @@ extension LeagueDataFilterViewController {
         self.tableView.sectionHeaderTopPadding = 0
         
         self.view.backgroundColor = UIColor.Palette.primaryBackground
+    }
+    
+    @objc private func dismissFilter() {
+        delegate?.dismissFilter()
     }
 }

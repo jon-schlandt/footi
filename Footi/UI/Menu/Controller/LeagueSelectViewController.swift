@@ -33,6 +33,7 @@ class LeagueSelectViewController: UICollectionViewController {
         
         self.collectionView.register(LeagueSelectHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: LeagueSelectHeader.identifier)
         self.collectionView.register(LeagueSelectCell.self, forCellWithReuseIdentifier: LeagueSelectCell.identifier)
+        self.collectionView.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {

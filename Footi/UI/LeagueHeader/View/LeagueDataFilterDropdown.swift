@@ -13,7 +13,7 @@ protocol LeagueDataFilterDropdownDelegate: AnyObject {
 
 class LeagueDataFilterDropdown: UIStackView {
     
-    // MARK: Views
+    // MARK: Subviews
     
     private let selectionLabel: UILabel = {
         let title = UILabel()
@@ -27,7 +27,7 @@ class LeagueDataFilterDropdown: UIStackView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(systemName: "chevron.down")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 8.0, weight: .light, scale: .medium))
+        image.image = UIImage(systemName: "chevron.down")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 7.0, weight: .light, scale: .medium))
         image.tintColor = UIColor.Palette.secondaryIcon
         
         return image
@@ -35,8 +35,8 @@ class LeagueDataFilterDropdown: UIStackView {
     
     // MARK: Model
     
-    public weak var delegate: LeagueDataFilterDropdownDelegate?
     private var options: [DataFilterOption]! { didSet { setSelectionLabel(using: options) }}
+    public weak var delegate: LeagueDataFilterDropdownDelegate?
     
     // MARK: Lifecycle
     
@@ -59,7 +59,7 @@ class LeagueDataFilterDropdown: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with options: [DataFilterOption]) {
         self.options = options
@@ -72,7 +72,8 @@ class LeagueDataFilterDropdown: UIStackView {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension LeagueDataFilterDropdown {
     
     private func setSelectionLabel(using options: [DataFilterOption]) {

@@ -26,9 +26,8 @@ class SettingSelectionCell: BaseTableCell {
         let checkmark = UIImageView()
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
-        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 15.0, weight: .regular, scale: .medium))
+        checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .medium, scale: .medium))
         checkmark.tintColor = UIColor.Palette.emphasisIcon
-        checkmark.isHidden = true
         
         return checkmark
     }()

@@ -11,7 +11,7 @@ class LeadersTableCell: BaseTableCell {
     
     static let identifier = String(describing: LeadersTableCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let container: UIStackView = {
         let container = UIStackView()
@@ -33,8 +33,6 @@ class LeadersTableCell: BaseTableCell {
         container.addArrangedSubview(playerPositionView)
         container.addArrangedSubview(playerStatView)
         self.contentView.addSubview(container)
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -63,38 +61,12 @@ class LeadersTableCell: BaseTableCell {
         playerStatView.initialize()
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with leader: Leader, filterType: LeaderFilterType, isLast: Bool) {
+    public func configure(with leader: Leader, isLast: Bool) {
         super.configure(isLast: isLast)
         
         playerPositionView.configure(with: leader)
-        setupPlayerStatView(leader: leader, filterType: filterType)
-    }
-}
-
-/// Private methods
-extension LeadersTableCell {
-    
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.contentView.backgroundColor = UIColor.Palette.foreground
-    }
-    
-    private func setupPlayerStatView(leader: Leader, filterType: LeaderFilterType) {
-        var stat: Int
-        
-        switch filterType {
-        case .goals:
-            stat = leader.stats[0].goals.scored ?? 0
-        case .assists:
-            stat = leader.stats[0].goals.assisted ?? 0
-        case .yellowCards:
-            stat = leader.stats[0].cards.yellow ?? 0
-        case .redCards:
-            stat = leader.stats[0].cards.red ?? 0
-        }
-        
-        playerStatView.configure(with: String(stat))
+        playerStatView.configure(with: leader.statValue)
     }
 }

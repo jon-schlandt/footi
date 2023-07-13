@@ -108,22 +108,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
+        
         let container = NSPersistentContainer(name: "Footi")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let store = container.viewContext.persistentStoreCoordinator?.persistentStores.first {
-//                print("here")
-//                if let url = container.viewContext.persistentStoreCoordinator?.url(for: store) {
-//                    let fileManager = FileManager.default
-//
-//                    do {
-//                        try fileManager.removeItem(at: url)
-//                        print("Persistent store deleted.")
-//                    } catch {
-//                        print("Failed to delete persistent store: \(error)")
-//                    }
-//                }
-//            }
-            
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -139,6 +126,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        
+//        let entities = container.persistentStoreCoordinator.managedObjectModel.entities
+//        for entity in entities {
+//            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name!)
+//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//            do {
+//                try container.persistentStoreCoordinator.execute(deleteRequest, with: container.viewContext)
+//            } catch let error as NSError {
+//                // Handle the error condition
+//                print("Error deleting \(entity.name!) - \(error.localizedDescription)")
+//            }
+//        }
+//
+//        do {
+//            try container.viewContext.save()
+//        } catch let error as NSError {
+//            // Handle the error condition
+//            print("Error saving context - \(error.localizedDescription)")
+//        }
         
         return container
     }()
@@ -158,6 +165,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
-

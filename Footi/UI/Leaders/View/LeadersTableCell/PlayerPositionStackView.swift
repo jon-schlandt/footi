@@ -9,7 +9,7 @@ import UIKit
 
 class PlayerPositionStackView: UIStackView {
 
-    // MARK: View
+    // MARK: Subviews
     
     private let positionView: UIView = {
         let view = UIView()
@@ -98,13 +98,13 @@ class PlayerPositionStackView: UIStackView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with leader: Leader) {
-        positionLabel.text = String(leader.overview.position!)
-        playerImage.playerImage.loadFromCache(url: URL(string: leader.overview.image)!)
-        playerName.text = getDisplayName(displayName: leader.overview.displayName, firstName: leader.overview.firstName)
-        playerClub.text = leader.stats[0].club.name
+        positionLabel.text = String(leader.position!)
+        playerImage.playerImage.loadFromCache(url: leader.image)
+        playerName.text = getDisplayName(displayName: leader.displayName, firstName: leader.firstName)
+        playerClub.text = leader.club
     }
     
     public func initialize() {
@@ -115,7 +115,8 @@ class PlayerPositionStackView: UIStackView {
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension PlayerPositionStackView {
     
     private func getDisplayName(displayName: String, firstName: String) -> String {

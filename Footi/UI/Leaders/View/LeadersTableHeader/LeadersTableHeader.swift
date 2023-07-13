@@ -11,7 +11,7 @@ class LeadersTableHeader: BaseTableHeader {
     
     static let identifier = String(describing: LeadersTableHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let leaderTitleView: UIView = {
         let view = UIView()
@@ -36,10 +36,21 @@ class LeadersTableHeader: BaseTableHeader {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        self.container.addArrangedSubview(leaderTitleView)
+        self.content.addSubview(leaderTitleView)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        NSLayoutConstraint.activate([
+            leaderTitleView.topAnchor.constraint(equalTo: self.content.topAnchor),
+            leaderTitleView.trailingAnchor.constraint(equalTo: self.content.trailingAnchor),
+            leaderTitleView.bottomAnchor.constraint(equalTo: self.content.bottomAnchor),
+            leaderTitleView.leadingAnchor.constraint(equalTo: self.content.leadingAnchor)
+        ])
     }
 }

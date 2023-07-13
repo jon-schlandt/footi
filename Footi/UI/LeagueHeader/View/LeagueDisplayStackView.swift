@@ -31,7 +31,7 @@ class LeagueDisplayStackView: UIStackView {
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.backgroundColor = UIColor.Palette.border
-        separator.isHidden = false
+        separator.isHidden = true
         
         return separator
     }()
@@ -41,7 +41,7 @@ class LeagueDisplayStackView: UIStackView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         image.image = UIImage(named: "live")
-        image.isHidden = false
+        image.isHidden = true
         
         return image
     }()
@@ -55,7 +55,7 @@ class LeagueDisplayStackView: UIStackView {
         self.axis = .horizontal
         self.distribution = .fill
         self.alignment = .center
-        self.spacing = 10
+        self.spacing = 8
         
         self.addArrangedSubview(leagueLogo)
         self.addArrangedSubview(leagueTitle)
@@ -69,18 +69,18 @@ class LeagueDisplayStackView: UIStackView {
     
     override func layoutSubviews() {
         NSLayoutConstraint.activate([
-            leagueLogo.widthAnchor.constraint(equalToConstant: 22),
-            leagueLogo.heightAnchor.constraint(equalToConstant: 22)
+            leagueLogo.widthAnchor.constraint(equalToConstant: 20),
+            leagueLogo.heightAnchor.constraint(equalToConstant: 20)
         ])
         
         NSLayoutConstraint.activate([
             separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
-            separator.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.baseMargin + 2),
-            separator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -AppConstants.baseMargin - 2)
+            separator.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.baseMargin + 4),
+            separator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -AppConstants.baseMargin - 4)
         ])
         
         NSLayoutConstraint.activate([
-            liveImage.widthAnchor.constraint(equalToConstant: 34)
+            liveImage.widthAnchor.constraint(equalToConstant: 32)
         ])
     }
     
@@ -89,5 +89,21 @@ class LeagueDisplayStackView: UIStackView {
     public func configure(with headerDetails: LeagueHeaderDetails) {
         leagueLogo.image = UIImage(named: String(headerDetails.leagueId))
         leagueTitle.text = headerDetails.leagueTitle
+        
+        toggleLive(isLive: headerDetails.isLive ?? false)
+    }
+}
+
+/// Private methods
+extension LeagueDisplayStackView {
+    
+    private func toggleLive(isLive: Bool) {
+        if isLive {
+            separator.isHidden = false
+            liveImage.isHidden = false
+        } else {
+            separator.isHidden = true
+            liveImage.isHidden = true
+        }
     }
 }

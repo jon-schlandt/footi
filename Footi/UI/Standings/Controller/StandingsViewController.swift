@@ -8,75 +8,98 @@
 import UIKit
 
 protocol StandingsScrollViewDelegate: AnyObject {
-    func setScroll(originatingView: UIScrollView, offset: CGPoint)
+    func setStatsOffset(originatingView: UIScrollView, offset: CGPoint)
 }
 
-class StandingsViewController: BaseViewContoller {
-    
-    // MARK: View
-    
-    private let standingsTableVC: UITableViewController = {
-        let vc = UITableViewController()
-        vc.tableView.register(StandingsTableHeader.self, forHeaderFooterViewReuseIdentifier: StandingsTableHeader.identifier)
-        vc.tableView.register(StandingsTableCell.self, forCellReuseIdentifier: StandingsTableCell.identifier)
-        vc.tableView.separatorStyle = .none
-        vc.tableView.sectionHeaderTopPadding = 0
-        vc.tableView.backgroundColor = .clear
-        
-        return vc
-    }()
-    
-    private var scrollViews = [UIScrollView]()
-    
-    // MARK: Model
-
-    private var standings = [Standing]()
-    private var scrollOffset = CGPoint()
+class StandingsViewController: BaseViewContoller, UIScrollViewDelegate {
     
     // MARK: Lifecycle
     
     override func loadView() {
         super.loadView()
         
-        let standingsTable = standingsTableVC.tableView!
-        self.baseStackView.addArrangedSubview(standingsTable)
+        self.baseTableVC = StandingsTableViewController()
+        self.baseStackView.addArrangedSubview(self.baseTableVC.tableView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Standings"
-        self.addChild(standingsTableVC)
-        
-        standingsTableVC.tableView.dataSource = self
-        standingsTableVC.tableView.delegate = self
+        self.setTitle(as: "Standings")
         
         _Concurrency.Task {
             await loadLeagueHeaderDetails()
             await loadModel()
+            
+            self.baseTableVC.hasLoaded = true
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if (self.hasLeagueChanged()) {
-            _Concurrency.Task {
-                await self.reloadSelectedLeague()
-                await loadLeagueHeaderDetails()
-                await loadModel()
-                
-                standingsTableVC.tableView.reloadData()
-            }
-        }
-    }
+    // MARK: Base Overrides
     
     override func loadLeagueHeaderDetails() async {
         await super.loadLeagueHeaderDetails()
         
-        let seasons = await coreDataContext.fetchSeasons(for: self.selectedLeague.id)
-        guard let seasons = seasons else {
+        self.leagueHeaderDetails.isLive = await setLiveStatus()
+        self.leagueHeaderDetails.filter = await setDataFilter()
+        self.leagueHeader.configure(with: self.leagueHeaderDetails)
+    }
+    
+    override func reloadLeagueHeaderDetails() async {
+        await super.reloadLeagueHeaderDetails()
+        
+        guard let filterOption = self.getEnabledFilterOption() else {
             return
+        }
+
+        let isCurrentSeason = filterOption.value == self.leagueHeaderDetails.filter?.options.first?.value
+        if isCurrentSeason {
+            leagueHeaderDetails.isLive = await setLiveStatus()
+        } else {
+            leagueHeaderDetails.isLive = false
+        }
+        
+        leagueHeader.configure(with: self.leagueHeaderDetails)
+    }
+    
+    override func loadModel() async {
+        await super.loadModel()
+        
+        guard let filterOption = self.getEnabledFilterOption(),
+              let filterValue = Int(filterOption.value) else {
+            return
+        }
+        
+        #if DEBUG
+        self.baseTableVC.model = standingsService.getMockStandings(for: self.leagueHeaderDetails.leagueId, season: filterValue)
+        #else
+        self.baseTableVC.model = await standingsService.getStandingsBy(leagueId: self.leagueHeaderDetails.leagueId, season: filterValue)
+        #endif
+        
+        if self.leagueHeaderDetails.isLive == true {
+            await livifyTable()
+        }
+
+        self.baseTableVC.tableView.reloadData()
+    }
+}
+
+// MARK: Private Helpers
+
+extension StandingsViewController {
+    
+    private func setLiveStatus() async -> Bool {
+        #if DEBUG
+        return !fixturesService.getMockFixturesInPlay(for: self.leagueHeaderDetails.leagueId).isEmpty
+        #else
+        return await !fixturesService.getFixtures(leagueId: self.leagueHeaderDetails.leagueId, filterType: .inPlay).isEmpty
+        #endif
+    }
+    
+    private func setDataFilter() async -> LeagueDataFilter? {
+        let seasons = await coreDataContext.fetchSeasons(for: self.leagueHeaderDetails.leagueId)
+        guard let seasons = seasons else {
+            return nil
         }
 
         var filterOptions = [DataFilterOption]()
@@ -91,114 +114,126 @@ class StandingsViewController: BaseViewContoller {
             filterOptions.append(DataFilterOption(displayName: displayName, value: String(value), isEnabled: isEnabled))
         }
         
-        self.leagueHeaderDetails.filter = LeagueDataFilter(title: "By season", options: filterOptions)
-        self.leagueHeader.configure(with: self.leagueHeaderDetails)
+        return LeagueDataFilter(title: "By season", options: filterOptions)
     }
     
-    override func loadModel() async {
-        guard let filterOption = self.getEnabledFilterOption(),
-              let filterValue = Int(filterOption.value) else {
+    private func livifyTable() async {
+        var standings = self.baseTableVC.model as! [Standing]
+        guard !standings.isEmpty else {
             return
         }
         
-        initializeModel()
+        var fixturesInPlay = [FixtureResponse]()
+        var liveStandings = [Standing]()
         
         #if DEBUG
-        standings = getMockStandings(for: self.leagueHeaderDetails.leagueId, season: filterValue)
+        fixturesInPlay = fixturesService.getMockFixturesInPlay(for: self.leagueHeaderDetails.leagueId)
         #else
-        standings = await standingsService.getStandingsBy(leagueId: self.leagueHeaderDetails.leagueId, season: filterValue)
+        fixturesInPlay = await fixturesService.getFixtures(leagueId: self.leagueHeaderDetails.leagueId, filterType: .inPlay)
         #endif
         
-        standingsTableVC.tableView.reloadData()
-    }
-}
-
-extension StandingsViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return standings.count
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: StandingsTableHeader.identifier) as! StandingsTableHeader
-        header.scrollDelegate = self
-        
-        scrollViews.append(header.statTitleView)
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StandingsTableCell.identifier, for: indexPath) as! StandingsTableCell
-        let standing = standings[indexPath.row]
-        let isLast = indexPath.row == standings.count - 1
-        
-        if !scrollViews.contains(cell.statsView) {
-            scrollViews.append(cell.statsView)
-        }
-        
-        cell.scrollDelegate = self
-        cell.configure(with: standing, isLast: isLast)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? StandingsTableCell else {
-            return
-        }
-        
-        if cell.statsView.contentOffset != scrollOffset {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                cell.statsView.contentOffset = self.scrollOffset
+        fixturesInPlay.forEach { fixture in
+            var homePointMod: Int
+            var homeWinMod: Int
+            var homeDrawMod: Int
+            var homeLossMod: Int
+            
+            var awayPointMod: Int
+            var awayWinMod: Int
+            var awayDrawMod: Int
+            var awayLossMod: Int
+            
+            if fixture.score.home ?? 0 > fixture.score.away ?? 0 {
+                homePointMod = 3
+                homeWinMod = 1
+                homeDrawMod = 0
+                homeLossMod = 0
+                
+                awayPointMod = 0
+                awayWinMod = 0
+                awayDrawMod = 0
+                awayLossMod = 1
+            } else if fixture.score.home ?? 0 < fixture.score.away ?? 0 {
+                homePointMod = 0
+                homeWinMod = 0
+                homeDrawMod = 0
+                homeLossMod = 1
+                
+                awayPointMod = 3
+                awayWinMod = 1
+                awayDrawMod = 0
+                awayLossMod = 0
+            } else {
+                homePointMod = 1
+                homeWinMod = 0
+                homeDrawMod = 1
+                homeLossMod = 0
+                
+                awayPointMod = 1
+                awayWinMod = 0
+                awayDrawMod = 1
+                awayLossMod = 0
             }
-        }
-    }
-}
 
-extension StandingsViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return AppConstants.baseCellHeight + AppConstants.baseSectionSpacing
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AppConstants.baseCellHeight
-    }
-}
-
-extension StandingsViewController: StandingsScrollViewDelegate {
-    
-    internal func setScroll(originatingView: UIScrollView, offset: CGPoint) {
-        guard scrollOffset != offset else {
-            return
+            var homeStanding = standings.first { $0.clubTitle == fixture.matchup.home.name }!
+            homeStanding.inPlay = true
+            homeStanding.matchesPlayed.modifier = 1
+            homeStanding.points.modifier = homePointMod
+            homeStanding.goalDifference.modifier = (fixture.score.home ?? 0) - (fixture.score.away ?? 0)
+            homeStanding.matchesWon.modifier = homeWinMod
+            homeStanding.matchesDrawn.modifier = homeDrawMod
+            homeStanding.matchesLost.modifier = homeLossMod
+            homeStanding.goalsScored.modifier = fixture.score.home ?? 0
+            homeStanding.goalsConceded.modifier = fixture.score.away ?? 0
+            liveStandings.append(homeStanding)
+            
+            var awayStanding = standings.first { $0.clubTitle == fixture.matchup.away.name }!
+            awayStanding.inPlay = true
+            awayStanding.matchesPlayed.modifier = 1
+            awayStanding.points.modifier = awayPointMod
+            awayStanding.goalDifference.modifier = (fixture.score.away ?? 0) - (fixture.score.home ?? 0)
+            awayStanding.matchesWon.modifier = awayWinMod
+            awayStanding.matchesDrawn.modifier = awayDrawMod
+            awayStanding.matchesLost.modifier = awayLossMod
+            awayStanding.goalsScored.modifier = fixture.score.away ?? 0
+            awayStanding.goalsConceded.modifier = fixture.score.home ?? 0
+            liveStandings.append(awayStanding)
         }
         
-        scrollOffset = offset
-        
-        scrollViews.forEach { view in
-            if view != originatingView && view.contentOffset != scrollOffset {
-                view.contentOffset = offset
+        standings = standings.map { standing in
+            let matching = liveStandings.first { $0.position == standing.position }
+            guard let matching = matching else {
+                return standing
             }
+            
+            return matching
         }
-    }
-}
-
-/// Private methods
-extension StandingsViewController {
-    
-    private func initializeModel() {
-        if !standings.isEmpty {
-            standings.removeAll()
+        
+        standings.sort { first, second in
+            if first.points != second.points {
+                return first.points > second.points
+            }
+            
+            if first.goalDifference != second.goalDifference {
+                return first.goalDifference > second.goalDifference
+            }
+            
+            if first.goalsScored != second.goalsScored {
+                return first.goalsScored > second.goalsScored
+            }
+            
+            return first.clubTitle < second.clubTitle
         }
-    }
-    
-    // MARK: Mock Data
-    
-    private func getMockStandings(for leagueId: Int, season: Int) -> [Standing] {
-        return JSONLoader.loadJSONData(from: "standings-\(leagueId)-\(season)", decodingType: StandingsResponse.self)?
-            .response.first?["league"]?.standings.first ?? [Standing]()
+        
+        standings = standings.enumerated().map { index, standing in
+            var standing = standing
+            let currentPosition = standing.position.value
+            let livePosition = index + 1
+            
+            standing.position.modifier = -(currentPosition - livePosition)
+            return standing
+        }
+        
+        self.baseTableVC.model = standings
     }
 }

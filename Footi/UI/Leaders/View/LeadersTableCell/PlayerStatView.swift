@@ -9,7 +9,7 @@ import UIKit
 
 class PlayerStatView: UIView {
 
-    // MARK: View
+    // MARK: Subviews
     
     private let playerStat: UILabel = {
         let label = UILabel()
@@ -42,10 +42,10 @@ class PlayerStatView: UIView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with stat: String) {
-        playerStat.text = stat
+    public func configure(with stat: Int) {
+        playerStat.text = String(stat)
     }
     
     public func initialize() {

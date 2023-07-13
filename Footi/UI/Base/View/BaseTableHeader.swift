@@ -11,13 +11,6 @@ class BaseTableHeader: UITableViewHeaderFooterView {
 
     // MARK: View
     
-    private let background: UIView = {
-        let background = UIView()
-        background.backgroundColor = UIColor.Palette.foreground
-        
-        return background
-    }()
-    
     internal let container: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -30,11 +23,18 @@ class BaseTableHeader: UITableViewHeaderFooterView {
     private let sectionSpacer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.Palette.primaryBackground
+        view.backgroundColor = .clear
         
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: AppConstants.baseSectionSpacing)
         ])
+        
+        return view
+    }()
+    
+    internal let content: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.Palette.foreground
         
         return view
     }()
@@ -44,9 +44,8 @@ class BaseTableHeader: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        self.backgroundView = background
-        
         container.addArrangedSubview(sectionSpacer)
+        container.addArrangedSubview(content)
         self.contentView.addSubview(container)
         
         setStyling()
@@ -68,10 +67,11 @@ class BaseTableHeader: UITableViewHeaderFooterView {
     }
 }
 
-/// Private methods
+/// Helper methods
 extension BaseTableHeader {
     
     private func setStyling() {
+//        _ = self.content.addBorders(edges: [.top], color: UIColor.Palette.secondaryBorder!)
         _ = self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

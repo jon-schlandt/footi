@@ -11,12 +11,42 @@ struct LeadersResponse: Codable {
     let errors: [ApiError]
     let results: Int
     let paging: ApiPaging
-    let response: [Leader]
+    let response: [LeaderResponse]
+    
+    public func toBlModels(statType: LeaderFilterType) -> [Leader] {
+        return response.map { rm in
+            var stat: Int
+            
+            switch statType {
+            case .goals:
+                stat = rm.stats.first?.goals.scored ?? 0
+            case .assists:
+                stat = rm.stats.first?.goals.assisted ?? 0
+            case .yellowCards:
+                stat = rm.stats.first?.cards.yellow ?? 0
+            case .redCards:
+                stat = rm.stats.first?.cards.red ?? 0
+            }
+            
+            let blModel = Leader(
+                position: nil,
+                image: URL(string: rm.overview.image)!,
+                club: rm.stats.first?.club.name ?? "Unknown",
+                displayName: rm.overview.displayName,
+                firstName: rm.overview.firstName,
+                lastName: rm.overview.lastName,
+                statType: statType,
+                statValue: stat
+            )
+            
+            return blModel
+        }
+    }
 }
 
-struct Leader: Codable {
-    var overview: LeaderOverview
-    var stats: [LeaderStats]
+struct LeaderResponse: Codable {
+    var overview: LeaderOverviewResponse
+    var stats: [LeaderStatsResponse]
     
     enum CodingKeys: String, CodingKey {
         case overview = "player"
@@ -24,7 +54,7 @@ struct Leader: Codable {
     }
 }
 
-struct LeaderOverview: Codable {
+struct LeaderOverviewResponse: Codable {
     var id: Int
     var position: Int?
     var displayName: String
@@ -41,10 +71,10 @@ struct LeaderOverview: Codable {
     }
 }
 
-struct LeaderStats: Codable {
+struct LeaderStatsResponse: Codable {
     var club: Club
-    var goals: LeaderGoals
-    var cards: LeaderCards
+    var goals: LeaderGoalsResponse
+    var cards: LeaderCardsResponse
     
     enum CodingKeys: String, CodingKey {
         case club = "team"
@@ -53,7 +83,7 @@ struct LeaderStats: Codable {
     }
 }
 
-struct LeaderGoals: Codable {
+struct LeaderGoalsResponse: Codable {
     var scored: Int?
     var assisted: Int?
     
@@ -63,7 +93,7 @@ struct LeaderGoals: Codable {
     }
 }
 
-struct LeaderCards: Codable {
+struct LeaderCardsResponse: Codable {
     var yellow: Int?
     var red: Int?
 }

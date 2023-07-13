@@ -11,7 +11,7 @@ class FixturesTableCell: BaseTableCell {
 
     static let identifier = String(describing: FixturesTableHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let container: UIStackView = {
         let view = UIStackView()
@@ -57,8 +57,6 @@ class FixturesTableCell: BaseTableCell {
         container.addArrangedSubview(matchupView)
         container.addArrangedSubview(separatorView)
         self.contentView.addSubview(container)
-
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -85,9 +83,9 @@ class FixturesTableCell: BaseTableCell {
         statusView.removeFromSuperview()
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
-    public func configure(with fixture: Fixture, isLast: Bool) {
+    public func configure(with fixture: FixtureResponse, isLast: Bool) {
         super.configure(isLast: isLast)
         
         matchupView.configure(with: fixture)
@@ -95,15 +93,11 @@ class FixturesTableCell: BaseTableCell {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension FixturesTableCell {
     
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.contentView.backgroundColor = UIColor.Palette.foreground
-    }
-    
-    private func setupStatusView(using fixture: Fixture) {
+    private func setupStatusView(using fixture: FixtureResponse) {
         switch fixture.overview.status.type {
         case .finished:
             statusView = FinishedStatusView()

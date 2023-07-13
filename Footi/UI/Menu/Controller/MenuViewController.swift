@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
     
     // MARK: View
     
-    private var leagueSelectVC: LeagueSelectViewController!
+    public var leagueSelectVC: LeagueSelectViewController!
     
     // MARK: Model
     
@@ -52,6 +52,13 @@ class MenuViewController: UIViewController {
         setupNavigation()
         styleView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        leagueSelectVC.setSelections()
+        leagueSelectVC.collectionView.reloadData()
+    }
 }
 
 extension MenuViewController: LeagueSelectViewControllerDelegate {
@@ -69,18 +76,22 @@ extension MenuViewController {
     
     private func setupNavigation() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 19.0, weight: .light, scale: .medium)),
+            image: UIImage(systemName: "gearshape")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(displaySettings)
         )
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 19.0, weight: .light, scale: .medium)),
+            image: UIImage(systemName: "xmark")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(closeMenu)
         )
+    }
+    
+    private func styleView() {
+        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
     
     @objc private func displaySettings() {
@@ -89,9 +100,5 @@ extension MenuViewController {
     
     @objc private func closeMenu() {
         delegate?.closeMenu()
-    }
-    
-    private func styleView() {
-        self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

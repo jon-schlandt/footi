@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-class LoadingView: UIView {
+class RefreshView: UIView {
     
-    // MARK: View
+    // MARK: Subviews
     
     public let wheel: UIImageView = {
         let wheel = UIImageView()
         wheel.translatesAutoresizingMaskIntoConstraints = false
         wheel.contentMode = .center
         wheel.image = UIImage(systemName: "arrow.triangle.2.circlepath")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .medium, scale: .medium))
-        wheel.tintColor = UIColor.Palette.tertiaryIcon
+        wheel.tintColor = UIColor.Palette.tertiarySymbol
         
         return wheel
     }()
@@ -47,7 +47,7 @@ class LoadingView: UIView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func beginAnimation() {
         let animation = CABasicAnimation(keyPath: "transform.rotation")

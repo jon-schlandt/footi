@@ -11,7 +11,7 @@ class SettingSelectionCell: BaseTableCell {
 
     static let identifier = String(describing: SettingSelectionCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let selectionLabel: UILabel = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class SettingSelectionCell: BaseTableCell {
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
         checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .medium, scale: .medium))
-        checkmark.tintColor = UIColor.Palette.emphasisIcon
+        checkmark.tintColor = UIColor.Palette.emphasis
         
         return checkmark
     }()
@@ -43,8 +43,6 @@ class SettingSelectionCell: BaseTableCell {
         
         self.contentView.addSubview(selectionLabel)
         self.contentView.addSubview(checkmark)
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -73,7 +71,7 @@ class SettingSelectionCell: BaseTableCell {
         checkmark.isHidden = true
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with selection: SettingSelection, isLast: Bool) {
         super.configure(isLast: isLast)
@@ -88,14 +86,5 @@ class SettingSelectionCell: BaseTableCell {
             checkmark.isHidden = true
             selectionLabel.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         }
-    }
-}
-
-/// Private methods
-extension SettingSelectionCell {
-    
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.contentView.backgroundColor = UIColor.Palette.foreground
     }
 }

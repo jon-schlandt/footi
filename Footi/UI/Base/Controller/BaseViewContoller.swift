@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: Implementation
-
 class BaseViewContoller: UIViewController {
     
     internal let coreDataContext = CoreDataContext()
@@ -35,24 +33,42 @@ class BaseViewContoller: UIViewController {
     internal var selectedLeague: LeagueSelection!
     internal var leagueHeaderDetails: LeagueHeaderDetails!
     
+    private var fullLoad = false {
+        didSet {
+            if fullLoad {
+                baseStackView.isLoading = true
+            } else {
+                baseStackView.isLoading = false
+            }
+        }
+    }
+    
+    private var partialLoad = false {
+        didSet {
+            if partialLoad {
+                baseTableVC.isLoading = true
+            } else {
+                baseTableVC.isLoading = false
+            }
+        }
+    }
+    
     // MARK: Lifecycle
     
     override func loadView() {
         super.loadView()
         
-        let rootView = UIView()
+        fullLoad = true
         
         baseStackView.addArrangedSubview(leagueHeader)
-        rootView.addSubview(baseStackView)
+        view.addSubview(baseStackView)
         
         NSLayoutConstraint.activate([
-            baseStackView.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor),
-            baseStackView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-            baseStackView.bottomAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.bottomAnchor),
-            baseStackView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
+            baseStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            baseStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            baseStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            baseStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
-        
-        view = rootView
     }
     
     override func viewDidLoad() {
@@ -64,19 +80,55 @@ class BaseViewContoller: UIViewController {
         setupNavigation()
         setupMenu()
         styleView()
+        
+        #if DEBUG
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            _Concurrency.Task {
+                await self.loadLeagueHeaderDetails()
+                await self.loadModel()
+                
+                self.fullLoad = false
+            }
+        }
+        #else
+        _Concurrency.Task {
+            await self.loadLeagueHeaderDetails()
+            await self.loadModel()
+            
+            self.fullLoad = false
+        }
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if (self.hasLeagueChanged()) {
-            _Concurrency.Task {
-                self.setBaseTableToOrigin()
-                
-                await self.reloadSelectedLeague()
-                await loadLeagueHeaderDetails()
-                await reloadModel()
+            setBaseTableToOrigin()
+            
+            #if DEBUG
+            self.fullLoad = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                _Concurrency.Task {
+                    await self.reloadSelectedLeague()
+                    await self.loadLeagueHeaderDetails()
+                    await self.reloadModel()
+                    
+                    self.fullLoad = false
+                }
             }
+            #else
+            _Concurrency.Task {
+                self.fullLoad = true
+                
+                await reloadSelectedLeague()
+                await loadLeagueHeaderDetails()
+                await loadModel()
+                
+                self.fullLoad = false
+            }
+            #endif
         }
     }
     
@@ -101,13 +153,12 @@ class BaseViewContoller: UIViewController {
     
     // MARK: Base helpers
     
-    final internal func setTitle(as title: String) {
-        let label = UILabel()
-        label.font = UIFont(name: FontConstants.title, size: 17.0)
-        label.textColor = UIColor.Palette.barText
-        label.text = title
+    final internal func setTitleView(title: String, icon: String) {
+        let titleView = BaseTitleView()
+        titleView.setTitle(as: title)
+        titleView.setIcon(as: icon)
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: label)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleView)
         self.navigationItem.titleView = UIView()
     }
     
@@ -127,14 +178,32 @@ extension BaseViewContoller: MenuViewControllerDelegate {
     
     internal func selectLeague() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            self.setBaseTableToOrigin()
+            self.closeMenu()
+            
+            #if DEBUG
+            self.fullLoad = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                _Concurrency.Task {
+                    await self.reloadSelectedLeague()
+                    await self.loadLeagueHeaderDetails()
+                    await self.reloadModel()
+                    
+                    self.fullLoad = false
+                }
+            }
+            #else
             _Concurrency.Task {
+                self.fullLoad = true
+                
                 await self.reloadSelectedLeague()
                 await self.loadLeagueHeaderDetails()
-                await self.reloadModel()
+                await self.loadModel()
+                
+                self.fullLoad = false
             }
-            
-            self.closeMenu()
-            self.setBaseTableToOrigin()
+            #endif
         }
     }
     
@@ -156,13 +225,30 @@ extension BaseViewContoller: LeagueDataFilterDelegate {
         leagueHeaderDetails.filter = filter
         leagueHeader.configure(with: leagueHeaderDetails)
         
-        _Concurrency.Task {
-            await reloadLeagueHeaderDetails()
-            await reloadModel()
-        }
-        
         setBaseTableToOrigin()
         dismissFilter()
+        
+        #if DEBUG
+        partialLoad = true
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            _Concurrency.Task {
+                await self.reloadLeagueHeaderDetails()
+                await self.reloadModel()
+                
+                self.partialLoad = false
+            }
+        }
+        #else
+        _Concurrency.Task {
+            partialLoad = true
+            
+            await reloadLeagueHeaderDetails()
+            await reloadModel()
+            
+            partialLoad = false
+        }
+        #endif
     }
     
     internal func dismissFilter() {
@@ -201,6 +287,7 @@ extension BaseViewContoller: LeagueHeaderViewDelegate {
 extension BaseViewContoller: BaseTableViewControllerDelegate {
     
     internal func refreshTable() async {
+        await reloadLeagueHeaderDetails()
         await reloadModel()
     }
 }

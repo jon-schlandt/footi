@@ -24,18 +24,10 @@ class StandingsViewController: BaseViewContoller, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setTitle(as: "Standings")
-        
-        _Concurrency.Task {
-            await loadLeagueHeaderDetails()
-            await loadModel()
-            
-            self.baseTableVC.hasLoaded = true
-        }
+        self.setTitleView(title: "Standings", icon: "trophy.fill")
     }
     
-    // MARK: Base Overrides
+    // MARK: Base overrides
     
     override func loadLeagueHeaderDetails() async {
         await super.loadLeagueHeaderDetails()
@@ -84,7 +76,7 @@ class StandingsViewController: BaseViewContoller, UIScrollViewDelegate {
     }
 }
 
-// MARK: Private Helpers
+// MARK: Private helpers
 
 extension StandingsViewController {
     

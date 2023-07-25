@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     
-    func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, lOffset: CGFloat = 0, rOffset: CGFloat = 0) -> [UIView] {
+    internal func addBorders(edges: UIRectEdge = .all, color: UIColor = .black, width: CGFloat = AppConstants.baseBorderWidth, lOffset: CGFloat = 0, rOffset: CGFloat = 0) -> [UIView] {
         var borders = [UIView]()
         
         if (edges.contains(.all) || edges.contains(.top)) {
@@ -71,6 +71,8 @@ extension UIView {
         
         return borders
     }
+    
+    // MARK: Private helpers
     
     private func createBorder(color: UIColor) -> UIView {
         let borderView = UIView(frame: CGRect.zero)

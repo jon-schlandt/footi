@@ -14,14 +14,16 @@ protocol LeaguesServiceable {
 
 struct LeaguesService: HTTPClient, LeaguesServiceable {
     
-    func getLeagueBy(leagueId: Int) async -> League? {
+    // MARK: Public methods
+    
+    public func getLeagueBy(leagueId: Int) async -> League? {
         let endpoint = LeaguesEndpoint.byId(leagueId: leagueId)
         let league = try? (await sendRequest(to: endpoint, expect: Leagues.self)).get().response.first
         
         return league
     }
     
-    func getMockLeague(leagueId: Int) -> League? {
+    public func getMockLeague(leagueId: Int) -> League? {
         return JSONLoader.loadJSONData(from: "league-\(leagueId)", decodingType: Leagues.self)?.response.first
     }
 }

@@ -71,7 +71,7 @@ class MatchupSideStackView: UIStackView {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.contentMode = .scaleAspectFit
         indicator.image = UIImage(systemName: "arrowtriangle.left.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .light))
-        indicator.tintColor = UIColor.Palette.secondaryIcon
+        indicator.tintColor = UIColor.Palette.secondarySymbol
         indicator.alpha = 0.0
         
         NSLayoutConstraint.activate([

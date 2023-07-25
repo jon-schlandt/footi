@@ -15,7 +15,7 @@ class LeagueSelectCell: UICollectionViewCell {
     
     public static let identifier = String(describing: LeagueSelectCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let leagueButton: UIView = {
         let button = UIView()
@@ -37,7 +37,7 @@ class LeagueSelectCell: UICollectionViewCell {
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
         checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .medium, scale: .medium))
-        checkmark.tintColor = UIColor.Palette.emphasisIcon
+        checkmark.tintColor = UIColor.Palette.emphasis
         checkmark.isHidden = true
         
         return checkmark
@@ -94,7 +94,7 @@ class LeagueSelectCell: UICollectionViewCell {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with selection: LeagueSelection) {
         self.selection = selection
@@ -118,7 +118,8 @@ class LeagueSelectCell: UICollectionViewCell {
     }
 }
 
-/// Helper methods
+// MARK: Private methods
+
 extension LeagueSelectCell {
     
     @objc private func selectLeague() {

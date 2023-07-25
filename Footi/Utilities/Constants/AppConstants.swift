@@ -14,4 +14,5 @@ struct AppConstants {
     static let baseCellHeight = 54.0
     static let baseMargin = 16.0
     static let baseSectionSpacing = 8.0
+    static let baseSeparatorHeight = 24.0
 }

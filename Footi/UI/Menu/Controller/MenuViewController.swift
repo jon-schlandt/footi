@@ -15,7 +15,7 @@ protocol MenuViewControllerDelegate: AnyObject {
 
 class MenuViewController: UIViewController {
     
-    // MARK: View
+    // MARK: Subviews
     
     public var leagueSelectVC: LeagueSelectViewController!
     
@@ -61,6 +61,8 @@ class MenuViewController: UIViewController {
     }
 }
 
+// MARK: Delegates
+
 extension MenuViewController: LeagueSelectViewControllerDelegate {
     
     internal func selectLeague() {
@@ -71,7 +73,8 @@ extension MenuViewController: LeagueSelectViewControllerDelegate {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension MenuViewController {
     
     private func setupNavigation() {

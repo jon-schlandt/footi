@@ -11,7 +11,7 @@ class StandingsTableCell: BaseTableCell {
     
     static let identifier = String(describing: StandingsTableCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let container: UIView = {
         let container = UIView()
@@ -121,7 +121,7 @@ class StandingsTableCell: BaseTableCell {
             .forEach { $0.text = nil }
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with standing: Standing, isLast: Bool) {
         super.configure(isLast: isLast)
@@ -140,6 +140,8 @@ class StandingsTableCell: BaseTableCell {
         statsView.reloadData()
     }
 }
+
+// MARK: UICollectionView
 
 extension StandingsTableCell: UICollectionViewDataSource {
     
@@ -172,7 +174,8 @@ extension StandingsTableCell: UICollectionViewDelegate {
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension StandingsTableCell {
     
     private func setScrollBorder(using offset: CGPoint) {

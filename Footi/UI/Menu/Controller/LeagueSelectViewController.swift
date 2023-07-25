@@ -47,7 +47,7 @@ class LeagueSelectViewController: UICollectionViewController {
         setSelections()
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func setSelections() {
         selections.removeAll()
@@ -106,6 +106,8 @@ class LeagueSelectViewController: UICollectionViewController {
         return cell
     }
 }
+
+// MARK: Delegates
 
 extension LeagueSelectViewController: UICollectionViewDelegateFlowLayout {
     

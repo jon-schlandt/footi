@@ -11,7 +11,7 @@ class LeagueDataFilterTableCell: BaseTableCell {
     
     public static let identifier = String(describing: LeagueDataFilterTableCell.self)
     
-    // MARK: Views
+    // MARK: Subviews
     
     private let label: UILabel = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class LeagueDataFilterTableCell: BaseTableCell {
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         checkmark.contentMode = .scaleAspectFit
         checkmark.image = UIImage(systemName: "checkmark.circle.fill")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 13.0, weight: .medium, scale: .medium))
-        checkmark.tintColor = UIColor.Palette.emphasisIcon
+        checkmark.tintColor = UIColor.Palette.emphasis
         checkmark.isHidden = true
         
         return checkmark
@@ -45,8 +45,6 @@ class LeagueDataFilterTableCell: BaseTableCell {
         
         self.contentView.addSubview(label)
         self.contentView.addSubview(checkmark)
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -75,7 +73,7 @@ class LeagueDataFilterTableCell: BaseTableCell {
         checkmark.isHidden = true
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with option: DataFilterOption, isLast: Bool) {
         super.configure(isLast: isLast)
@@ -92,14 +90,5 @@ class LeagueDataFilterTableCell: BaseTableCell {
             checkmark.isHidden = true
             label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         }
-    }
-}
-
-/// Private methods
-extension LeagueDataFilterTableCell {
-    
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.backgroundColor = UIColor.Palette.foreground
     }
 }

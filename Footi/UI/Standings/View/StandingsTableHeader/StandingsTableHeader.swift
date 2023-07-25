@@ -11,7 +11,7 @@ class StandingsTableHeader: BaseTableHeader {
 
     public static let identifier = String(describing: StandingsTableHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let standingsTitleView: UIView = {
         let view = UIView()
@@ -65,8 +65,8 @@ class StandingsTableHeader: BaseTableHeader {
     
     // MARK: Model
     
-    public weak var scrollDelegate: StandingsScrollViewDelegate?
     private let statTitles = ["MP", "GD", "Pts", "W", "D", "L", "GF", "GA"]
+    public weak var scrollDelegate: StandingsScrollViewDelegate?
     
     // MARK: Lifecycle
     
@@ -119,6 +119,8 @@ class StandingsTableHeader: BaseTableHeader {
         ])
     }
 }
+
+// MARK: UICollectionView
 
 extension StandingsTableHeader: UICollectionViewDataSource {
     

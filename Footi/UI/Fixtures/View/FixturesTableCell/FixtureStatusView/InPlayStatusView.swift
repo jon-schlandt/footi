@@ -15,7 +15,7 @@ class InPlayStatusView: UIView, FixtureStatusView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FontConstants.title, size: FontConstants.smallSize)
-        label.textColor = UIColor.Palette.emphasisIcon
+        label.textColor = UIColor.Palette.emphasis
         
         return label
     }()

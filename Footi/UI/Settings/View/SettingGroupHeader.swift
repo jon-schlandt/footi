@@ -11,7 +11,7 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
 
     static let identifier = String(describing: SettingGroupHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let background: UIView = {
         let background = UIView()
@@ -56,14 +56,15 @@ class SettingGroupHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with group: SettingGroup) {
         title.text = group.title
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension SettingGroupHeader {
     
     private func setStyling() {

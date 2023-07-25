@@ -10,7 +10,9 @@ import UIKit
 
 extension UIImageView {
     
-    func loadFromCache(url: URL) {
+    // MARK: Public methods
+    
+    public func loadFromCache(url: URL) {
         let request = URLRequest(url: url)
         
         if let cachedResponse = URLCache.shared.cachedResponse(for: request) {
@@ -20,7 +22,7 @@ extension UIImageView {
         }
     }
     
-    func load(url: URL) {
+    public func load(url: URL) {
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {

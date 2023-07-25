@@ -10,26 +10,24 @@ import UIKit
 class InPlayIndicator: UIView {
     
     // Dimensions
-    
-    static private let width = 20.0
-    static private let height = 5.0
+    static private let WIDTH = 20.0
+    static private let HEIGHT = 5.0
     
     // Animation
-    
-    static private let animationDistance: CGFloat = width - height
+    static private let animationDistance: CGFloat = WIDTH - HEIGHT
     static private let animationDuration: TimeInterval = 1.20
     static private var currentOrigin = 0.0
     static private var animationStartTime: CFTimeInterval = 0.0
     
-    static private var shouldMoveForward = true
     static private var hasLeader = false
+    static private var shouldMoveForward = true
 
     // MARK: Subviews
     
     private let indicatorLight: UIView = {
-        let light = UIView(frame: CGRect(x: 0.0, y: 0.0, width: InPlayIndicator.height, height: InPlayIndicator.height))
-        light.layer.cornerRadius = InPlayIndicator.height / 2
-        light.backgroundColor = UIColor.Palette.emphasisIcon
+        let light = UIView(frame: CGRect(x: 0.0, y: 0.0, width: InPlayIndicator.HEIGHT, height: InPlayIndicator.HEIGHT))
+        light.layer.cornerRadius = InPlayIndicator.HEIGHT / 2
+        light.backgroundColor = UIColor.Palette.emphasis
         
         return light
     }()
@@ -99,8 +97,6 @@ extension InPlayIndicator {
         self.clipsToBounds = true
         self.backgroundColor = UIColor.Palette.secondaryBackground
     }
-    
-    // MARK: objc
     
     @objc private func moveIndicator(_ displayLink: CADisplayLink) {
         if !InPlayIndicator.hasLeader {

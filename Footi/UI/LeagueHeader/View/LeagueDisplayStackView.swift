@@ -9,7 +9,7 @@ import UIKit
 
 class LeagueDisplayStackView: UIStackView {
     
-    // MARK: View
+    // MARK: Subviews
 
     private let leagueLogo: UIImageView = {
         let image = UIImageView()
@@ -75,16 +75,15 @@ class LeagueDisplayStackView: UIStackView {
         
         NSLayoutConstraint.activate([
             separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
-            separator.topAnchor.constraint(equalTo: self.topAnchor, constant: AppConstants.baseMargin + 4),
-            separator.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -AppConstants.baseMargin - 4)
+            separator.heightAnchor.constraint(equalToConstant: AppConstants.baseSeparatorHeight)
         ])
         
         NSLayoutConstraint.activate([
-            liveImage.widthAnchor.constraint(equalToConstant: 32)
+            liveImage.widthAnchor.constraint(equalToConstant: 30)
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with headerDetails: LeagueHeaderDetails) {
         leagueLogo.image = UIImage(named: String(headerDetails.leagueId))
@@ -94,7 +93,8 @@ class LeagueDisplayStackView: UIStackView {
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension LeagueDisplayStackView {
     
     private func toggleLive(isLive: Bool) {

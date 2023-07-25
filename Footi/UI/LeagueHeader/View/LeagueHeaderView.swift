@@ -15,7 +15,7 @@ class LeagueHeaderView: UIView {
     
     weak var delegate: LeagueHeaderViewDelegate?
     
-    // MARK: Views
+    // MARK: Subviews
     
     private let container: UIStackView = {
         let container = UIStackView()
@@ -32,18 +32,20 @@ class LeagueHeaderView: UIView {
     
     // MARK: Lifecycle
     
-    init() {
+    init(isLoading: Bool = false) {
         super.init(frame: .zero)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.zPosition = 1
         
-        filterDropdown.delegate = self
-        
         container.addArrangedSubview(leagueDisplay)
-        container.addArrangedSubview(filterDropdown)
-        self.addSubview(container)
         
+        if !isLoading {
+            filterDropdown.delegate = self
+            container.addArrangedSubview(filterDropdown)
+        }
+        
+        self.addSubview(container)
         setStyling()
     }
     
@@ -64,7 +66,7 @@ class LeagueHeaderView: UIView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with headerDetails: LeagueHeaderDetails) {
         leagueDisplay.configure(with: headerDetails)
@@ -76,6 +78,8 @@ class LeagueHeaderView: UIView {
     }
 }
 
+// MARK: Delegates
+
 extension LeagueHeaderView: LeagueDataFilterDropdownDelegate {
     
     internal func presentFilter() {
@@ -83,11 +87,12 @@ extension LeagueHeaderView: LeagueDataFilterDropdownDelegate {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension LeagueHeaderView {
     
     private func setStyling() {
-        self.backgroundColor = UIColor.Palette.foreground
         _ = self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
+        self.backgroundColor = UIColor.Palette.foreground
     }
 }

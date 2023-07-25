@@ -11,7 +11,7 @@ class StandingStatTitleCell: UICollectionViewCell {
     
     static let identifier = String(describing: StandingStatTitleCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     public let statTitle: UILabel = {
         let title = UILabel()

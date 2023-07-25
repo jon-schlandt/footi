@@ -11,7 +11,6 @@ protocol SettingsOptionDelegate: AnyObject {
     func toggleSelection(groupKey: String, optionKey: String, selectionKey: String)
 }
 
-/// UITableViewController methods
 class SettingOptionViewController: UITableViewController {
     
     let userDefaultsContext = UserDefaultsContext()
@@ -84,12 +83,14 @@ class SettingOptionViewController: UITableViewController {
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension SettingOptionViewController {
     
     private func styleView() {
         self.tableView.separatorStyle = .none
         self.tableView.sectionHeaderTopPadding = 0
+        
         self.view.backgroundColor = UIColor.Palette.primaryBackground
     }
 }

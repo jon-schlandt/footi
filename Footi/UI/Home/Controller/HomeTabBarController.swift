@@ -8,7 +8,9 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController {
-
+    
+    // MARK: Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +24,8 @@ class HomeTabBarController: UITabBarController {
     }
 }
 
-/// Helper methods
+// MARK: Private helpers
+
 extension HomeTabBarController {
     
     private func getStandingsTab() -> BaseNavigationController {
@@ -68,7 +71,7 @@ extension HomeTabBarController {
         
         self.tabBar.standardAppearance = appearance;
         self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
-        self.tabBar.tintColor = UIColor.Palette.primaryIcon
-        self.tabBar.unselectedItemTintColor = UIColor.Palette.primaryIcon
+        self.tabBar.tintColor = UIColor.Palette.primarySymbol
+        self.tabBar.unselectedItemTintColor = UIColor.Palette.primarySymbol
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class ClubPositionStackView: UIStackView {
     
-    // MARK: View
+    // MARK: Subviews
     
     private let positionView: UIStackView = {
         let view = UIStackView()
@@ -145,7 +145,7 @@ class ClubPositionStackView: UIStackView {
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with standing: Standing) {
         positionLabel.text = String(standing.position.total)

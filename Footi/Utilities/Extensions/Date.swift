@@ -9,7 +9,7 @@ import Foundation
 
 extension Date {
     
-    // MARK: Public
+    // MARK: Public methods
     
     public static func getDateFromISO8601(using isoString: String) -> Date? {
         let dateFormatter = ISO8601DateFormatter()

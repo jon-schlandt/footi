@@ -2,21 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Gugi-Regular.ttf</string>
-		<string>Oregano-Regular.ttf</string>
-		<string>BellotaText-Bold.ttf</string>
-		<string>FugazOne-Regular.ttf</string>
-		<string>ConcertOne-Regular.ttf</string>
+		<string>Modak-Regular.ttf</string>
 		<string>Inter-VariableFont_slnt,wght.ttf</string>
-		<string>Roboto-Medium.ttf</string>
-		<string>Roboto-Regular.ttf</string>
-		<string>Manrope-VariableFont_wght.ttf</string>
-		<string>Urbanist-VariableFont_wght.ttf</string>
-		<string>Lato-Bold.ttf</string>
-		<string>Lato-Regular.ttf</string>
-		<string>Nunito-VariableFont_wght.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

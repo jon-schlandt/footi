@@ -19,4 +19,5 @@ struct FontConstants {
     static let smallSize = 12.0
     static let mediumSize = 14.0
     static let largeSize = 15.0
+    static let extraLargeSize = 16.0
 }

@@ -11,7 +11,7 @@ class LeagueDataFilterTableHeader: UITableViewHeaderFooterView {
     
     public static let identifier = String(describing: LeagueDataFilterTableHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let background: UIView = {
         let background = UIView()
@@ -57,30 +57,25 @@ class LeagueDataFilterTableHeader: UITableViewHeaderFooterView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-//            filterTitleView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-//            filterTitleView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-//            filterTitleView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-//            filterTitleView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor)
-            
             filterTitleView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             filterTitleView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
             filterTitleLabel.centerXAnchor.constraint(equalTo: filterTitleView.centerXAnchor),
-            filterTitleLabel.centerYAnchor.constraint(equalTo: filterTitleView.centerYAnchor),
-//            filterTitleLabel.leadingAnchor.constraint(equalTo: filterTitleView.leadingAnchor, constant: AppConstants.baseMargin)
+            filterTitleLabel.centerYAnchor.constraint(equalTo: filterTitleView.centerYAnchor)
         ])
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with filterTitle: String) {
         filterTitleLabel.text = filterTitle
     }
 }
 
-/// Private methods
+// MARK: Private methods
+
 extension LeagueDataFilterTableHeader {
     
     private func setStyling() {

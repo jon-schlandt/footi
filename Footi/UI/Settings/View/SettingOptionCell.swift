@@ -11,7 +11,7 @@ class SettingOptionCell: BaseTableCell {
 
     static let identifier = String(describing: SettingOptionCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let container: UIStackView = {
         let view = UIStackView()
@@ -36,7 +36,7 @@ class SettingOptionCell: BaseTableCell {
         view.axis = .horizontal
         view.alignment = .center
         view.distribution = .fill
-        view.spacing = 4
+        view.spacing = 8
         
         return view
     }()
@@ -53,7 +53,7 @@ class SettingOptionCell: BaseTableCell {
         let disclosureArrow = UIImageView()
         disclosureArrow.translatesAutoresizingMaskIntoConstraints = false
         disclosureArrow.contentMode = .scaleAspectFit
-        disclosureArrow.tintColor = UIColor.Palette.secondaryIcon
+        disclosureArrow.tintColor = UIColor.Palette.secondarySymbol
         disclosureArrow.image = UIImage(systemName: "chevron.right")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 10.0, weight: .light, scale: .medium))
         
         return disclosureArrow
@@ -70,8 +70,6 @@ class SettingOptionCell: BaseTableCell {
         container.addArrangedSubview(optionLabel)
         container.addArrangedSubview(disclosureView)
         self.contentView.addSubview(container)
-        
-        setStyling()
     }
     
     required init?(coder: NSCoder) {
@@ -94,21 +92,12 @@ class SettingOptionCell: BaseTableCell {
         selectionLabel.text = nil
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(with option: SettingOption, isLast: Bool) {
         super.configure(isLast: isLast)
         
         optionLabel.text = option.title
         selectionLabel.text = option.selections.first { $0.isEnabled ?? false }?.title
-    }
-}
-
-/// Private methods
-extension SettingOptionCell {
-    
-    private func setStyling() {
-        self.selectionStyle = .none
-        self.backgroundColor = UIColor.Palette.foreground
     }
 }

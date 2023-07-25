@@ -11,7 +11,7 @@ class StandingStatCollectionCell: UICollectionViewCell {
     
     static let identifier = String(describing: StandingStatCollectionCell.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let statView: UIStackView = {
         let view = UIStackView()
@@ -37,7 +37,7 @@ class StandingStatCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FontConstants.paragraph, size: 10.0)
-        label.textColor = UIColor.Palette.emphasisIcon
+        label.textColor = UIColor.Palette.emphasis
         
         return label
     }()
@@ -71,7 +71,7 @@ class StandingStatCollectionCell: UICollectionViewCell {
         statModifier.text = nil
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func configure(stat: StandingStat, index: Int) {
         statLabel.text = String(stat.value)

@@ -29,7 +29,7 @@ class CoreDataContext {
         leagues = try? moc.fetch(LeagueEntity.fetchRequest())
     }
     
-    // MARK: Public
+    // MARK: Public methods
     
     public func fetchCurrentSeason(for leagueId: Int) async -> Int? {
         let league = await fetchLeague(for: leagueId)
@@ -87,7 +87,7 @@ class CoreDataContext {
         return nil
     }
     
-    // MARK: Private
+    // MARK: Private methods
     
     private func fetchLeague(for leagueId: Int) async -> LeagueEntity? {
         let league = leagues?.first { $0.id == leagueId }

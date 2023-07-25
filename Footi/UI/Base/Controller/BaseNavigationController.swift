@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: Implementation
-
 class BaseNavigationController: UINavigationController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -36,6 +34,6 @@ class BaseNavigationController: UINavigationController {
         self.navigationBar.compactAppearance = navigationBarAppearance
         self.navigationBar.scrollEdgeAppearance = navigationBarAppearance
         
-        self.navigationBar.tintColor = UIColor.Palette.primaryIcon
+        self.navigationBar.tintColor = UIColor.Palette.primarySymbol
     }
 }

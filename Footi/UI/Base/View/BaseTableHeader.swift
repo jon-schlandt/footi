@@ -9,9 +9,9 @@ import UIKit
 
 class BaseTableHeader: UITableViewHeaderFooterView {
 
-    // MARK: View
+    // MARK: Subviews
     
-    internal let container: UIStackView = {
+    private let container: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .vertical
@@ -67,11 +67,11 @@ class BaseTableHeader: UITableViewHeaderFooterView {
     }
 }
 
-/// Helper methods
+// MARK: Private helpers
+
 extension BaseTableHeader {
     
     private func setStyling() {
-//        _ = self.content.addBorders(edges: [.top], color: UIColor.Palette.secondaryBorder!)
         _ = self.contentView.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
     }
 }

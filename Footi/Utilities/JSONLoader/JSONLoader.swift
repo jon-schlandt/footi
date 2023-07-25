@@ -9,7 +9,9 @@ import Foundation
 
 struct JSONLoader {
     
-    static func loadJSONData<T: Decodable>(from fileName: String, decodingType: T.Type) -> T? {
+    // MARK: Public methods
+    
+    public static func loadJSONData<T: Decodable>(from fileName: String, decodingType: T.Type) -> T? {
         if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

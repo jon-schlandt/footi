@@ -20,15 +20,7 @@ class FixturesViewController: BaseViewContoller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setTitle(as: "Fixtures")
-        
-        _Concurrency.Task {
-            await loadLeagueHeaderDetails()
-            await loadModel()
-            
-            self.baseTableVC.hasLoaded = true
-        }
+        self.setTitleView(title: "Fixtures", icon: "sportscourt.fill")
     }
     
     // MARK: Base overrides

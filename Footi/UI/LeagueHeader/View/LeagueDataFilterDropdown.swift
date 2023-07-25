@@ -28,7 +28,7 @@ class LeagueDataFilterDropdown: UIStackView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "chevron.down")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 7.0, weight: .light, scale: .medium))
-        image.tintColor = UIColor.Palette.secondaryIcon
+        image.tintColor = UIColor.Palette.secondarySymbol
         
         return image
     }()

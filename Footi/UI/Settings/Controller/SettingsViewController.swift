@@ -11,7 +11,7 @@ class SettingsViewController: UITableViewController {
     
     var userDefaultsContext = UserDefaultsContext()
     
-    // MARK: View
+    // MARK: Subviews
     
     private var settingsOptionVC: SettingOptionViewController!
     
@@ -91,6 +91,8 @@ class SettingsViewController: UITableViewController {
     }
 }
 
+// MARK: Delegates
+
 extension SettingsViewController: SettingsOptionDelegate {
     
     internal func toggleSelection(groupKey: String, optionKey: String, selectionKey: String) {
@@ -105,7 +107,8 @@ extension SettingsViewController: SettingsOptionDelegate {
     }
 }
 
-/// Private methods
+// MARK: Private helpers
+
 extension SettingsViewController {
     
     private func setSettingGroups() {

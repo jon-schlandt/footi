@@ -11,7 +11,7 @@ class LeagueSelectHeader: UICollectionReusableView {
     
     public static let identifier = String(describing: LeagueSelectHeader.self)
     
-    // MARK: View
+    // MARK: Subviews
     
     private let leagueSelectTitleView: UIView = {
         let view = UIView()
@@ -57,11 +57,12 @@ class LeagueSelectHeader: UICollectionReusableView {
     }
 }
 
-/// Helper methods
+// MARK: Private helpers
+
 extension LeagueSelectHeader {
     
     private func setStyling() {
-        self.backgroundColor = UIColor.Palette.foreground
         _ = self.addBorders(edges: [.bottom], color: UIColor.Palette.border!)
+        self.backgroundColor = UIColor.Palette.foreground
     }
 }

@@ -11,6 +11,8 @@ struct UserDefaultsContext {
     
     let userDefaults = UserDefaults()
     
+    // MARK: Public methods
+    
     public func getLeagues() -> [String: [String: Any]]? {
         let leagueMap = userDefaults.object(forKey: "leagues") as? [String: [String: Any]]
         if let leagueMap = leagueMap {

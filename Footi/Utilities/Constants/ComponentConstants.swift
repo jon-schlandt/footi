@@ -12,6 +12,9 @@ struct ComponentConstants {
     // LeagueHeader
     static let leagueHeaderHeight = 64.0
     
+    // RefreshView
+    static let refreshViewHeight = 48.0
+    
     // Misc
     static let clubBadgeWidth = 18.0
 }

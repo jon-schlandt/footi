@@ -20,15 +20,7 @@ class LeadersViewController: BaseViewContoller {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setTitle(as: "Leaders")
-        
-        _Concurrency.Task {
-            await loadLeagueHeaderDetails()
-            await loadModel()
-            
-            self.baseTableVC.hasLoaded = true
-        }
+        self.setTitleView(title: "Leaders", icon: "medal.fill")
     }
     
     // MARK: Base overrides

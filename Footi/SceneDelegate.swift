@@ -11,17 +11,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
+        // Create and set the window for the scene
+        window = UIWindow(windowScene: windowScene)
+        
+        // Create the launch screen view
+        let launchScreenView = LaunchScreenView(frame: windowScene.coordinateSpace.bounds)
+        
+        // Set the launch screen view as the root view temporarily
+//        window?.rootViewController = LaunchScreenViewController()
         window?.rootViewController = HomeTabBarController()
+//        window?.addSubview(launchScreenView)
         window?.makeKeyAndVisible()
+        
+//        // Simulate a delay to show the launch screen for a few seconds (optional)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            // Animate the launch screen view's removal with a fade-out animation
+//            UIView.animate(withDuration: 0.20, animations: {
+//                launchScreenView.alpha = 0.0
+//            }) { (_) in
+//                // Remove the launch screen view after the animation is complete
+//                launchScreenView.removeFromSuperview()
+//                // Set the main view controller as the root view controller
+//                self.window?.rootViewController = HomeTabBarController()
+//            }
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: Implementation
-
 class StandingsTableViewController: BaseTableViewController {
     
     // MARK: Subviews
@@ -102,7 +100,7 @@ class StandingsTableViewController: BaseTableViewController {
         return AppConstants.baseCellHeight
     }
     
-    // MARK: Base Overrides
+    // MARK: Base overrides
     
     override func setTableToOrigin() {
         super.setTableToOrigin()

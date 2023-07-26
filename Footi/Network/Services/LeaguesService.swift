@@ -18,12 +18,13 @@ struct LeaguesService: HTTPClient, LeaguesServiceable {
     
     public func getLeagueBy(leagueId: Int) async -> League? {
         let endpoint = LeaguesEndpoint.byId(leagueId: leagueId)
-        let league = try? (await sendRequest(to: endpoint, expect: Leagues.self)).get().response.first
+        let leagues = try? (await sendRequest(to: endpoint, expect: LeaguesResponse.self)).get()
         
-        return league
+        return leagues?.toBlModels().first
     }
     
     public func getMockLeague(leagueId: Int) -> League? {
-        return JSONLoader.loadJSONData(from: "league-\(leagueId)", decodingType: Leagues.self)?.response.first
+        var leagues = JSONLoader.loadJSONData(from: "league-\(leagueId)", decodingType: LeaguesResponse.self)
+        return leagues?.toBlModels().first
     }
 }

@@ -12,6 +12,20 @@ struct FixturesResponse: Codable {
     let results: Int
     let paging: ApiPaging
     let response: [FixtureResponse]
+    
+    public func toBlModels() -> [Fixture] {
+        return response.map { rm in
+            let blModel = Fixture(
+                matchday: rm.league.matchday,
+                date: rm.overview.date,
+                status: FixtureStatus(short: rm.overview.status.short, long: rm.overview.status.long, minutesPlayed: rm.overview.status.minutesPlayed),
+                homeSide: MatchupSide(name: rm.matchup.home.name, badge: URL(string: rm.matchup.home.logo)!, goals: rm.score.home, isWinner: rm.matchup.home.isWinner),
+                awaySide: MatchupSide(name: rm.matchup.away.name, badge: URL(string: rm.matchup.away.logo)!, goals: rm.score.away, isWinner: rm.matchup.away.isWinner)
+            )
+            
+            return blModel
+        }
+    }
 }
 
 struct FixtureResponse: Codable {

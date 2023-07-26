@@ -120,8 +120,8 @@ class CoreDataContext {
     
     private func loadLeague(using league: League) async {
         let leagueEntity = LeagueEntity(context: moc)
-        leagueEntity.id = Int16(league.overview.id)
-        leagueEntity.name = league.overview.name
+        leagueEntity.id = Int16(league.id)
+        leagueEntity.name = league.name
         
         league.seasons.forEach { season in
             let seasonEntity = SeasonEntity(context: moc)

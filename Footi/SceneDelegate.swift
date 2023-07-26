@@ -17,30 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // Create and set the window for the scene
         window = UIWindow(windowScene: windowScene)
-        
-        // Create the launch screen view
-        let launchScreenView = LaunchScreenView(frame: windowScene.coordinateSpace.bounds)
-        
-        // Set the launch screen view as the root view temporarily
-//        window?.rootViewController = LaunchScreenViewController()
         window?.rootViewController = HomeTabBarController()
-//        window?.addSubview(launchScreenView)
         window?.makeKeyAndVisible()
-        
-//        // Simulate a delay to show the launch screen for a few seconds (optional)
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//            // Animate the launch screen view's removal with a fade-out animation
-//            UIView.animate(withDuration: 0.20, animations: {
-//                launchScreenView.alpha = 0.0
-//            }) { (_) in
-//                // Remove the launch screen view after the animation is complete
-//                launchScreenView.removeFromSuperview()
-//                // Set the main view controller as the root view controller
-//                self.window?.rootViewController = HomeTabBarController()
-//            }
-//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

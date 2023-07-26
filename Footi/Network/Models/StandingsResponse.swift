@@ -53,7 +53,7 @@ struct LeagueStandingsResponse: Codable {
 
 struct StandingResponse: Codable {
     var rank: Int
-    var club: Club
+    var club: ClubResponse
     var points: Int
     var goalDifference: Int
     var form: String

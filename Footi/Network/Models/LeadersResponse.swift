@@ -72,7 +72,7 @@ struct LeaderOverviewResponse: Codable {
 }
 
 struct LeaderStatsResponse: Codable {
-    var club: Club
+    var club: ClubResponse
     var goals: LeaderGoalsResponse
     var cards: LeaderCardsResponse
     

@@ -24,7 +24,7 @@ struct LeaguesService: HTTPClient, LeaguesServiceable {
     }
     
     public func getMockLeague(leagueId: Int) -> League? {
-        var leagues = JSONLoader.loadJSONData(from: "league-\(leagueId)", decodingType: LeaguesResponse.self)
+        let leagues = JSONLoader.loadJSONData(from: "league-\(leagueId)", decodingType: LeaguesResponse.self)
         return leagues?.toBlModels().first
     }
 }

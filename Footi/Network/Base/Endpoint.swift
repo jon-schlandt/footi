@@ -35,9 +35,17 @@ extension Endpoint {
     }
     
     var headers: [String: String]? {
+        guard let host = ProcessInfo.processInfo.environment["APIFOOTBALL_HOST"] else {
+            return nil
+        }
+        
+        guard let key = ProcessInfo.processInfo.environment["APIFOOTBALL_KEY"] else {
+            return nil
+        }
+        
         return [
-            "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-            "x-rapidapi-key": "af179b11fcmsh9be968bd7f841a0p1a0924jsn01d171fbf651"
+            "x-rapidapi-host": host,
+            "x-rapidapi-key": key
         ]
     }
     

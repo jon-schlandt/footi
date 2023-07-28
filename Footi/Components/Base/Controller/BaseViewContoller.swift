@@ -300,7 +300,7 @@ extension BaseViewContoller {
         self.navigationItem.backButtonTitle = ""
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "line.3.horizontal")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
+            image: UIImage(systemName: "ellipsis")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 18.0, weight: .light, scale: .medium)),
             style: .plain,
             target: self,
             action: #selector(displayMenu)

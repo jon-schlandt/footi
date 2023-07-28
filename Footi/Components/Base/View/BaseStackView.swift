@@ -55,6 +55,7 @@ class BaseStackView: UIStackView {
         self.axis = .vertical
         self.distribution = .fill
         
+        self.addSubview(loadingHeader)
         self.addSubview(loadingView)
     }
     
@@ -66,7 +67,15 @@ class BaseStackView: UIStackView {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            loadingView.topAnchor.constraint(equalTo: self.topAnchor),
+            loadingHeader.heightAnchor.constraint(equalToConstant: ComponentConstants.leagueHeaderHeight),
+            loadingHeader.topAnchor.constraint(equalTo: self.topAnchor),
+            loadingHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            loadingHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+//            loadingView.topAnchor.constraint(equalTo: self.topAnchor),
+            loadingView.topAnchor.constraint(equalTo: loadingHeader.bottomAnchor, constant: AppConstants.baseSectionSpacing),
             loadingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             loadingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             loadingView.leadingAnchor.constraint(equalTo: self.leadingAnchor)

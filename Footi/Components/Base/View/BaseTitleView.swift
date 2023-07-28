@@ -52,7 +52,7 @@ class BaseTitleView: UIView {
         super.init(frame: frame)
         
         container.addArrangedSubview(titleIcon)
-        container.addArrangedSubview(separator)
+//        container.addArrangedSubview(separator)
         container.addArrangedSubview(titleLabel)
         self.addSubview(container)
         

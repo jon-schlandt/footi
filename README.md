@@ -34,11 +34,11 @@ Footi is an iOS app that provides standings, fixtures, and stat leaders for seve
 
 ## Usage
 
-1. Launch the app on your iOS device or simulator.
-2. Open the menu via the "" icon and choose a league from the available options.
-3. Navigate through the different tabs to access standings, fixtures, and stat leaders.
-4. Access the Settings view via the "" icon from the menu to update the default league.
-5. Enjoy staying updated with the latest soccer data!
+1. Launch the app on your iOS device or simulator.<br>
+2. Open the menu via the &nbsp;<img width="20px" alt="menu icon" src="https://github.com/jon-schlandt/footi/assets/75702270/7df117f6-4d12-48fa-9fde-be2bfe1bdf86">&nbsp; icon and choose a league from the available options.<br>
+3. Navigate through the different tabs to access standings, fixtures, and stat leaders.<br>
+4. Access the Settings view via the &nbsp;<img width="20px" alt="settings icon" src="https://github.com/jon-schlandt/footi/assets/75702270/252d024b-b181-470b-9830-9599cad276f0">&nbsp; icon from the menu to update the default league.<br>
+5. Enjoy staying updated with the latest soccer data!<br>
 
 ## API Usage
 

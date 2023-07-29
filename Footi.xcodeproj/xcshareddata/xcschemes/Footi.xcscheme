@@ -83,7 +83,8 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
+      customArchiveName = "Footi"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

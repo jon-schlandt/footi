@@ -32,20 +32,18 @@ class LeagueHeaderView: UIView {
     
     // MARK: Lifecycle
     
-    init(isLoading: Bool = false) {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.zPosition = 1
         
+        filterDropdown.delegate = self
+        
         container.addArrangedSubview(leagueDisplay)
-        
-        if !isLoading {
-            filterDropdown.delegate = self
-            container.addArrangedSubview(filterDropdown)
-        }
-        
+        container.addArrangedSubview(filterDropdown)
         self.addSubview(container)
+        
         setStyling()
     }
     

@@ -80,13 +80,6 @@ class BaseTableViewController: UITableViewController {
             loadingView.centerYAnchor.constraint(equalTo: rootView.centerYAnchor, constant: AppConstants.baseSectionSpacing)
         ])
         
-//        NSLayoutConstraint.activate([
-//            loadingView.topAnchor.constraint(equalTo: rootView.topAnchor, constant: AppConstants.baseSectionSpacing),
-//            loadingView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor),
-//            loadingView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor),
-//            loadingView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor)
-//        ])
-        
         rootView.dataSource = self
         rootView.delegate = self
         

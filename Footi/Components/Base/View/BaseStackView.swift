@@ -74,7 +74,6 @@ class BaseStackView: UIStackView {
         ])
         
         NSLayoutConstraint.activate([
-//            loadingView.topAnchor.constraint(equalTo: self.topAnchor),
             loadingView.topAnchor.constraint(equalTo: loadingHeader.bottomAnchor, constant: AppConstants.baseSectionSpacing),
             loadingView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             loadingView.bottomAnchor.constraint(equalTo: self.bottomAnchor),

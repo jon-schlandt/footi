@@ -21,7 +21,7 @@ class LeagueSelectHeader: UICollectionReusableView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: FontConstants.title, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
-        label.text = "Leagues"
+        label.text = "League Select"
         view.addSubview(label)
         
         NSLayoutConstraint.activate([

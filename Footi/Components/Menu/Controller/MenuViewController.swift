@@ -36,8 +36,8 @@ class MenuViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             leagueSelectVC.view.widthAnchor.constraint(equalTo: rootView.widthAnchor),
-//            leagueSelectVC.view.heightAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: (2 / 3), constant: AppConstants.baseCellHeight),
-            leagueSelectVC.view.heightAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: (2 / 3)),
+            leagueSelectVC.view.heightAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: (2 / 3), constant: AppConstants.baseCellHeight),
+//            leagueSelectVC.view.heightAnchor.constraint(equalTo: rootView.widthAnchor, multiplier: (2 / 3)),
             leagueSelectVC.view.topAnchor.constraint(equalTo: rootView.safeAreaLayoutGuide.topAnchor)
         ])
         

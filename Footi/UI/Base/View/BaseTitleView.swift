@@ -40,7 +40,7 @@ class BaseTitleView: UIView {
     
     private let titleLabel: UILabel = {
         let title = UILabel()
-        title.font = UIFont(name: FontConstants.title, size: FontConstants.extraLargeSize)
+        title.font = UIFont(name: FontConstants.title, size: FontConstants.extraLargeSize - 1)
         title.textColor = UIColor.Palette.barText
         
         return title
@@ -52,6 +52,7 @@ class BaseTitleView: UIView {
         super.init(frame: frame)
         
         container.addArrangedSubview(titleIcon)
+        container.addArrangedSubview(separator)
         container.addArrangedSubview(titleLabel)
         self.addSubview(container)
         
@@ -79,6 +80,6 @@ class BaseTitleView: UIView {
     }
     
     public func setIcon(as icon: String) {
-        titleIcon.image = UIImage(systemName: icon)?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16.0, weight: .light, scale: .medium))
+        titleIcon.image = UIImage(systemName: icon)?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 16.0 - 1, weight: .light, scale: .medium))
     }
 }

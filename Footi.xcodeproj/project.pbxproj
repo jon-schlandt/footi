@@ -581,7 +581,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		FC4AAF5129F483DA00736DBE /* Components */ = {
+		FC4AAF5129F483DA00736DBE /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				FC36D4B429C66B9E008E1507 /* Base */,
@@ -596,7 +596,7 @@
 				FC63538229EF774E001B3BDC /* LeagueDataFilter */,
 				FC6903DB29EC7869008EEB82 /* Shared */,
 			);
-			path = Components;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		FC4FD2412A07F87400BDE0E5 /* Model */ = {
@@ -641,7 +641,7 @@
 				FC5845F4296676840032B543 /* AppDelegate.swift */,
 				FC5845F6296676840032B543 /* SceneDelegate.swift */,
 				FC584600296676850032B543 /* Assets.xcassets */,
-				FC4AAF5129F483DA00736DBE /* Components */,
+				FC4AAF5129F483DA00736DBE /* UI */,
 				FC58460B29668BFD0032B543 /* Network */,
 				FC39ED3629C782A2001722FC /* Utilities */,
 				FC227F2A2A2CD2820073F6BD /* Resources */,
@@ -1211,6 +1211,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1245,6 +1246,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

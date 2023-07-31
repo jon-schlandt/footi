@@ -3,13 +3,13 @@
 Footi is an iOS app that provides standings, fixtures, and stat leaders for several top-flight soccer leagues. Stay updated with the latest scores, upcoming matches, and key player statistics with Footi!
 
 <p align="center">
-  <img alt="launch screen" src="https://github.com/jon-schlandt/footi/assets/75702270/a95265fa-47a6-496b-93f2-aff7a8ef6568" width="20%">
+  <img alt="launch screen" src="https://github.com/jon-schlandt/footi/assets/75702270/7583addb-058e-480f-a0b1-eedfc1bedb96" width="20%">
   &nbsp; &nbsp; &nbsp;
-  <img alt="standings tab" src="https://github.com/jon-schlandt/footi/assets/75702270/86b670d9-0dbc-4df1-a913-cd20202ccd31" width="20%">
+  <img alt="standings tab" src="https://github.com/jon-schlandt/footi/assets/75702270/2e8a3d86-b408-4c9f-889b-056234a7f998" width="20%">
   &nbsp; &nbsp; &nbsp;
-  <img alt="fixtures tab" src="https://github.com/jon-schlandt/footi/assets/75702270/d4fc9a84-4857-4e99-93de-b053194f774d" width="20%">
+  <img alt="fixtures tab" src="https://github.com/jon-schlandt/footi/assets/75702270/09e23ff5-10fc-44f4-968a-66b5a2f9e1ba" width="20%">
   &nbsp; &nbsp; &nbsp;
-  <img alt="fixtures tab" src="https://github.com/jon-schlandt/footi/assets/75702270/56715a41-dbb8-4b4e-8037-85b1d63c9c60" width="20%">
+  <img alt="fixtures tab" src="https://github.com/jon-schlandt/footi/assets/75702270/1c55b673-93ff-4174-8e5e-2827cd16b1f0" width="20%">
   &nbsp; &nbsp; &nbsp;
 </p>
 

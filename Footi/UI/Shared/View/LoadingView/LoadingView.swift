@@ -36,9 +36,6 @@ class LoadingView: UIView {
         super.init(frame: frame)
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-//        container.addSubview(loadingWheel)
-//        self.addSubview(container)
         self.addSubview(loadingWheel)
         
         setStyling()
@@ -51,18 +48,9 @@ class LoadingView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        NSLayoutConstraint.activate([
-//            container.widthAnchor.constraint(equalToConstant: 144.0),
-//            container.heightAnchor.constraint(equalToConstant: 144.0),
-//            container.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            container.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-//        ])
-        
         NSLayoutConstraint.activate([
             loadingWheel.widthAnchor.constraint(equalToConstant: 48),
             loadingWheel.heightAnchor.constraint(equalToConstant: 48),
-//            loadingWheel.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-//            loadingWheel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
             loadingWheel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loadingWheel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
@@ -92,7 +80,6 @@ class LoadingView: UIView {
 extension LoadingView {
     
     private func setStyling() {
-//        self.backgroundColor = UIColor.Palette.primaryBackground
         self.backgroundColor = UIColor.Palette.foreground
     }
 }

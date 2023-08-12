@@ -57,7 +57,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "APIFOOTBALL_KEY"
-            value = "bee09e5922msh69101447858ad1fp1ade83jsna240cabd6b2c"
+            value = ""
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>

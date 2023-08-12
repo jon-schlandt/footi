@@ -348,7 +348,7 @@ extension BaseViewContoller {
         if let sheet = menuNav.sheetPresentationController {
             sheet.detents = [.medium()]
             sheet.selectedDetentIdentifier = .medium
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = true
         }
         
         present(menuNav, animated: true)

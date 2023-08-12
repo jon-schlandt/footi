@@ -58,7 +58,6 @@
 		FC5846232967D3BD0032B543 /* FixturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5846222967D3BD0032B543 /* FixturesResponse.swift */; };
 		FC5B909D2A32CFB900045A5F /* MatchdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5B909C2A32CFB900045A5F /* MatchdayView.swift */; };
 		FC5C05042A68C91F006FFB3F /* BaseTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C05032A68C91F006FFB3F /* BaseTitleView.swift */; };
-		FC5C05072A6C2690006FFB3F /* Modak-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC5C05062A6C2690006FFB3F /* Modak-Regular.ttf */; };
 		FC5C05102A6D71C7006FFB3F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5C050F2A6D71C7006FFB3F /* LaunchScreen.xib */; };
 		FC5E906129E4EDFB007047F8 /* StandingsTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E906029E4EDFB007047F8 /* StandingsTableHeader.swift */; };
 		FC5E906629E658AE007047F8 /* LeagueHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5E906529E658AE007047F8 /* LeagueHeaderView.swift */; };
@@ -74,7 +73,6 @@
 		FC7D16ED29BE48CD009B408B /* FixturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */; };
 		FC7E07412A102CFD00BED0B2 /* FixtureMatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */; };
 		FC841E9B2A41EB35008D819D /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9A2A41EB35008D819D /* BaseTableCell.swift */; };
-		FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */; };
 		FC841E9F2A435411008D819D /* LeagueDataFilterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841E9E2A435411008D819D /* LeagueDataFilterNavigationController.swift */; };
 		FC841EA22A43970F008D819D /* InPlayIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841EA12A43970F008D819D /* InPlayIndicator.swift */; };
 		FC841EA52A450ECD008D819D /* Standing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC841EA42A450ECD008D819D /* Standing.swift */; };
@@ -180,7 +178,6 @@
 		FC5846222967D3BD0032B543 /* FixturesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesResponse.swift; sourceTree = "<group>"; };
 		FC5B909C2A32CFB900045A5F /* MatchdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchdayView.swift; sourceTree = "<group>"; };
 		FC5C05032A68C91F006FFB3F /* BaseTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTitleView.swift; sourceTree = "<group>"; };
-		FC5C05062A6C2690006FFB3F /* Modak-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Modak-Regular.ttf"; sourceTree = "<group>"; };
 		FC5C050F2A6D71C7006FFB3F /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		FC5E906029E4EDFB007047F8 /* StandingsTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTableHeader.swift; sourceTree = "<group>"; };
 		FC5E906529E658AE007047F8 /* LeagueHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueHeaderView.swift; sourceTree = "<group>"; };
@@ -196,7 +193,6 @@
 		FC7D16EC29BE48CD009B408B /* FixturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewController.swift; sourceTree = "<group>"; };
 		FC7E07402A102CFD00BED0B2 /* FixtureMatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureMatchupView.swift; sourceTree = "<group>"; };
 		FC841E9A2A41EB35008D819D /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
-		FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterTableHeader.swift; sourceTree = "<group>"; };
 		FC841E9E2A435411008D819D /* LeagueDataFilterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDataFilterNavigationController.swift; sourceTree = "<group>"; };
 		FC841EA12A43970F008D819D /* InPlayIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPlayIndicator.swift; sourceTree = "<group>"; };
 		FC841EA42A450ECD008D819D /* Standing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standing.swift; sourceTree = "<group>"; };
@@ -289,7 +285,6 @@
 		FC227F2B2A2CD28C0073F6BD /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				FC5C05062A6C2690006FFB3F /* Modak-Regular.ttf */,
 				FC6DEDB92A30240C003F4B7E /* Inter-VariableFont_slnt,wght.ttf */,
 			);
 			path = Fonts;
@@ -446,7 +441,6 @@
 		FC4AAF3629F4760B00736DBE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FC841E9C2A424B25008D819D /* LeagueDataFilterTableHeader.swift */,
 				FCF99AC129EE2F2300BB8E5A /* LeagueDataFilterTableCell.swift */,
 			);
 			path = View;
@@ -947,7 +941,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9243A92A225D840084AB4D /* standings-39-2022.json in Resources */,
-				FC5C05072A6C2690006FFB3F /* Modak-Regular.ttf in Resources */,
 				FC9243AF2A225EF50084AB4D /* fixtures-inPlay-39.json in Resources */,
 				FC9243C12A2269910084AB4D /* leaders-yellowCards-39.json in Resources */,
 				FC9243B72A2263920084AB4D /* fixtures-inPlay-61.json in Resources */,
@@ -1023,7 +1016,6 @@
 				FCDC12CD2A51CCBA009031F2 /* RefreshView.swift in Sources */,
 				FC6903E029EC7B2C008EEB82 /* LeagueDataFilterViewController.swift in Sources */,
 				FC58461029668E720032B543 /* RequestMethod.swift in Sources */,
-				FC841E9D2A424B25008D819D /* LeagueDataFilterTableHeader.swift in Sources */,
 				FC02E6792A54AC7B0012A1B1 /* BaseTableViewController.swift in Sources */,
 				FCC4D1C829BD4ECD00750657 /* HomeTabBarController.swift in Sources */,
 				FC1A062129D5340700A735E4 /* SettingGroupHeader.swift in Sources */,

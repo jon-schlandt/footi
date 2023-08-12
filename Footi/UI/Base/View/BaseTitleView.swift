@@ -30,14 +30,6 @@ class BaseTitleView: UIView {
         return icon
     }()
     
-    private let separator: UIView = {
-        let separator = UIView()
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.backgroundColor = UIColor.Palette.secondaryBorder
-        
-        return separator
-    }()
-    
     private let titleLabel: UILabel = {
         let title = UILabel()
         title.font = UIFont(name: FontConstants.title, size: FontConstants.extraLargeSize - 1)
@@ -52,7 +44,6 @@ class BaseTitleView: UIView {
         super.init(frame: frame)
         
         container.addArrangedSubview(titleIcon)
-        container.addArrangedSubview(separator)
         container.addArrangedSubview(titleLabel)
         self.addSubview(container)
         
@@ -61,11 +52,6 @@ class BaseTitleView: UIView {
             container.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             container.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             container.leadingAnchor.constraint(equalTo: self.leadingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            separator.widthAnchor.constraint(equalToConstant: AppConstants.baseBorderWidth),
-            separator.heightAnchor.constraint(equalToConstant: AppConstants.baseSeparatorHeight)
         ])
     }
     

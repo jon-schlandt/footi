@@ -4,7 +4,6 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Modak-Regular.ttf</string>
 		<string>Inter-VariableFont_slnt,wght.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

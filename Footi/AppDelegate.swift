@@ -127,26 +127,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-//        let entities = container.persistentStoreCoordinator.managedObjectModel.entities
-//        for entity in entities {
-//            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name!)
-//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//
-//            do {
-//                try container.persistentStoreCoordinator.execute(deleteRequest, with: container.viewContext)
-//            } catch let error as NSError {
-//                // Handle the error condition
-//                print("Error deleting \(entity.name!) - \(error.localizedDescription)")
-//            }
-//        }
-//
-//        do {
-//            try container.viewContext.save()
-//        } catch let error as NSError {
-//            // Handle the error condition
-//            print("Error saving context - \(error.localizedDescription)")
-//        }
-        
         return container
     }()
 

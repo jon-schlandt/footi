@@ -34,7 +34,6 @@ class LeagueDataFilterViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = filter.title
-        self.tableView.register(LeagueDataFilterTableHeader.self, forHeaderFooterViewReuseIdentifier: LeagueDataFilterTableHeader.identifier)
         self.tableView.register(LeagueDataFilterTableCell.self, forCellReuseIdentifier: LeagueDataFilterTableCell.identifier)
         
         setupNavigation()

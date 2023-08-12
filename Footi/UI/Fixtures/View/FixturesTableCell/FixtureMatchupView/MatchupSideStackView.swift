@@ -36,7 +36,7 @@ class MatchupSideStackView: UIStackView {
     
     public let clubTitle: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Inter-Regular", size: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         return label
@@ -56,7 +56,7 @@ class MatchupSideStackView: UIStackView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont(name: "Inter-Regular", size: FontConstants.standardSize)
+        label.font = UIFont(name: FontConstants.paragraph, size: FontConstants.standardSize)
         label.textColor = UIColor.Palette.primaryText
         
         NSLayoutConstraint.activate([
